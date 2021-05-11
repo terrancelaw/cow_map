@@ -61,6 +61,7 @@ const initialState = {
 	},
 	searchWindow: { isOpen: false },
 	linkDisaggregator: { isOpen: false },
+	reference: { isOpen: false },
 	hover: { object: null, data: null },
 	focus: { object: null, data: null },
 	isLoading: true
@@ -611,6 +612,18 @@ const reducer = (prevState, dataState, action) => {
 				visualizationPane: { list: newVisualizationPaneList },
 				detailPane: newDetailPaneState
 			};
+		}
+
+		// reference
+
+		case 'OPEN_REFERENCE': {
+			return { ...prevState, 
+				reference: {  isOpen: true },
+				hover: { object: null, data: null }
+			};
+		}
+		case 'CLOSE_REFERENCE': {			
+			return { ...prevState, reference: {  isOpen: false } };
 		}
 
 		default: {

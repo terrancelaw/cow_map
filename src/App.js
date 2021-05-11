@@ -9,6 +9,7 @@ import { Tooltip } from './widgets/Tooltip/Tooltip';
 import { PopUpWindow } from './widgets/PopUpWindow/PopUpWindow';
 import { ColorPicker } from './widgets/ColorPicker/ColorPicker';
 import { LinkDisaggregator } from './LinkDisaggregator/LinkDisaggregator';
+import { Reference } from './Reference/Reference';
 import './App.css';
 
 export const App = () => {
@@ -36,6 +37,7 @@ export const App = () => {
 		detailPane: detailPaneState,
 		searchWindow: { isOpen: searchWindowIsOpen },
 		linkDisaggregator: { isOpen: linkDisaggregatorIsOpen },
+		reference: { isOpen: referenceIsOpen },
 		hover: hoverState,
 		focus: focusState,
 		isLoading: interfaceIsLoading
@@ -99,6 +101,11 @@ export const App = () => {
 				linkDataList={ linkDataList }
 				linkDisaggregatorIsOpen={ linkDisaggregatorIsOpen }
 				interfaceDispatch={ dispatch }
+			/>
+			<Reference 
+				referenceIsOpen={ referenceIsOpen }
+				detailPaneIsOpen={ detailPaneState.isOpen }
+				dispatch={ dispatch }
 			/>
 		</>
     );
