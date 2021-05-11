@@ -1,0 +1,55 @@
+.color-picker > .background {
+	position: absolute;
+	top: -8px;
+    left: -8px;
+    z-index: 1001;
+
+    width: calc(100% + 16px);
+    height: calc(100% + 16px);
+
+    background: rgba(255,255,255,0.8);
+}
+
+.color-picker > .curr-color {
+	position: absolute;
+	z-index: 1002;
+
+	-webkit-box-shadow: 0px 0px 2px 1px currentColor;
+    -moz-box-shadow: 0px 0px 2px 1px currentColor;
+    box-shadow: 0px 0px 2px 1px currentColor;
+
+	border-radius: 2px;
+}
+
+.color-picker > .window {
+	position: absolute;
+    z-index: 1002;
+
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 6px;
+
+    background: white;
+    -webkit-box-shadow: 0px 0px 3px 2px rgb(211 211 211);
+    -moz-box-shadow: 0px 0px 3px 2px rgba(211,211,211,1);
+    box-shadow: 0px 0px 3px 2px rgb(211 211 211);
+
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.color-picker > .window > .color {
+	width: 28px;
+    height: 13px;
+    border-radius: 2px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.color-picker > .window > .color:hover {
+	-webkit-box-shadow: 0px 0px 2px 1px currentColor;
+    -moz-box-shadow: 0px 0px 2px 1px currentColor;
+    box-shadow: 0px 0px 2px 1px currentColor;
+}

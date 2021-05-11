@@ -1,0 +1,79 @@
+#detail-pane > .content::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background: #1b1e23;
+}
+
+#detail-pane > .content::-webkit-scrollbar-track {
+    border-radius: 2px;
+    background: #1b1e23;
+}
+ 
+#detail-pane > .content::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: rgb(0, 0, 0);
+}
+
+#detail-pane > .content {
+    width: calc(100% - 60px);
+    height: calc(100% - 100px);
+
+    padding-top: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#detail-pane > .content.bilateral {
+    padding-top: 70px;
+    height: calc(100% - 70px);
+}
+
+#detail-pane > .content.non-bilateral {
+    padding-top: 77px;
+    height: calc(100% - 77px);
+}
+
+#detail-pane > .content > .seperator {
+	font-size: 25px;
+    color: #adadad;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#detail-pane > .content > .see-full-list-button {
+	font-size: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: color 0.3s;
+
+    padding-bottom: 30px;
+}
+
+#detail-pane > .content > .spark-line.item + .see-full-list-button {
+    padding-top: 8px;
+}
+
+#detail-pane > .content > .bar.item + .see-full-list-button {
+    padding-top: 23px;
+}
+
+#detail-pane > .content > .see-full-list-button > svg {
+	margin-right: 5px;
+}
+
+#detail-pane > .content > .see-full-list-button:hover {
+	color: white;
+}

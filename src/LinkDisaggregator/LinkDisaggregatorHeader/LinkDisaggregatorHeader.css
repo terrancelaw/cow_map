@@ -1,0 +1,13 @@
+#link-disaggregator > .window > .header {
+	width: 230px;
+	margin-bottom: 15px;
+}
+
+#link-disaggregator > .window > .header > .label {
+	font-size: 12px;
+	font-weight: 600;
+	color: gray;
+
+	margin-left: 3px;
+	margin-bottom: 3px;
+}

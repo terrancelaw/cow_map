@@ -1,0 +1,145 @@
+/* common props */
+
+.data-table .row > .cell { /* (for dynamically changing width) */
+	width: 120px;
+}
+
+.data-table > .header {
+	height: 50px;
+	overflow: hidden;
+}
+
+.data-table > .header > .row {
+	overflow-y: hidden;
+    overflow-x: auto;
+    
+    padding-bottom: 10px;
+}
+
+.data-table > .header > .row > .cell {
+	display: inline-flex;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+
+	height: 50px;
+	background: #42464d;
+
+	padding-left: 10px;
+    padding-right: 10px;
+}
+
+.data-table > .header > .row > .cell > .label {
+	font-size: 15px;
+	font-weight: 600;
+	text-align: center;
+
+	width: 70%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.data-table > .header > .row > .cell > .ui-resizable-handle {
+	background: #636363;
+	transition: background 0.3s;
+
+	position: absolute;
+    right: 0px;
+
+    width: 5px;
+	height: 20px;
+	border-radius: 1px;
+
+    cursor: col-resize;
+}
+
+.data-table > .header > .row > .cell > .ui-resizable-handle:hover {
+	background: DodgerBlue;
+}
+
+.data-table > .content {
+	/* 
+		header cell height = 50, 
+		padding top bottom = 25
+	*/
+	max-height: calc(100vh - 300px - 50px - 25px);
+    padding-top: 10px;
+    padding-bottom: 15px;
+
+	overflow: auto;
+}
+
+.data-table > .content > .content-wrapper {
+	outline: none;
+}
+
+.data-table > .content > .content-wrapper > .row > .cell {
+	display: inline-block;
+
+	font-size: 18px;
+	font-weight: 100;
+	text-align: center;
+
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+
+	height: 40px;
+	line-height: 40px;
+
+	padding-left: 10px;
+    padding-right: 10px;
+}
+
+.data-table::-webkit-scrollbar,
+.data-table > .content::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background: #33373d;
+}
+
+.data-table::-webkit-scrollbar-track,
+.data-table > .content::-webkit-scrollbar-track {
+    border-radius: 2px;
+    background: #33373d;
+}
+ 
+.data-table::-webkit-scrollbar-thumb,
+.data-table > .content::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: rgb(0, 0, 0);
+}
+
+.data-table::-webkit-scrollbar-corner,
+.data-table > .content::-webkit-scrollbar-corner {
+    background: #33373d;
+}
+
+/* pop-up-window-table */
+
+.pop-up-window-table.data-table {
+	max-height: calc(100vh - 300px);
+    max-width: calc(100vw - 300px);
+
+    overflow: hidden;
+}
+
+.pop-up-window-table.data-table > .content {
+	padding-left: 20px;
+    padding-right: 20px;
+}
+
+.pop-up-window-table.data-table > .header > .row {
+	padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* search window tables */
+
+#search-window > .content > .data-table.section > .content > .data-table {
+	width: calc(800px - 30px); /* left and right padding = 30 */
+	max-height: 400px;
+
+	overflow: hidden;
+}

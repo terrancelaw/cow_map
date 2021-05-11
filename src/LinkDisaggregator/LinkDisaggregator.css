@@ -1,0 +1,133 @@
+.link-disaggregator.open.button {
+	position: absolute;
+    top: 10px;
+    left: 102px;
+
+    font-size: 16px;
+    color: #a1a1a1;
+
+    z-index: 1000;
+    cursor: pointer;
+    
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+
+    background: white;
+    -webkit-box-shadow: 0px 0px 3px 1px rgb(211 211 211);
+    -moz-box-shadow: 0px 0px 3px 1px rgba(211,211,211,1);
+    box-shadow: 0px 0px 3px 1px rgb(211 211 211);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+.link-disaggregator.clear.button {
+    position: absolute;
+    top: 10px;
+    left: calc(102px + 20px + 8px);
+
+    font-size: 16px;
+    color: #a1a1a1;
+
+    z-index: 1000;
+    cursor: pointer;
+    
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+
+    background: white;
+    -webkit-box-shadow: 0px 0px 3px 1px rgb(211 211 211);
+    -moz-box-shadow: 0px 0px 3px 1px rgba(211,211,211,1);
+    box-shadow: 0px 0px 3px 1px rgb(211 211 211);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+#link-disaggregator > .background {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    z-index: 1001;
+
+    width: calc(100% + 16px);
+    height: calc(100% + 16px);
+
+    background: rgba(255,255,255,0.8);
+}
+
+#link-disaggregator > .button {
+    position: absolute;
+    top: 10px;
+    left: 102px;
+
+    font-size: 18px;
+    color: #a1a1a1;
+    z-index: 1002;
+
+    cursor: pointer;
+
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+
+    background: white;
+    -webkit-box-shadow: 0px 0px 3px 1px rgb(211 211 211);
+    -moz-box-shadow: 0px 0px 3px 1px rgba(211,211,211,1);
+    box-shadow: 0px 0px 3px 1px rgb(211 211 211);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#link-disaggregator > .window {
+    position: absolute;
+    top: calc(10px + 20px + 8px);
+    left: calc(102px + 20px + 8px);
+
+    z-index: 1002;
+
+    background: white;
+    -webkit-box-shadow: 0px 0px 3px 2px rgb(211 211 211);
+    -moz-box-shadow: 0px 0px 3px 2px rgba(211,211,211,1);
+    box-shadow: 0px 0px 3px 2px rgb(211 211 211);
+
+    padding: 15px;
+    padding-bottom: 45px;
+}
+
+#link-disaggregator > .window > .confirm-button {
+    font-size: 15px;
+    font-weight: 600;
+    color: gray;
+
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+
+    width: 35px;
+    height: 23px;
+    border-radius: 2px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    -webkit-box-shadow: 0px 0px 3px 1px rgb(235 235 235);
+    -moz-box-shadow: 0px 0px 3px 1px rgb(235 235 235);
+    box-shadow: 0px 0px 3px 1px rgb(235 235 235);
+    transition: 0.3s;
+}
+
+#link-disaggregator > .window > .confirm-button:hover {
+    -webkit-box-shadow: 0px 0px 3px 2px rgb(211 211 211);
+    -moz-box-shadow: 0px 0px 3px 2px rgba(211,211,211,1);
+    box-shadow: 0px 0px 3px 2px rgb(211 211 211);
+}

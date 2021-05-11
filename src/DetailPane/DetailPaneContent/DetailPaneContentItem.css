@@ -1,0 +1,84 @@
+/* spark-line item */
+
+#detail-pane > .content > .spark-line.item {
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    position: relative;
+}
+
+#detail-pane > .content.non-bilateral > .spark-line.item {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+#detail-pane > .content > .spark-line.item:hover {
+    cursor: pointer;
+}
+
+#detail-pane > .content > .spark-line.item > .title {
+	font-size: 15px;
+    font-weight: 300;
+    color: #d3d3d3;
+
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#detail-pane > .content > .spark-line.item > .content {
+	height: 30px;
+
+    white-space: nowrap;
+}
+
+#detail-pane > .content > .spark-line.item > .content > .text {
+    font-size: 12px;
+    font-weight: 300;
+    color: #d3d3d3;
+}
+
+/* bar item */
+
+#detail-pane > .content > .bar.item {
+    display: flex;
+    align-items: center;
+
+    height: 25px;
+}
+
+#detail-pane > .content > .bar.item:hover {
+    cursor: pointer;
+}
+
+#detail-pane > .content > .bar.item > .title {
+    font-size: 15px;
+    font-weight: 300;
+    color: #d3d3d3;
+    text-align: right;
+
+    display: inline-block;
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#detail-pane > .content > .bar.item > .content {
+    display: inline-flex;
+    align-items: center;
+
+    width: calc(100% - 100px - 10px);
+    height: 100%;
+    margin-left: 10px;
+
+    position: relative;
+}
+
+#detail-pane > .content > .bar.item > .content > .text {
+    font-size: 9px;
+    font-weight: 300;
+
+    position: absolute;
+    left: 0px;
+    bottom: 12.5px; /* height of entry = 25px */
+}

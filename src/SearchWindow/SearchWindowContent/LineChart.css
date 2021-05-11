@@ -1,0 +1,123 @@
+/* bilateral */
+
+#search-window > .content > .bilateral.time-series-section > .content > .grid > .line-chart {
+	position: relative;
+
+	height: 100px;
+    border-radius: 3px;
+
+    background: #373b40;
+    box-shadow: 0px 0px 5px 1px #373b40;
+	-webkit-box-shadow: 0px 0px 5px 1px #373b40;
+	-moz-box-shadow: 0px 0px 5px 1px #373b40;
+}
+
+#search-window > .content > .bilateral.time-series-section > .content > .grid > .line-chart > .title {
+	font-size: 13px;
+	font-weight: 600;
+
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#search-window > .content > .bilateral.time-series-section > .content > .grid > .line-chart > .percent-change {
+	font-size: 20px;
+	font-weight: 600;
+    
+    position: absolute;
+    top: 25px;
+    left: 10px;
+}
+
+#search-window > .content > .bilateral.time-series-section > .content > .grid > .line-chart > svg {
+	width: 180px;
+	height: 60px;
+
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+#search-window > .content > .bilateral.time-series-section > .content > .grid > .line-chart > svg > g > path {
+	fill: none;
+    stroke: #d3d3d3;
+    stroke-linecap: round;
+}
+
+#search-window > .content > .bilateral.time-series-section > .content > .grid > .line-chart > svg > g > text.year {
+	font-size: 10px;
+    font-weight: 300;
+	fill: #d3d3d3;
+	alignment-baseline: middle;
+}
+
+#search-window > .content > .bilateral.time-series-section > .content > .grid > .line-chart > svg > g > text.start.year {
+	text-anchor: end;
+}
+
+/* non-bilateral */
+
+#search-window > .content > .non-bilateral.time-series-section > .content > .line-chart {
+	position: relative;
+
+	height: 90px;
+    border-radius: 3px;
+    margin-bottom: 15px;
+
+    background: #373b40;
+    box-shadow: 0px 0px 5px 1px #373b40;
+	-webkit-box-shadow: 0px 0px 5px 1px #373b40;
+	-moz-box-shadow: 0px 0px 5px 1px #373b40;
+
+    display: flex;
+    align-items: center;
+}
+
+#search-window > .content > .non-bilateral.time-series-section > .content > .line-chart:last-child {
+	margin-bottom: 0px;
+}
+
+#search-window > .content > .non-bilateral.time-series-section > .content > .line-chart > .description {
+	font-size: 18px;
+    font-weight: 300;
+    line-height: 35px;
+
+    width: 45%;
+    white-space: normal;
+
+    position: absolute;
+    left: 30px;
+}
+
+#search-window > .content > .non-bilateral.time-series-section > .content > .line-chart > .description > span {
+    font-weight: 600;
+}
+
+#search-window > .content > .non-bilateral.time-series-section > .content > .line-chart > svg {
+	width: 370px;
+	height: 70px;
+
+	position: absolute;
+    left: 50%;
+}
+
+#search-window > .content > .non-bilateral.time-series-section > .content > .line-chart > svg > g > path {
+	fill: none;
+    stroke: #d3d3d3;
+    stroke-width: 3px;
+    stroke-linecap: round;
+    opacity: 0.3;
+}
+
+#search-window > .content > .non-bilateral.time-series-section > .content > .line-chart > svg > g > text.year {
+	font-size: 15px;
+    font-weight: 600;
+	fill: #d3d3d3;
+	opacity: 0.3;
+	alignment-baseline: middle;
+}
+
+#search-window > .content > .non-bilateral.time-series-section > .content > .line-chart > svg > g > text.start.year {
+	text-anchor: end;
+}

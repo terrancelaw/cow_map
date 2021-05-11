@@ -1,0 +1,103 @@
+#visualization-pane > .visualization-pane-legend {
+	position: absolute;
+	top: 0px;
+	
+	margin-top: 10px;
+	margin-left: 15px;
+
+	pointer-events: none;
+}
+
+#visualization-pane > .visualization-pane-legend > .seperator {
+	background: #d3d3d3;
+	opacity: 0.5;
+
+	width: 180px;
+	height: 1px;
+	margin: 10px;
+	margin-left: 0px;
+}
+
+#visualization-pane > .visualization-pane-legend > .legend-item {
+    white-space: nowrap;
+    margin-bottom: 5px;
+
+    display: flex;
+    align-items: center;
+}
+
+#visualization-pane > .visualization-pane-legend > .color.legend-item {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+#visualization-pane > .visualization-pane-legend > .legend-item > .color {
+	display: inline-block;
+
+	width: 25px;
+    height: 8px;
+    margin-right: 10px;
+    border-radius: 1px;
+
+    transition: 0.3s;
+}
+
+#visualization-pane > .visualization-pane-legend > .color.legend-item:hover > .color {
+    -webkit-box-shadow: 0px 0px 2px 1px currentColor;
+    -moz-box-shadow: 0px 0px 2px 1px currentColor;
+    box-shadow: 0px 0px 2px 1px currentColor;
+}
+
+#visualization-pane > .visualization-pane-legend > .legend-item > .link-type {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    margin-right: 10px;
+}
+
+#visualization-pane > .visualization-pane-legend > .legend-item > .link-type.non-outlier > .thick-link {
+	display: inline-block;
+    width: 25px;
+    height: 10px;
+
+    border-radius: 1px;
+    background: gray;
+    opacity: 0.1;
+}
+
+#visualization-pane > .visualization-pane-legend > .legend-item > .link-type.non-outlier > .thin-link {
+	display: inline-block;
+    width: 25px;
+    height: 2px;
+
+    position: absolute;
+    background: gray;
+    opacity: 0.5;
+}
+
+#visualization-pane > .visualization-pane-legend > .legend-item > .link-type.outlier > .thick-link {
+	display: inline-block;
+    width: 25px;
+    height: 10px;
+
+    background: gray;
+    opacity: 0.6;
+    border-radius: 1px;
+}
+
+#visualization-pane > .visualization-pane-legend > .legend-item > .link-type.outlier > .thin-link {
+	display: inline-block;
+    width: 19px;
+    height: 2px;
+
+    position: absolute;
+}
+
+#visualization-pane > .visualization-pane-legend > .legend-item > .label {
+	font-size: 12px;
+	font-weight: 300;
+	color: #3d3d3d;
+}

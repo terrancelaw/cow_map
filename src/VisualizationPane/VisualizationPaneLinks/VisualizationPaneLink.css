@@ -1,0 +1,14 @@
+#visualization-pane > svg > .links > .link {
+	cursor: pointer;
+}
+
+#visualization-pane > svg > .links > .link > .thick-line {
+	fill: none;
+	stroke-width: 10px;
+	stroke-linecap: round;
+}
+
+#visualization-pane > svg > .links > .link > .thin-line {
+	fill: none;
+	stroke-width: 2px;
+}

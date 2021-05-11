@@ -1,0 +1,37 @@
+#search-window > .content {
+	padding-top: 100px;
+	padding-bottom: 100px;
+
+    overflow-y: auto;
+    height: calc(100% - 100px - 100px);
+}
+
+#search-window > .content > .result-description {
+	font-size: 15px;
+	font-weight: 300;
+	color: #858585;
+
+	width: calc(800px - 8px);
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 33px;
+    margin-top: 25px;
+	padding-left: 8px;
+}
+
+#search-window > .content > .section {
+	margin-bottom: 50px;
+}
+
+#search-window > .content > .section:last-child {
+	margin-bottom: 0px;
+}
+
+#search-window > .content > .section > .header {
+	font-size: 18px;
+	font-weight: 300;
+    color: #858585;
+
+    margin-bottom: 8px;
+    padding-left: 8px;
+}

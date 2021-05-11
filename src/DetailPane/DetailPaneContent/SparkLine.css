@@ -1,0 +1,25 @@
+#detail-pane > .content > .spark-line.item > .content > svg {
+	width: 120px;
+	height: 30px;
+
+	position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+
+#detail-pane > .content > .spark-line.item > .content > svg > g > path {
+	fill: none;
+	stroke: #d3d3d3;
+    stroke-linecap: round;
+}
+
+#detail-pane > .content > .spark-line.item > .content > svg > g > text.year {
+	font-size: 9px;
+    font-weight: 300;
+	fill: #d3d3d3;
+	alignment-baseline: middle;
+}
+
+#detail-pane > .content > .spark-line.item > .content > svg > g > text.start {
+	text-anchor: end;
+}

@@ -1,0 +1,95 @@
+#link-disaggregator > .window > .content {
+	width: 230px;
+}
+
+#link-disaggregator > .window > .content > .label {
+	font-size: 12px;
+    font-weight: 600;
+    color: gray;
+    margin-left: 3px;
+    margin-bottom: 6px;
+}
+
+#link-disaggregator > .window > .content > .list {
+	width: calc(100% - 10px);
+	max-height: 100px;
+	padding: 5px;
+
+	overflow-x: hidden;
+	overflow-y: auto;
+
+	-webkit-box-shadow: 0px 0px 3px 1px rgb(235 235 235);
+    -moz-box-shadow: 0px 0px 3px 1px rgb(235 235 235);
+    box-shadow: 0px 0px 3px 1px rgb(235 235 235);
+}
+
+#link-disaggregator > .window > .content > .list > .item {
+	cursor: pointer;
+	display: flex;
+    align-items: center;
+    height: 25px;
+}
+
+#link-disaggregator > .window > .content > .list > .item > input {
+	opacity: 0;
+	height: 0;
+	width: 0;
+	margin: 0;
+}
+
+#link-disaggregator > .window > .content > .list > .item > .checkmark {
+	display: inline-block;
+	position: relative;
+
+	height: 14px;
+	width: 14px;
+	margin-left: 8px;
+	margin-right: 13px;
+	border-radius: 3px;
+
+	background-color: #eee;
+	transition: 0.3s;
+	box-shadow: 0px 0px 5px 1px rgb(211 211 211);
+}
+
+#link-disaggregator > .window > .content > .list > .item:hover > input ~ .checkmark { /* On mouse over item */
+	background-color: #ccc;
+}
+
+#link-disaggregator > .window > .content > .list > .item > input:checked ~ .checkmark { /* On check item */
+	background-color: gray;
+}
+
+#link-disaggregator > .window > .content > .list > .item > .checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+
+	left: 4px;
+    top: 1px;
+
+    width: 4px;
+    height: 8px;
+
+	border: solid white;
+	border-width: 0 2px 2px 0;
+
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+#link-disaggregator > .window > .content > .list > .item > input:checked ~ .checkmark:after { /* On check item */
+	display: block;
+}
+
+#link-disaggregator > .window > .content > .list > .item > .text {
+	font-size: 14px;
+	font-weight: 300;
+	color: #3d3d3d;
+
+	max-width: 160px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+}
+

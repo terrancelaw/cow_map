@@ -1,0 +1,13 @@
+#detail-pane > .header {
+	position: absolute;
+    top: 0px;
+
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 15px;
+    width: calc(100% - 50px);
+
+    background: rgba(27, 30, 35, 0.85);
+
+    z-index: 100;
+}

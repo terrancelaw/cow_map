@@ -1,0 +1,13 @@
+#detail-pane > .content > .bar.item > .content > .bar {
+	height: 6px;
+	border-radius: 1px;
+
+    background: white;
+    opacity: 0.3;
+
+    display: inline-block;
+
+    position: absolute;
+    left: 0px;
+    top: 12.5px; /* height of entry = 25px */
+}

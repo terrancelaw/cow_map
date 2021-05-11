@@ -1,0 +1,64 @@
+#search-window > .content > .time-series-section {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#search-window > .content > .time-series-section > .content {
+	color: #d3d3d3;
+    background: #33373d;
+
+	padding: 15px;
+    border-radius: 5px;
+
+	max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+	-webkit-box-shadow: 0px 0px 6px 2px rgba(211,211,211,1);
+    -moz-box-shadow: 0px 0px 6px 2px rgba(211,211,211,1);
+    box-shadow: 0px 0px 6px 2px rgba(211,211,211,1);
+}
+
+#search-window > .content > .time-series-section > .content::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background: #33373d;
+}
+
+#search-window > .content > .time-series-section > .content::-webkit-scrollbar-track {
+    background: #33373d;
+}
+ 
+#search-window > .content > .time-series-section > .content::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: rgb(0, 0, 0);
+}
+
+#search-window > .content > .time-series-section > .content::-webkit-scrollbar-corner {
+    background: #33373d;
+}
+
+#search-window > .content > .time-series-section > .footer {
+    font-size: 14px;
+    font-family: Quicksand;
+    font-weight: 300;
+    color: #858585;
+
+    padding-left: 5px;
+    margin-top: 5px;
+}
+
+/* bilateral */
+
+#search-window > .content > .time-series-section.bilateral > .content > .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+}
+
+#search-window > .content > .time-series-section.bilateral > .content > .dummy-for-padding { /* hack to add padding */
+    display: inline-block;
+}

@@ -1,0 +1,16 @@
+#visualization-pane > .timeline-slider-container {
+	position: absolute;
+	bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+
+	height: 85px;
+    width: calc(100% - 300px);
+    min-width: 150px;
+    max-width: 450px;
+
+    background: rgba(252,252,252,0.7);
+    -webkit-box-shadow: 0 0 6px 0px #d3d3d3;
+    -moz-box-shadow: 0 0 6px 0px #d3d3d3;
+    box-shadow: 0 0 6px 0px #d3d3d3;
+}
