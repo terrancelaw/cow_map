@@ -98,7 +98,7 @@ export const config = {
 				{ displayName: 'initiator', attributeList: [ { attributeName: 'node1', isID: true } ] },
 				{ displayName: 'target', attributeList: [ { attributeName: 'node2', isID: true } ] }
 			] },
-			eventName: 'war'
+			eventName: 'battle'
 		}, {
 			linkType: 'defense_agreements', // 'should not use - for linkType'
 			fileName: 'defense_agreements.csv',
