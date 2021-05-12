@@ -94,7 +94,8 @@ export const config = {
 			] },
 			linkDisaggregator: { optionList: [
 				{ displayName: 'initiator', attributeList: [ { attributeName: 'node1', isID: true } ] },
-				{ displayName: 'target', attributeList: [ { attributeName: 'node2', isID: true } ] }
+				{ displayName: 'target', attributeList: [ { attributeName: 'node2', isID: true } ] },
+				{ displayName: 'war name', attributeList: [ { attributeName: 'warName', isID: false } ] }
 			] },
 			eventName: 'war'
 		}, {
