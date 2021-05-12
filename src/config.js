@@ -77,28 +77,26 @@ export const config = {
 				{ attributeName: 'node2', displayName: 'target', isID: true },
 				{ attributeName: 'startYear', displayName: 'start year', isID: false },
 				{ attributeName: 'endYear', displayName: 'end year', isID: false },
-				{ attributeName: 'battleYear', displayName: 'battle year', isID: false },
 				{ attributeName: 'warName', displayName: 'war name', isID: false },
 				{ attributeName: 'outcome', displayName: 'outcome', isID: false },
-				{ attributeName: 'node1Deaths', displayName: 'battle deaths initiator', isID: false },
-				{ attributeName: 'node2Deaths', displayName: 'battle deaths target', isID: false }
+				{ attributeName: 'node1Deaths', displayName: 'initiator deaths', isID: false },
+				{ attributeName: 'node2Deaths', displayName: 'target deaths', isID: false }
 			] },
 			dataTable: { attributeList: [
 				{ attributeName: 'node1', displayName: 'initiator', isID: true },
 				{ attributeName: 'node2', displayName: 'target', isID: true },
 				{ attributeName: 'startYear', displayName: 'start year', isID: false },
 				{ attributeName: 'endYear', displayName: 'end year', isID: false },
-				{ attributeName: 'battleYear', displayName: 'battle year', isID: false },
 				{ attributeName: 'warName', displayName: 'war name', isID: false },
 				{ attributeName: 'outcome', displayName: 'outcome', isID: false },
-				{ attributeName: 'node1Deaths', displayName: 'battle deaths initiator', isID: false },
-				{ attributeName: 'node2Deaths', displayName: 'battle deaths target', isID: false }
+				{ attributeName: 'node1Deaths', displayName: 'initiator deaths', isID: false },
+				{ attributeName: 'node2Deaths', displayName: 'target deaths', isID: false }
 			] },
 			linkDisaggregator: { optionList: [
 				{ displayName: 'initiator', attributeList: [ { attributeName: 'node1', isID: true } ] },
 				{ displayName: 'target', attributeList: [ { attributeName: 'node2', isID: true } ] }
 			] },
-			eventName: 'battle'
+			eventName: 'war'
 		}, {
 			linkType: 'defense_agreements', // 'should not use - for linkType'
 			fileName: 'defense_agreements.csv',

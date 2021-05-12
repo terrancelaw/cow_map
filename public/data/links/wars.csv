@@ -1,1357 +1,249 @@
-node1,node2,startYear,endYear,battleYear,warName,outcome,node1Deaths,node2Deaths
-61,166,1823,1823,1823,Franco-Spanish War,France won,400,600
-61,166,1823,1823,1823,Franco-Spanish War,Spain lost,400,600
-147,183,1828,1829,1828,First Russo-Turkish,Russia won,80000,50000
-147,183,1828,1829,1829,First Russo-Turkish,Russia won,80000,50000
-147,183,1828,1829,1828,First Russo-Turkish,Turkey lost,80000,50000
-147,183,1828,1829,1829,First Russo-Turkish,Turkey lost,80000,50000
-190,114,1846,1847,1846,Mexican-American,United States won,13283,6000
-190,114,1846,1847,1847,Mexican-American,United States won,13283,6000
-190,114,1846,1847,1846,Mexican-American,Mexico lost,13283,6000
-190,114,1846,1847,1847,Mexican-American,Mexico lost,13283,6000
-85,204,1848,1849,1848,Austro-Sardinian,Austria-Hungary won,3400,3927
-85,204,1848,1849,1849,Austro-Sardinian,Austria-Hungary won,3400,3927
-85,204,1848,1849,1848,Austro-Sardinian,Italy lost,3400,3927
-85,204,1848,1849,1849,Austro-Sardinian,Italy lost,3400,3927
-208,204,1848,1848,1848,Austro-Sardinian,Austria-Hungary won,100,3927
-208,204,1848,1848,1848,Austro-Sardinian,Modena lost,100,3927
-209,204,1848,1848,1848,Austro-Sardinian,Austria-Hungary won,100,3927
-209,204,1848,1848,1848,Austro-Sardinian,Tuscany lost,100,3927
-65,47,1848,1849,1848,First Schleswig-Holstein,drawn,2500,3500
-65,47,1848,1849,1849,First Schleswig-Holstein,drawn,2500,3500
-65,47,1848,1849,1848,First Schleswig-Holstein,drawn,2500,3500
-65,47,1848,1849,1849,First Schleswig-Holstein,drawn,2500,3500
-61,210,1849,1849,1849,Roman Republic,France won,1000,1400
-61,210,1849,1849,1849,Roman Republic,Papal States lost,1000,1400
-204,210,1849,1849,1849,Roman Republic,Austria-Hungary won,100,1400
-204,210,1849,1849,1849,Roman Republic,Papal States lost,100,1400
-211,210,1849,1849,1849,Roman Republic,Papal States lost,100,1400
-211,210,1849,1849,1849,Roman Republic,Two Sicilies won,100,1400
-23,6,1851,1852,1851,La Plata,Brazil won,500,800
-23,6,1851,1852,1852,La Plata,Brazil won,500,800
-23,6,1851,1852,1851,La Plata,Argentina lost,500,800
-23,6,1851,1852,1852,La Plata,Argentina lost,500,800
-189,147,1854,1856,1854,Crimean,United Kingdom won,22000,100000
-189,147,1854,1856,1855,Crimean,United Kingdom won,22000,100000
-189,147,1854,1856,1856,Crimean,United Kingdom won,22000,100000
-189,147,1854,1856,1854,Crimean,Russia lost,22000,100000
-189,147,1854,1856,1855,Crimean,Russia lost,22000,100000
-189,147,1854,1856,1856,Crimean,Russia lost,22000,100000
-61,147,1854,1856,1854,Crimean,France won,95000,100000
-61,147,1854,1856,1855,Crimean,France won,95000,100000
-61,147,1854,1856,1856,Crimean,France won,95000,100000
-61,147,1854,1856,1854,Crimean,Russia lost,95000,100000
-61,147,1854,1856,1855,Crimean,Russia lost,95000,100000
-61,147,1854,1856,1856,Crimean,Russia lost,95000,100000
-85,147,1855,1856,1855,Crimean,Italy won,2200,100000
-85,147,1855,1856,1856,Crimean,Italy won,2200,100000
-85,147,1855,1856,1855,Crimean,Russia lost,2200,100000
-85,147,1855,1856,1856,Crimean,Russia lost,2200,100000
-183,147,1853,1856,1853,Crimean,Russia lost,45000,100000
-183,147,1853,1856,1854,Crimean,Russia lost,45000,100000
-183,147,1853,1856,1855,Crimean,Russia lost,45000,100000
-183,147,1853,1856,1856,Crimean,Russia lost,45000,100000
-183,147,1853,1856,1853,Crimean,Turkey won,45000,100000
-183,147,1853,1856,1854,Crimean,Turkey won,45000,100000
-183,147,1853,1856,1855,Crimean,Turkey won,45000,100000
-183,147,1853,1856,1856,Crimean,Turkey won,45000,100000
-189,81,1856,1857,1856,Anglo-Persian,United Kingdom won,500,1500
-189,81,1856,1857,1857,Anglo-Persian,United Kingdom won,500,1500
-189,81,1856,1857,1856,Anglo-Persian,Iran lost,500,1500
-189,81,1856,1857,1857,Anglo-Persian,Iran lost,500,1500
-61,204,1859,1859,1859,Italian Unification,France won,12500,7500
-61,204,1859,1859,1859,Italian Unification,Austria-Hungary lost,12500,7500
-204,85,1859,1859,1859,Italian Unification,Austria-Hungary lost,12500,2500
-204,85,1859,1859,1859,Italian Unification,Italy won,12500,2500
-166,120,1859,1860,1859,First Spanish-Moroccan,Spain won,4000,6000
-166,120,1859,1860,1860,First Spanish-Moroccan,Spain won,4000,6000
-166,120,1859,1860,1859,First Spanish-Moroccan,Morocco lost,4000,6000
-166,120,1859,1860,1860,First Spanish-Moroccan,Morocco lost,4000,6000
-85,210,1860,1860,1860,Italian-Roman,Italy won,300,700
-85,210,1860,1860,1860,Italian-Roman,Papal States lost,300,700
-85,211,1860,1861,1860,Neapolitan,Italy won,600,400
-85,211,1860,1861,1861,Neapolitan,Italy won,600,400
-85,211,1860,1861,1860,Neapolitan,Two Sicilies lost,600,400
-85,211,1860,1861,1861,Neapolitan,Two Sicilies lost,600,400
-61,114,1862,1867,1862,Franco-Mexican,Mexico won,8000,12000
-61,114,1862,1867,1863,Franco-Mexican,Mexico won,8000,12000
-61,114,1862,1867,1864,Franco-Mexican,Mexico won,8000,12000
-61,114,1862,1867,1865,Franco-Mexican,Mexico won,8000,12000
-61,114,1862,1867,1866,Franco-Mexican,Mexico won,8000,12000
-61,114,1862,1867,1867,Franco-Mexican,Mexico won,8000,12000
-61,114,1862,1867,1862,Franco-Mexican,France lost,8000,12000
-61,114,1862,1867,1863,Franco-Mexican,France lost,8000,12000
-61,114,1862,1867,1864,Franco-Mexican,France lost,8000,12000
-61,114,1862,1867,1865,Franco-Mexican,France lost,8000,12000
-61,114,1862,1867,1866,Franco-Mexican,France lost,8000,12000
-61,114,1862,1867,1867,Franco-Mexican,France lost,8000,12000
-52,36,1863,1863,1863,Ecuadorian-Colombian,Colombia won,700,300
-52,36,1863,1863,1863,Ecuadorian-Colombian,Ecuador lost,700,300
-65,47,1864,1864,1864,Second Schleswig-Holstein,Germany won,1048,2933
-65,47,1864,1864,1864,Second Schleswig-Holstein,Denmark lost,1048,2933
-204,47,1864,1864,1864,Second Schleswig-Holstein,Austria-Hungary won,500,2933
-204,47,1864,1864,1864,Second Schleswig-Holstein,Denmark lost,500,2933
-139,23,1864,1870,1864,Lopez,Brazil won,200000,100000
-139,23,1864,1870,1865,Lopez,Brazil won,200000,100000
-139,23,1864,1870,1866,Lopez,Brazil won,200000,100000
-139,23,1864,1870,1867,Lopez,Brazil won,200000,100000
-139,23,1864,1870,1868,Lopez,Brazil won,200000,100000
-139,23,1864,1870,1869,Lopez,Brazil won,200000,100000
-139,23,1864,1870,1870,Lopez,Brazil won,200000,100000
-139,23,1864,1870,1864,Lopez,Paraguay lost,200000,100000
-139,23,1864,1870,1865,Lopez,Paraguay lost,200000,100000
-139,23,1864,1870,1866,Lopez,Paraguay lost,200000,100000
-139,23,1864,1870,1867,Lopez,Paraguay lost,200000,100000
-139,23,1864,1870,1868,Lopez,Paraguay lost,200000,100000
-139,23,1864,1870,1869,Lopez,Paraguay lost,200000,100000
-139,23,1864,1870,1870,Lopez,Paraguay lost,200000,100000
-139,6,1865,1870,1865,Lopez,Paraguay lost,200000,10000
-139,6,1865,1870,1866,Lopez,Paraguay lost,200000,10000
-139,6,1865,1870,1867,Lopez,Paraguay lost,200000,10000
-139,6,1865,1870,1868,Lopez,Paraguay lost,200000,10000
-139,6,1865,1870,1869,Lopez,Paraguay lost,200000,10000
-139,6,1865,1870,1870,Lopez,Paraguay lost,200000,10000
-139,6,1865,1870,1865,Lopez,Argentina won,200000,10000
-139,6,1865,1870,1866,Lopez,Argentina won,200000,10000
-139,6,1865,1870,1867,Lopez,Argentina won,200000,10000
-139,6,1865,1870,1868,Lopez,Argentina won,200000,10000
-139,6,1865,1870,1869,Lopez,Argentina won,200000,10000
-139,6,1865,1870,1870,Lopez,Argentina won,200000,10000
-166,140,1866,1866,1866,Naval War,Peru won,300,600
-166,140,1866,1866,1866,Naval War,Spain lost,300,600
-34,166,1865,1866,1865,Naval War,Chile won,100,300
-34,166,1865,1866,1866,Naval War,Chile won,100,300
-34,166,1865,1866,1865,Naval War,Spain lost,100,300
-34,166,1865,1866,1866,Naval War,Spain lost,100,300
-65,212,1866,1866,1866,Seven Weeks,Hanover lost,10100,500
-65,212,1866,1866,1866,Seven Weeks,Germany won,10100,500
-213,212,1866,1866,1866,Seven Weeks,Hanover lost,100,500
-213,212,1866,1866,1866,Seven Weeks,Mecklenburg Schwerin won,100,500
-85,212,1866,1866,1866,Seven Weeks,Hanover lost,4000,500
-85,212,1866,1866,1866,Seven Weeks,Italy won,4000,500
-65,214,1866,1866,1866,Seven Weeks,Bavaria lost,10100,500
-65,214,1866,1866,1866,Seven Weeks,Germany won,10100,500
-213,214,1866,1866,1866,Seven Weeks,Bavaria lost,100,500
-213,214,1866,1866,1866,Seven Weeks,Mecklenburg Schwerin won,100,500
-85,214,1866,1866,1866,Seven Weeks,Bavaria lost,4000,500
-85,214,1866,1866,1866,Seven Weeks,Italy won,4000,500
-65,218,1866,1866,1866,Seven Weeks,Germany won,10100,100
-65,218,1866,1866,1866,Seven Weeks,Baden lost,10100,100
-65,219,1866,1866,1866,Seven Weeks,Germany won,10100,600
-65,219,1866,1866,1866,Seven Weeks,Saxony lost,10100,600
-65,215,1866,1866,1866,Seven Weeks,Germany won,10100,100
-65,215,1866,1866,1866,Seven Weeks,Wuerttemburg lost,10100,100
-65,216,1866,1866,1866,Seven Weeks,Germany won,10100,100
-65,216,1866,1866,1866,Seven Weeks,Hesse Electoral lost,10100,100
-65,217,1866,1866,1866,Seven Weeks,Germany won,10100,100
-65,217,1866,1866,1866,Seven Weeks,Hesse Grand Ducal lost,10100,100
-65,204,1866,1866,1866,Seven Weeks,Germany won,10100,28000
-204,65,1866,1866,1866,Seven Weeks,Austria-Hungary lost,28000,10100
-213,218,1866,1866,1866,Seven Weeks,Baden lost,100,100
-213,218,1866,1866,1866,Seven Weeks,Mecklenburg Schwerin won,100,100
-85,218,1866,1866,1866,Seven Weeks,Baden lost,4000,100
-85,218,1866,1866,1866,Seven Weeks,Italy won,4000,100
-213,219,1866,1866,1866,Seven Weeks,Saxony lost,100,600
-213,219,1866,1866,1866,Seven Weeks,Mecklenburg Schwerin won,100,600
-85,219,1866,1866,1866,Seven Weeks,Saxony lost,4000,600
-85,219,1866,1866,1866,Seven Weeks,Italy won,4000,600
-213,215,1866,1866,1866,Seven Weeks,Wuerttemburg lost,100,100
-213,215,1866,1866,1866,Seven Weeks,Mecklenburg Schwerin won,100,100
-85,215,1866,1866,1866,Seven Weeks,Wuerttemburg lost,4000,100
-85,215,1866,1866,1866,Seven Weeks,Italy won,4000,100
-213,216,1866,1866,1866,Seven Weeks,Hesse Electoral lost,100,100
-213,216,1866,1866,1866,Seven Weeks,Mecklenburg Schwerin won,100,100
-85,216,1866,1866,1866,Seven Weeks,Hesse Electoral lost,4000,100
-85,216,1866,1866,1866,Seven Weeks,Italy won,4000,100
-213,217,1866,1866,1866,Seven Weeks,Hesse Grand Ducal lost,100,100
-213,217,1866,1866,1866,Seven Weeks,Mecklenburg Schwerin won,100,100
-85,217,1866,1866,1866,Seven Weeks,Hesse Grand Ducal lost,4000,100
-85,217,1866,1866,1866,Seven Weeks,Italy won,4000,100
-213,204,1866,1866,1866,Seven Weeks,Mecklenburg Schwerin won,100,28000
-204,213,1866,1866,1866,Seven Weeks,Austria-Hungary lost,28000,100
-85,204,1866,1866,1866,Seven Weeks,Austria-Hungary lost,4000,32500
-85,204,1866,1866,1866,Seven Weeks,Italy won,4000,32500
-214,61,1870,1870,1870,Franco-Prussian,France lost,5600,152000
-214,61,1870,1870,1870,Franco-Prussian,Bavaria won,5600,152000
-65,61,1870,1871,1870,Franco-Prussian,France lost,44781,152000
-65,61,1870,1871,1871,Franco-Prussian,France lost,44781,152000
-65,61,1870,1871,1870,Franco-Prussian,Germany won,44781,152000
-65,61,1870,1871,1871,Franco-Prussian,Germany won,44781,152000
-218,61,1870,1870,1870,Franco-Prussian,France lost,956,152000
-218,61,1870,1870,1870,Franco-Prussian,Baden won,956,152000
-215,61,1870,1870,1870,Franco-Prussian,France lost,976,152000
-215,61,1870,1870,1870,Franco-Prussian,Wuerttemburg won,976,152000
-69,54,1876,1876,1876,First Central American,Guatemala won,2000,2000
-69,54,1876,1876,1876,First Central American,El Salvador lost,2000,2000
-147,183,1877,1878,1877,Second Russo-Turkish,Russia won,120000,165000
-147,183,1877,1878,1878,Second Russo-Turkish,Russia won,120000,165000
-147,183,1877,1878,1877,Second Russo-Turkish,Turkey lost,120000,165000
-147,183,1877,1878,1878,Second Russo-Turkish,Turkey lost,120000,165000
-140,34,1879,1883,1879,War of the Pacific,Peru lost,9672,3276
-140,34,1879,1883,1880,War of the Pacific,Peru lost,9672,3276
-140,34,1879,1883,1881,War of the Pacific,Peru lost,9672,3276
-140,34,1879,1883,1882,War of the Pacific,Peru lost,9672,3276
-140,34,1879,1883,1883,War of the Pacific,Peru lost,9672,3276
-140,34,1879,1883,1879,War of the Pacific,Chile won,9672,3276
-140,34,1879,1883,1880,War of the Pacific,Chile won,9672,3276
-140,34,1879,1883,1881,War of the Pacific,Chile won,9672,3276
-140,34,1879,1883,1882,War of the Pacific,Chile won,9672,3276
-140,34,1879,1883,1883,War of the Pacific,Chile won,9672,3276
-34,20,1879,1880,1879,War of the Pacific,Bolivia lost,3276,920
-34,20,1879,1880,1880,War of the Pacific,Bolivia lost,3276,920
-34,20,1879,1880,1879,War of the Pacific,Chile won,3276,920
-34,20,1879,1880,1880,War of the Pacific,Chile won,3276,920
-189,53,1882,1882,1882,Conquest of Egypt,United Kingdom won,79,10000
-189,53,1882,1882,1882,Conquest of Egypt,Egypt lost,79,10000
-61,35,1884,1885,1884,Sino-French,France won,2100,10000
-61,35,1884,1885,1885,Sino-French,France won,2100,10000
-61,35,1884,1885,1884,Sino-French,China lost,2100,10000
-61,35,1884,1885,1885,Sino-French,China lost,2100,10000
-69,54,1885,1885,1885,Second Central American,Guatemala lost,800,200
-69,54,1885,1885,1885,Second Central American,El Salvador won,800,200
-87,35,1894,1895,1894,First Sino-Japanese,China lost,5000,10000
-87,35,1894,1895,1895,First Sino-Japanese,China lost,5000,10000
-87,35,1894,1895,1894,First Sino-Japanese,Japan won,5000,10000
-87,35,1894,1895,1895,First Sino-Japanese,Japan won,5000,10000
-67,183,1897,1897,1897,Greco-Turkish,Greece lost,600,1400
-67,183,1897,1897,1897,Greco-Turkish,Turkey won,600,1400
-190,166,1898,1898,1898,Spanish-American,United States won,2910,775
-190,166,1898,1898,1898,Spanish-American,Spain lost,2910,775
-190,35,1900,1900,1900,Boxer Rebellion,United States won,21,2000
-190,35,1900,1900,1900,Boxer Rebellion,China lost,21,2000
-189,35,1900,1900,1900,Boxer Rebellion,United Kingdom won,34,2000
-189,35,1900,1900,1900,Boxer Rebellion,China lost,34,2000
-61,35,1900,1900,1900,Boxer Rebellion,France won,24,2000
-61,35,1900,1900,1900,Boxer Rebellion,China lost,24,2000
-147,35,1900,1900,1900,Boxer Rebellion,Russia won,302,2000
-147,35,1900,1900,1900,Boxer Rebellion,China lost,302,2000
-87,35,1900,1900,1900,Boxer Rebellion,China lost,602,2000
-87,35,1900,1900,1900,Boxer Rebellion,Japan won,602,2000
-147,35,1900,1900,1900,Sino-Russian,Russia won,242,3578
-147,35,1900,1900,1900,Sino-Russian,China lost,242,3578
-87,147,1904,1905,1904,Russo-Japanese,Russia lost,80378,71453
-87,147,1904,1905,1905,Russo-Japanese,Russia lost,80378,71453
-87,147,1904,1905,1904,Russo-Japanese,Japan won,80378,71453
-87,147,1904,1905,1905,Russo-Japanese,Japan won,80378,71453
-75,69,1906,1906,1906,Third Central American,Guatemala won,300,400
-75,69,1906,1906,1906,Third Central American,Honduras lost,300,400
-54,69,1906,1906,1906,Third Central American,Guatemala won,300,400
-54,69,1906,1906,1906,Third Central American,El Salvador lost,300,400
-128,75,1907,1907,1907,Fourth Central American,Honduras lost,400,300
-128,75,1907,1907,1907,Fourth Central American,Nicaragua won,400,300
-128,54,1907,1907,1907,Fourth Central American,El Salvador lost,400,300
-128,54,1907,1907,1907,Fourth Central American,Nicaragua won,400,300
-120,166,1909,1910,1909,Second Spanish-Moroccan,Spain won,8000,2000
-120,166,1909,1910,1910,Second Spanish-Moroccan,Spain won,8000,2000
-120,166,1909,1910,1909,Second Spanish-Moroccan,Morocco lost,8000,2000
-120,166,1909,1910,1910,Second Spanish-Moroccan,Morocco lost,8000,2000
-85,183,1911,1912,1911,Italian-Turkish,Italy won,6000,14000
-85,183,1911,1912,1912,Italian-Turkish,Italy won,6000,14000
-85,183,1911,1912,1911,Italian-Turkish,Turkey lost,6000,14000
-85,183,1911,1912,1912,Italian-Turkish,Turkey lost,6000,14000
-206,183,1912,1913,1912,First Balkan,Yugoslavia won,15000,30000
-206,183,1912,1913,1913,First Balkan,Yugoslavia won,15000,30000
-206,183,1912,1913,1912,First Balkan,Turkey lost,15000,30000
-206,183,1912,1913,1913,First Balkan,Turkey lost,15000,30000
-67,183,1912,1913,1912,First Balkan,Greece won,5000,30000
-67,183,1912,1913,1913,First Balkan,Greece won,5000,30000
-67,183,1912,1913,1912,First Balkan,Turkey lost,5000,30000
-67,183,1912,1913,1913,First Balkan,Turkey lost,5000,30000
-25,183,1912,1913,1912,First Balkan,Bulgaria won,5000,32000
-25,183,1912,1913,1913,First Balkan,Bulgaria won,5000,32000
-25,183,1912,1913,1912,First Balkan,Turkey lost,5000,32000
-25,183,1912,1913,1913,First Balkan,Turkey lost,5000,32000
-25,206,1913,1913,1913,Second Balkan,Yugoslavia won,18000,18500
-25,206,1913,1913,1913,Second Balkan,Bulgaria lost,18000,18500
-25,67,1913,1913,1913,Second Balkan,Greece won,18000,2500
-25,67,1913,1913,1913,Second Balkan,Bulgaria lost,18000,2500
-146,25,1913,1913,1913,Second Balkan,Bulgaria lost,1500,18000
-146,25,1913,1913,1913,Second Balkan,Romania won,1500,18000
-183,25,1913,1913,1913,Second Balkan,Bulgaria lost,20000,18000
-25,183,1913,1913,1913,Second Balkan,Turkey won,18000,20000
-204,189,1915,1918,1915,World War I,United Kingdom won,1200000,908371
-204,189,1915,1918,1916,World War I,United Kingdom won,1200000,908371
-204,189,1915,1918,1917,World War I,United Kingdom won,1200000,908371
-204,189,1915,1918,1918,World War I,United Kingdom won,1200000,908371
-204,189,1915,1918,1915,World War I,Austria-Hungary lost,1200000,908371
-204,189,1915,1918,1916,World War I,Austria-Hungary lost,1200000,908371
-204,189,1915,1918,1917,World War I,Austria-Hungary lost,1200000,908371
-204,189,1915,1918,1918,World War I,Austria-Hungary lost,1200000,908371
-204,61,1915,1918,1915,World War I,France won,1200000,1385000
-204,61,1915,1918,1916,World War I,France won,1200000,1385000
-204,61,1915,1918,1917,World War I,France won,1200000,1385000
-204,61,1915,1918,1918,World War I,France won,1200000,1385000
-204,61,1915,1918,1915,World War I,Austria-Hungary lost,1200000,1385000
-204,61,1915,1918,1916,World War I,Austria-Hungary lost,1200000,1385000
-204,61,1915,1918,1917,World War I,Austria-Hungary lost,1200000,1385000
-204,61,1915,1918,1918,World War I,Austria-Hungary lost,1200000,1385000
-190,204,1918,1918,1918,World War I,United States won,116516,1200000
-190,204,1918,1918,1918,World War I,Austria-Hungary lost,116516,1200000
-147,204,1914,1918,1914,World War I,Austria-Hungary won,1700000,1200000
-147,204,1914,1918,1915,World War I,Austria-Hungary won,1700000,1200000
-147,204,1914,1918,1916,World War I,Austria-Hungary won,1700000,1200000
-147,204,1914,1918,1917,World War I,Austria-Hungary won,1700000,1200000
-147,204,1914,1918,1918,World War I,Austria-Hungary won,1700000,1200000
-147,204,1914,1918,1914,World War I,Russia lost,1700000,1200000
-147,204,1914,1918,1915,World War I,Russia lost,1700000,1200000
-147,204,1914,1918,1916,World War I,Russia lost,1700000,1200000
-147,204,1914,1918,1917,World War I,Russia lost,1700000,1200000
-147,204,1914,1918,1918,World War I,Russia lost,1700000,1200000
-146,204,1916,1917,1916,World War I,Austria-Hungary won,335706,1200000
-146,204,1916,1917,1917,World War I,Austria-Hungary won,335706,1200000
-146,204,1916,1917,1916,World War I,Romania lost,335706,1200000
-146,204,1916,1917,1917,World War I,Romania lost,335706,1200000
-67,204,1917,1918,1917,World War I,Austria-Hungary lost,5000,1200000
-67,204,1917,1918,1918,World War I,Austria-Hungary lost,5000,1200000
-67,204,1917,1918,1917,World War I,Greece won,5000,1200000
-67,204,1917,1918,1918,World War I,Greece won,5000,1200000
-67,65,1917,1918,1917,World War I,Germany lost,5000,1773700
-67,65,1917,1918,1918,World War I,Germany lost,5000,1773700
-67,65,1917,1918,1917,World War I,Greece won,5000,1773700
-67,65,1917,1918,1918,World War I,Greece won,5000,1773700
-204,206,1914,1918,1914,World War I,Austria-Hungary lost,1200000,70000
-204,206,1914,1918,1915,World War I,Austria-Hungary lost,1200000,70000
-204,206,1914,1918,1916,World War I,Austria-Hungary lost,1200000,70000
-204,206,1914,1918,1917,World War I,Austria-Hungary won,1200000,70000
-204,206,1914,1918,1918,World War I,Austria-Hungary won,1200000,70000
-204,206,1914,1918,1914,World War I,Yugoslavia lost,1200000,70000
-204,206,1914,1918,1915,World War I,Yugoslavia lost,1200000,70000
-204,206,1914,1918,1916,World War I,Yugoslavia won,1200000,70000
-204,206,1914,1918,1917,World War I,Yugoslavia won,1200000,70000
-204,206,1914,1918,1918,World War I,Yugoslavia won,1200000,70000
-85,204,1915,1918,1915,World War I,Austria-Hungary lost,650000,1200000
-85,204,1915,1918,1916,World War I,Austria-Hungary lost,650000,1200000
-85,204,1915,1918,1917,World War I,Austria-Hungary lost,650000,1200000
-85,204,1915,1918,1918,World War I,Austria-Hungary lost,650000,1200000
-85,204,1915,1918,1915,World War I,Italy won,650000,1200000
-85,204,1915,1918,1916,World War I,Italy won,650000,1200000
-85,204,1915,1918,1917,World War I,Italy won,650000,1200000
-85,204,1915,1918,1918,World War I,Italy won,650000,1200000
-65,16,1914,1918,1914,World War I,Belgium won,1773700,13716
-65,16,1914,1918,1915,World War I,Belgium won,1773700,13716
-65,16,1914,1918,1916,World War I,Belgium won,1773700,13716
-65,16,1914,1918,1917,World War I,Belgium won,1773700,13716
-65,16,1914,1918,1918,World War I,Belgium won,1773700,13716
-65,16,1914,1918,1914,World War I,Germany lost,1773700,13716
-65,16,1914,1918,1915,World War I,Germany lost,1773700,13716
-65,16,1914,1918,1916,World War I,Germany lost,1773700,13716
-65,16,1914,1918,1917,World War I,Germany lost,1773700,13716
-65,16,1914,1918,1918,World War I,Germany lost,1773700,13716
-190,65,1917,1918,1917,World War I,United States won,116516,1773700
-190,65,1917,1918,1918,World War I,United States won,116516,1773700
-65,190,1917,1918,1917,World War I,Germany lost,1773700,116516
-65,190,1917,1918,1918,World War I,Germany lost,1773700,116516
-65,189,1914,1918,1914,World War I,United Kingdom won,1773700,908371
-65,189,1914,1918,1915,World War I,United Kingdom won,1773700,908371
-65,189,1914,1918,1916,World War I,United Kingdom won,1773700,908371
-65,189,1914,1918,1917,World War I,United Kingdom won,1773700,908371
-65,189,1914,1918,1918,World War I,United Kingdom won,1773700,908371
-65,189,1914,1918,1914,World War I,Germany lost,1773700,908371
-65,189,1914,1918,1915,World War I,Germany lost,1773700,908371
-65,189,1914,1918,1916,World War I,Germany lost,1773700,908371
-65,189,1914,1918,1917,World War I,Germany lost,1773700,908371
-65,189,1914,1918,1918,World War I,Germany lost,1773700,908371
-183,189,1914,1918,1914,World War I,United Kingdom won,325000,908371
-183,189,1914,1918,1915,World War I,United Kingdom won,325000,908371
-183,189,1914,1918,1916,World War I,United Kingdom won,325000,908371
-183,189,1914,1918,1917,World War I,United Kingdom won,325000,908371
-183,189,1914,1918,1918,World War I,United Kingdom won,325000,908371
-183,189,1914,1918,1914,World War I,Turkey lost,325000,908371
-183,189,1914,1918,1915,World War I,Turkey lost,325000,908371
-183,189,1914,1918,1916,World War I,Turkey lost,325000,908371
-183,189,1914,1918,1917,World War I,Turkey lost,325000,908371
-183,189,1914,1918,1918,World War I,Turkey lost,325000,908371
-61,183,1915,1918,1915,World War I,France won,1385000,325000
-61,183,1915,1918,1916,World War I,France won,1385000,325000
-61,183,1915,1918,1917,World War I,France won,1385000,325000
-61,183,1915,1918,1918,World War I,France won,1385000,325000
-61,183,1915,1918,1915,World War I,Turkey lost,1385000,325000
-61,183,1915,1918,1916,World War I,Turkey lost,1385000,325000
-61,183,1915,1918,1917,World War I,Turkey lost,1385000,325000
-61,183,1915,1918,1918,World War I,Turkey lost,1385000,325000
-61,65,1914,1918,1914,World War I,France won,1385000,1773700
-61,65,1914,1918,1915,World War I,France won,1385000,1773700
-61,65,1914,1918,1916,World War I,France won,1385000,1773700
-61,65,1914,1918,1917,World War I,France won,1385000,1773700
-61,65,1914,1918,1918,World War I,France won,1385000,1773700
-61,65,1914,1918,1914,World War I,Germany lost,1385000,1773700
-61,65,1914,1918,1915,World War I,Germany lost,1385000,1773700
-61,65,1914,1918,1916,World War I,Germany lost,1385000,1773700
-61,65,1914,1918,1917,World War I,Germany lost,1385000,1773700
-61,65,1914,1918,1918,World War I,Germany lost,1385000,1773700
-147,65,1914,1918,1914,World War I,Germany won,1700000,1773700
-147,65,1914,1918,1915,World War I,Germany won,1700000,1773700
-147,65,1914,1918,1916,World War I,Germany won,1700000,1773700
-147,65,1914,1918,1917,World War I,Germany won,1700000,1773700
-147,65,1914,1918,1918,World War I,Germany won,1700000,1773700
-147,65,1914,1918,1914,World War I,Russia lost,1700000,1773700
-147,65,1914,1918,1915,World War I,Russia lost,1700000,1773700
-147,65,1914,1918,1916,World War I,Russia lost,1700000,1773700
-147,65,1914,1918,1917,World War I,Russia lost,1700000,1773700
-147,65,1914,1918,1918,World War I,Russia lost,1700000,1773700
-65,206,1915,1918,1915,World War I,Germany lost,1773700,70000
-65,206,1915,1918,1916,World War I,Germany lost,1773700,70000
-65,206,1915,1918,1917,World War I,Germany lost,1773700,70000
-65,206,1915,1918,1918,World War I,Germany lost,1773700,70000
-65,206,1915,1918,1915,World War I,Yugoslavia won,1773700,70000
-65,206,1915,1918,1916,World War I,Yugoslavia won,1773700,70000
-65,206,1915,1918,1917,World War I,Yugoslavia won,1773700,70000
-65,206,1915,1918,1918,World War I,Yugoslavia won,1773700,70000
-147,183,1914,1918,1914,World War I,Russia lost,1700000,325000
-147,183,1914,1918,1915,World War I,Russia lost,1700000,325000
-147,183,1914,1918,1916,World War I,Russia lost,1700000,325000
-147,183,1914,1918,1917,World War I,Russia lost,1700000,325000
-147,183,1914,1918,1918,World War I,Russia lost,1700000,325000
-147,183,1914,1918,1914,World War I,Turkey won,1700000,325000
-147,183,1914,1918,1915,World War I,Turkey won,1700000,325000
-147,183,1914,1918,1916,World War I,Turkey won,1700000,325000
-147,183,1914,1918,1917,World War I,Turkey won,1700000,325000
-147,183,1914,1918,1918,World War I,Turkey won,1700000,325000
-25,206,1915,1918,1915,World War I,Yugoslavia won,87500,70000
-25,206,1915,1918,1916,World War I,Yugoslavia won,87500,70000
-25,206,1915,1918,1917,World War I,Yugoslavia won,87500,70000
-25,206,1915,1918,1918,World War I,Yugoslavia won,87500,70000
-25,206,1915,1918,1915,World War I,Bulgaria lost,87500,70000
-25,206,1915,1918,1916,World War I,Bulgaria lost,87500,70000
-25,206,1915,1918,1917,World War I,Bulgaria lost,87500,70000
-25,206,1915,1918,1918,World War I,Bulgaria lost,87500,70000
-183,206,1916,1918,1916,World War I,Yugoslavia won,325000,70000
-183,206,1916,1918,1917,World War I,Yugoslavia won,325000,70000
-183,206,1916,1918,1918,World War I,Yugoslavia won,325000,70000
-183,206,1916,1918,1916,World War I,Turkey won,325000,70000
-183,206,1916,1918,1917,World War I,Turkey won,325000,70000
-183,206,1916,1918,1918,World War I,Turkey won,325000,70000
-25,189,1915,1918,1915,World War I,United Kingdom won,87500,908371
-25,189,1915,1918,1916,World War I,United Kingdom won,87500,908371
-25,189,1915,1918,1917,World War I,United Kingdom won,87500,908371
-25,189,1915,1918,1918,World War I,United Kingdom won,87500,908371
-25,189,1915,1918,1915,World War I,Bulgaria lost,87500,908371
-25,189,1915,1918,1916,World War I,Bulgaria lost,87500,908371
-25,189,1915,1918,1917,World War I,Bulgaria lost,87500,908371
-25,189,1915,1918,1918,World War I,Bulgaria lost,87500,908371
-25,61,1915,1918,1915,World War I,France won,87500,1385000
-25,61,1915,1918,1916,World War I,France won,87500,1385000
-25,61,1915,1918,1917,World War I,France won,87500,1385000
-25,61,1915,1918,1918,World War I,France won,87500,1385000
-25,61,1915,1918,1915,World War I,Bulgaria lost,87500,1385000
-25,61,1915,1918,1916,World War I,Bulgaria lost,87500,1385000
-25,61,1915,1918,1917,World War I,Bulgaria lost,87500,1385000
-25,61,1915,1918,1918,World War I,Bulgaria lost,87500,1385000
-85,25,1916,1918,1916,World War I,Italy won,650000,87500
-85,25,1916,1918,1917,World War I,Italy won,650000,87500
-85,25,1916,1918,1918,World War I,Italy won,650000,87500
-85,25,1916,1918,1916,World War I,Bulgaria lost,650000,87500
-85,25,1916,1918,1917,World War I,Bulgaria lost,650000,87500
-85,25,1916,1918,1918,World War I,Bulgaria lost,650000,87500
-147,25,1916,1917,1916,World War I,Bulgaria won,1700000,87500
-147,25,1916,1917,1917,World War I,Bulgaria won,1700000,87500
-147,25,1916,1917,1916,World War I,Russia lost,1700000,87500
-147,25,1916,1917,1917,World War I,Russia lost,1700000,87500
-183,146,1916,1917,1916,World War I,Romania lost,325000,335706
-183,146,1916,1917,1917,World War I,Romania lost,325000,335706
-183,146,1916,1917,1916,World War I,Turkey won,325000,335706
-183,146,1916,1917,1917,World War I,Turkey won,325000,335706
-67,183,1917,1918,1917,World War I,Greece won,5000,325000
-67,183,1917,1918,1918,World War I,Greece won,5000,325000
-67,183,1917,1918,1917,World War I,Turkey lost,5000,325000
-67,183,1917,1918,1918,World War I,Turkey lost,5000,325000
-85,183,1916,1918,1916,World War I,Italy won,650000,325000
-85,183,1916,1918,1917,World War I,Italy won,650000,325000
-85,183,1916,1918,1918,World War I,Italy won,650000,325000
-85,183,1916,1918,1916,World War I,Turkey lost,650000,325000
-85,183,1916,1918,1917,World War I,Turkey lost,650000,325000
-85,183,1916,1918,1918,World War I,Turkey lost,650000,325000
-143,65,1917,1918,1917,World War I,Portugal won,7222,1773700
-143,65,1917,1918,1918,World War I,Portugal won,7222,1773700
-143,65,1917,1918,1917,World War I,Germany lost,7222,1773700
-143,65,1917,1918,1918,World War I,Germany lost,7222,1773700
-85,65,1916,1918,1916,World War I,Germany lost,650000,1773700
-85,65,1916,1918,1917,World War I,Germany lost,650000,1773700
-85,65,1916,1918,1918,World War I,Germany lost,650000,1773700
-85,65,1916,1918,1916,World War I,Italy won,650000,1773700
-85,65,1916,1918,1917,World War I,Italy won,650000,1773700
-85,65,1916,1918,1918,World War I,Italy won,650000,1773700
-67,25,1917,1918,1917,World War I,Greece won,5000,87500
-67,25,1917,1918,1918,World War I,Greece won,5000,87500
-67,25,1917,1918,1917,World War I,Bulgaria lost,5000,87500
-67,25,1917,1918,1918,World War I,Bulgaria lost,5000,87500
-25,146,1916,1917,1916,World War I,Bulgaria lost,87500,335706
-25,146,1916,1917,1917,World War I,Bulgaria lost,87500,335706
-25,146,1916,1917,1916,World War I,Romania won,87500,335706
-25,146,1916,1917,1917,World War I,Romania won,87500,335706
-147,57,1918,1920,1918,Estonian Liberation,Russia lost,8000,3600
-147,57,1918,1920,1919,Estonian Liberation,Russia lost,8000,3600
-147,57,1918,1920,1920,Estonian Liberation,Russia lost,8000,3600
-147,57,1918,1920,1918,Estonian Liberation,Estonia won,8000,3600
-147,57,1918,1920,1919,Estonian Liberation,Estonia won,8000,3600
-147,57,1918,1920,1920,Estonian Liberation,Estonia won,8000,3600
-60,147,1919,1920,1919,Estonian Liberation,Russia lost,150,8000
-60,147,1919,1920,1920,Estonian Liberation,Russia lost,150,8000
-60,147,1919,1920,1919,Estonian Liberation,Finland won,150,8000
-60,147,1919,1920,1920,Estonian Liberation,Finland won,150,8000
-65,57,1919,1919,1919,Latvian Liberation,drawn,750,1000
-65,57,1919,1919,1919,Latvian Liberation,drawn,750,1000
-65,96,1919,1919,1919,Latvian Liberation,drawn,750,3046
-65,96,1919,1919,1919,Latvian Liberation,drawn,750,3046
-189,147,1918,1920,1918,Latvian Liberation,United Kingdom won,128,8000
-189,147,1918,1920,1919,Latvian Liberation,United Kingdom won,128,8000
-189,147,1918,1920,1920,Latvian Liberation,United Kingdom won,128,8000
-189,147,1918,1920,1918,Latvian Liberation,Russia lost,128,8000
-189,147,1918,1920,1919,Latvian Liberation,Russia lost,128,8000
-189,147,1918,1920,1920,Latvian Liberation,Russia lost,128,8000
-61,147,1919,1920,1919,Latvian Liberation,France won,0,8000
-61,147,1919,1920,1920,Latvian Liberation,France won,0,8000
-61,147,1919,1920,1919,Latvian Liberation,Russia lost,0,8000
-61,147,1919,1920,1920,Latvian Liberation,Russia lost,0,8000
-65,147,1919,1919,1919,Latvian Liberation,drawn,450,8000
-65,147,1919,1919,1919,Latvian Liberation,drawn,450,8000
-142,147,1920,1920,1920,Latvian Liberation,Poland won,100,8000
-142,147,1920,1920,1920,Latvian Liberation,Russia lost,100,8000
-57,147,1919,1920,1919,Latvian Liberation,Russia lost,1000,8000
-57,147,1919,1920,1920,Latvian Liberation,Russia lost,1000,8000
-57,147,1919,1920,1919,Latvian Liberation,Estonia won,1000,8000
-57,147,1919,1920,1920,Latvian Liberation,Estonia won,1000,8000
-147,96,1918,1920,1918,Latvian Liberation,Russia lost,8000,3046
-147,96,1918,1920,1919,Latvian Liberation,Russia lost,8000,3046
-147,96,1918,1920,1920,Latvian Liberation,Russia lost,8000,3046
-147,96,1918,1920,1918,Latvian Liberation,Latvia won,8000,3046
-147,96,1918,1920,1919,Latvian Liberation,Latvia won,8000,3046
-147,96,1918,1920,1920,Latvian Liberation,Latvia won,8000,3046
-142,147,1919,1920,1919,Russo-Polish,Poland won,40000,60000
-142,147,1919,1920,1920,Russo-Polish,Poland won,40000,60000
-142,147,1919,1920,1919,Russo-Polish,Russia lost,40000,60000
-142,147,1919,1920,1920,Russo-Polish,Russia lost,40000,60000
-207,77,1919,1919,1919,Hungarian Adversaries,Hungary lost,2000,6000
-207,77,1919,1919,1919,Hungarian Adversaries,Czechoslovakia won,2000,6000
-146,77,1919,1919,1919,Hungarian Adversaries,Hungary lost,3000,6000
-146,77,1919,1919,1919,Hungarian Adversaries,Romania won,3000,6000
-67,183,1919,1922,1919,Second Greco-Turkish,Greece lost,30000,20000
-67,183,1919,1922,1920,Second Greco-Turkish,Greece lost,30000,20000
-67,183,1919,1922,1921,Second Greco-Turkish,Greece lost,30000,20000
-67,183,1919,1922,1922,Second Greco-Turkish,Greece lost,30000,20000
-67,183,1919,1922,1919,Second Greco-Turkish,Turkey won,30000,20000
-67,183,1919,1922,1920,Second Greco-Turkish,Turkey won,30000,20000
-67,183,1919,1922,1921,Second Greco-Turkish,Turkey won,30000,20000
-67,183,1919,1922,1922,Second Greco-Turkish,Turkey won,30000,20000
-61,183,1919,1921,1919,Franco-Turkish,France won,5000,35000
-61,183,1919,1921,1920,Franco-Turkish,France won,5000,35000
-61,183,1919,1921,1921,Franco-Turkish,France won,5000,35000
-61,183,1919,1921,1919,Franco-Turkish,Turkey lost,5000,35000
-61,183,1919,1921,1920,Franco-Turkish,Turkey lost,5000,35000
-61,183,1919,1921,1921,Franco-Turkish,Turkey lost,5000,35000
-142,102,1920,1920,1920,Lithuanian-Polish,Poland won,500,500
-142,102,1920,1920,1920,Lithuanian-Polish,Lithuania lost,500,500
-147,35,1929,1929,1929,Manchurian,Russia won,200,3000
-87,35,1931,1933,1931,Second Sino-Japanese,China lost,10000,50000
-87,35,1931,1933,1932,Second Sino-Japanese,China lost,10000,50000
-87,35,1931,1933,1933,Second Sino-Japanese,China lost,10000,50000
-87,35,1931,1933,1931,Second Sino-Japanese,Japan won,10000,50000
-87,35,1931,1933,1932,Second Sino-Japanese,Japan won,10000,50000
-87,35,1931,1933,1933,Second Sino-Japanese,Japan won,10000,50000
-20,139,1932,1935,1932,Chaco,Bolivia won,56661,36000
-20,139,1932,1935,1933,Chaco,Bolivia won,56661,36000
-20,139,1932,1935,1934,Chaco,Bolivia won,56661,36000
-20,139,1932,1935,1935,Chaco,Bolivia won,56661,36000
-20,139,1932,1935,1932,Chaco,Paraguay lost,56661,36000
-20,139,1932,1935,1933,Chaco,Paraguay lost,56661,36000
-20,139,1932,1935,1934,Chaco,Paraguay lost,56661,36000
-20,139,1932,1935,1935,Chaco,Paraguay lost,56661,36000
-154,205,1934,1934,1934,Saudi-Yemeni,Saudi Arabia won,100,2000
-154,205,1934,1934,1934,Saudi-Yemeni,North Yemen lost,100,2000
-85,58,1935,1936,1935,Conquest of Ethiopia,Italy won,4000,16000
-85,58,1935,1936,1936,Conquest of Ethiopia,Italy won,4000,16000
-85,58,1935,1936,1935,Conquest of Ethiopia,Ethiopia lost,4000,16000
-85,58,1935,1936,1936,Conquest of Ethiopia,Ethiopia lost,4000,16000
-87,35,1937,1945,1937,Third Sino-Japanese,China lost,250000,750000
-87,35,1937,1945,1938,Third Sino-Japanese,China lost,250000,750000
-87,35,1937,1945,1939,Third Sino-Japanese,China lost,250000,750000
-87,35,1937,1945,1940,Third Sino-Japanese,China lost,250000,750000
-87,35,1937,1945,1941,Third Sino-Japanese,China lost,250000,750000
-87,35,1937,1945,1942,Third Sino-Japanese,China lost,250000,750000
-87,35,1937,1945,1943,Third Sino-Japanese,China lost,250000,750000
-87,35,1937,1945,1944,Third Sino-Japanese,China lost,250000,750000
-87,35,1937,1945,1945,Third Sino-Japanese,China lost,250000,750000
-87,35,1937,1945,1937,Third Sino-Japanese,Japan won,250000,750000
-87,35,1937,1945,1938,Third Sino-Japanese,Japan won,250000,750000
-87,35,1937,1945,1939,Third Sino-Japanese,Japan won,250000,750000
-87,35,1937,1945,1940,Third Sino-Japanese,Japan won,250000,750000
-87,35,1937,1945,1941,Third Sino-Japanese,Japan won,250000,750000
-87,35,1937,1945,1942,Third Sino-Japanese,Japan won,250000,750000
-87,35,1937,1945,1943,Third Sino-Japanese,Japan won,250000,750000
-87,35,1937,1945,1944,Third Sino-Japanese,Japan won,250000,750000
-87,35,1937,1945,1945,Third Sino-Japanese,Japan won,250000,750000
-87,147,1938,1938,1938,Changkufeng,Russia won,526,1200
-147,87,1938,1938,1938,Changkufeng,Japan lost,1200,526
-87,147,1939,1939,1939,Nomonhan,Russia won,20000,5000
-87,147,1939,1939,1939,Nomonhan,Japan lost,20000,5000
-87,118,1939,1939,1939,Nomonhan,Mongolia won,20000,3000
-87,118,1939,1939,1939,Nomonhan,Japan lost,20000,3000
-147,142,1939,1939,1939,World War II,Poland lost,1500,2000
-147,142,1939,1939,1939,World War II,Russia won,1500,2000
-127,85,1940,1943,1940,World War II,Italy lost,12200,174500
-127,85,1940,1943,1941,World War II,Italy lost,12200,174500
-127,85,1940,1943,1942,World War II,Italy lost,12200,174500
-127,85,1940,1943,1943,World War II,Italy lost,12200,174500
-127,85,1940,1943,1940,World War II,New Zealand won,12200,174500
-127,85,1940,1943,1941,World War II,New Zealand won,12200,174500
-127,85,1940,1943,1942,World War II,New Zealand won,12200,174500
-127,85,1940,1943,1943,World War II,New Zealand won,12200,174500
-8,85,1940,1943,1940,World War II,Italy lost,33826,174500
-8,85,1940,1943,1941,World War II,Italy lost,33826,174500
-8,85,1940,1943,1942,World War II,Italy lost,33826,174500
-8,85,1940,1943,1943,World War II,Italy lost,33826,174500
-8,85,1940,1943,1940,World War II,Australia won,33826,174500
-8,85,1940,1943,1941,World War II,Australia won,33826,174500
-8,85,1940,1943,1942,World War II,Australia won,33826,174500
-8,85,1940,1943,1943,World War II,Australia won,33826,174500
-77,206,1941,1941,1941,World War II,Hungary won,136000,305000
-77,206,1941,1941,1941,World War II,Yugoslavia lost,136000,305000
-85,61,1940,1940,1940,World War II,France lost,174500,210824
-85,61,1940,1940,1940,World War II,Italy lost,174500,210824
-166,147,1941,1944,1941,World War II,Spain lost,950,7500000
-166,147,1941,1944,1942,World War II,Spain lost,950,7500000
-166,147,1941,1944,1943,World War II,Spain lost,950,7500000
-166,147,1941,1944,1944,World War II,Spain lost,950,7500000
-166,147,1941,1944,1941,World War II,Russia won,950,7500000
-166,147,1941,1944,1942,World War II,Russia won,950,7500000
-166,147,1941,1944,1943,World War II,Russia won,950,7500000
-166,147,1941,1944,1944,World War II,Russia won,950,7500000
-30,85,1943,1943,1943,World War II,Canada won,41992,174500
-30,85,1943,1943,1943,World War II,Italy lost,41992,174500
-164,85,1940,1943,1940,World War II,Italy lost,8700,174500
-164,85,1940,1943,1941,World War II,Italy lost,8700,174500
-164,85,1940,1943,1942,World War II,Italy lost,8700,174500
-164,85,1940,1943,1943,World War II,Italy lost,8700,174500
-164,85,1940,1943,1940,World War II,South Africa won,8700,174500
-164,85,1940,1943,1941,World War II,South Africa won,8700,174500
-164,85,1940,1943,1942,World War II,South Africa won,8700,174500
-164,85,1940,1943,1943,World War II,South Africa won,8700,174500
-147,87,1945,1945,1945,World War II,Russia won,7500000,1740000
-147,87,1945,1945,1945,World War II,Japan lost,7500000,1740000
-118,87,1945,1945,1945,World War II,Mongolia won,3000,1740000
-118,87,1945,1945,1945,World War II,Japan lost,3000,1740000
-23,65,1944,1945,1944,World War II,Brazil won,1000,3500000
-23,65,1944,1945,1945,World War II,Brazil won,1000,3500000
-23,65,1944,1945,1944,World War II,Germany lost,1000,3500000
-23,65,1944,1945,1945,World War II,Germany lost,1000,3500000
-60,147,1941,1944,1941,World War II,Russia won,65000,7500000
-60,147,1941,1944,1942,World War II,Russia won,65000,7500000
-60,147,1941,1944,1943,World War II,Russia won,65000,7500000
-60,147,1941,1944,1944,World War II,Russia won,65000,7500000
-60,147,1941,1944,1941,World War II,Finland lost,65000,7500000
-60,147,1941,1944,1942,World War II,Finland lost,65000,7500000
-60,147,1941,1944,1943,World War II,Finland lost,65000,7500000
-60,147,1941,1944,1944,World War II,Finland lost,65000,7500000
-87,190,1941,1945,1941,World War II,United States won,1740000,405400
-87,190,1941,1945,1942,World War II,United States won,1740000,405400
-87,190,1941,1945,1943,World War II,United States won,1740000,405400
-87,190,1941,1945,1944,World War II,United States won,1740000,405400
-87,190,1941,1945,1945,World War II,United States won,1740000,405400
-87,190,1941,1945,1941,World War II,Japan lost,1740000,405400
-87,190,1941,1945,1942,World War II,Japan lost,1740000,405400
-87,190,1941,1945,1943,World War II,Japan lost,1740000,405400
-87,190,1941,1945,1944,World War II,Japan lost,1740000,405400
-87,190,1941,1945,1945,World War II,Japan lost,1740000,405400
-87,30,1941,1945,1941,World War II,Canada won,1740000,41992
-87,30,1941,1945,1942,World War II,Canada won,1740000,41992
-87,30,1941,1945,1943,World War II,Canada won,1740000,41992
-87,30,1941,1945,1944,World War II,Canada won,1740000,41992
-87,30,1941,1945,1945,World War II,Canada won,1740000,41992
-87,30,1941,1945,1941,World War II,Japan lost,1740000,41992
-87,30,1941,1945,1942,World War II,Japan lost,1740000,41992
-87,30,1941,1945,1943,World War II,Japan lost,1740000,41992
-87,30,1941,1945,1944,World War II,Japan lost,1740000,41992
-87,30,1941,1945,1945,World War II,Japan lost,1740000,41992
-65,147,1941,1945,1941,World War II,Germany lost,3500000,7500000
-65,147,1941,1945,1942,World War II,Germany lost,3500000,7500000
-65,147,1941,1945,1943,World War II,Germany lost,3500000,7500000
-65,147,1941,1945,1944,World War II,Germany lost,3500000,7500000
-65,147,1941,1945,1945,World War II,Germany lost,3500000,7500000
-65,147,1941,1945,1941,World War II,Russia won,3500000,7500000
-65,147,1941,1945,1942,World War II,Russia won,3500000,7500000
-65,147,1941,1945,1943,World War II,Russia won,3500000,7500000
-65,147,1941,1945,1944,World War II,Russia won,3500000,7500000
-65,147,1941,1945,1945,World War II,Russia won,3500000,7500000
-164,87,1941,1945,1941,World War II,South Africa won,8700,1740000
-164,87,1941,1945,1942,World War II,South Africa won,8700,1740000
-164,87,1941,1945,1943,World War II,South Africa won,8700,1740000
-164,87,1941,1945,1944,World War II,South Africa won,8700,1740000
-164,87,1941,1945,1945,World War II,South Africa won,8700,1740000
-164,87,1941,1945,1941,World War II,Japan lost,8700,1740000
-164,87,1941,1945,1942,World War II,Japan lost,8700,1740000
-164,87,1941,1945,1943,World War II,Japan lost,8700,1740000
-164,87,1941,1945,1944,World War II,Japan lost,8700,1740000
-164,87,1941,1945,1945,World War II,Japan lost,8700,1740000
-65,190,1943,1945,1943,World War II,United States won,3500000,405400
-65,190,1943,1945,1944,World War II,United States won,3500000,405400
-65,190,1943,1945,1945,World War II,United States won,3500000,405400
-65,190,1943,1945,1943,World War II,Germany lost,3500000,405400
-65,190,1943,1945,1944,World War II,Germany lost,3500000,405400
-65,190,1943,1945,1945,World War II,Germany lost,3500000,405400
-190,85,1943,1943,1943,World War II,United States won,405400,174500
-190,85,1943,1943,1943,World War II,Italy lost,405400,174500
-87,189,1941,1945,1941,World War II,United Kingdom won,1740000,418765
-87,189,1941,1945,1942,World War II,United Kingdom won,1740000,418765
-87,189,1941,1945,1943,World War II,United Kingdom won,1740000,418765
-87,189,1941,1945,1944,World War II,United Kingdom won,1740000,418765
-87,189,1941,1945,1945,World War II,United Kingdom won,1740000,418765
-87,189,1941,1945,1941,World War II,Japan lost,1740000,418765
-87,189,1941,1945,1942,World War II,Japan lost,1740000,418765
-87,189,1941,1945,1943,World War II,Japan lost,1740000,418765
-87,189,1941,1945,1944,World War II,Japan lost,1740000,418765
-87,189,1941,1945,1945,World War II,Japan lost,1740000,418765
-65,142,1939,1939,1939,World War II,Germany won,3500000,320000
-65,142,1939,1939,1939,World War II,Poland lost,3500000,320000
-65,16,1940,1940,1940,World War II,Belgium lost,3500000,9600
-65,16,1940,1940,1940,World War II,Germany won,3500000,9600
-85,189,1940,1943,1940,World War II,United Kingdom won,174500,418765
-85,189,1940,1943,1941,World War II,United Kingdom won,174500,418765
-85,189,1940,1943,1942,World War II,United Kingdom won,174500,418765
-85,189,1940,1943,1943,World War II,United Kingdom won,174500,418765
-189,85,1940,1943,1940,World War II,Italy lost,418765,174500
-189,85,1940,1943,1941,World War II,Italy lost,418765,174500
-189,85,1940,1943,1942,World War II,Italy lost,418765,174500
-189,85,1940,1943,1943,World War II,Italy lost,418765,174500
-127,87,1942,1945,1942,World War II,Japan lost,12200,1740000
-127,87,1942,1945,1943,World War II,Japan lost,12200,1740000
-127,87,1942,1945,1944,World War II,Japan lost,12200,1740000
-127,87,1942,1945,1945,World War II,Japan lost,12200,1740000
-127,87,1942,1945,1942,World War II,New Zealand won,12200,1740000
-127,87,1942,1945,1943,World War II,New Zealand won,12200,1740000
-127,87,1942,1945,1944,World War II,New Zealand won,12200,1740000
-127,87,1942,1945,1945,World War II,New Zealand won,12200,1740000
-65,67,1941,1941,1941,World War II,Germany won,3500000,18300
-65,67,1941,1941,1941,World War II,Greece lost,3500000,18300
-8,87,1942,1945,1942,World War II,Japan lost,33826,1740000
-8,87,1942,1945,1943,World War II,Japan lost,33826,1740000
-8,87,1942,1945,1944,World War II,Japan lost,33826,1740000
-8,87,1942,1945,1945,World War II,Japan lost,33826,1740000
-87,8,1942,1945,1942,World War II,Australia won,1740000,33826
-87,8,1942,1945,1943,World War II,Australia won,1740000,33826
-87,8,1942,1945,1944,World War II,Australia won,1740000,33826
-87,8,1942,1945,1945,World War II,Australia won,1740000,33826
-164,65,1941,1945,1941,World War II,Germany lost,8700,3500000
-164,65,1941,1945,1942,World War II,Germany lost,8700,3500000
-164,65,1941,1945,1943,World War II,Germany lost,8700,3500000
-164,65,1941,1945,1944,World War II,Germany lost,8700,3500000
-164,65,1941,1945,1945,World War II,Germany lost,8700,3500000
-164,65,1941,1945,1941,World War II,South Africa won,8700,3500000
-164,65,1941,1945,1942,World War II,South Africa won,8700,3500000
-164,65,1941,1945,1943,World War II,South Africa won,8700,3500000
-164,65,1941,1945,1944,World War II,South Africa won,8700,3500000
-164,65,1941,1945,1945,World War II,South Africa won,8700,3500000
-65,189,1940,1945,1940,World War II,United Kingdom won,3500000,418765
-65,189,1940,1945,1941,World War II,United Kingdom won,3500000,418765
-65,189,1940,1945,1942,World War II,United Kingdom won,3500000,418765
-65,189,1940,1945,1943,World War II,United Kingdom won,3500000,418765
-65,189,1940,1945,1944,World War II,United Kingdom won,3500000,418765
-65,189,1940,1945,1945,World War II,United Kingdom won,3500000,418765
-65,189,1940,1945,1940,World War II,Germany lost,3500000,418765
-65,189,1940,1945,1941,World War II,Germany lost,3500000,418765
-65,189,1940,1945,1942,World War II,Germany lost,3500000,418765
-65,189,1940,1945,1943,World War II,Germany lost,3500000,418765
-65,189,1940,1945,1944,World War II,Germany lost,3500000,418765
-65,189,1940,1945,1945,World War II,Germany lost,3500000,418765
-146,147,1941,1944,1941,World War II,Romania lost,290000,7500000
-146,147,1941,1944,1942,World War II,Romania lost,290000,7500000
-146,147,1941,1944,1943,World War II,Romania lost,290000,7500000
-146,147,1941,1944,1944,World War II,Romania lost,290000,7500000
-146,147,1941,1944,1941,World War II,Russia won,290000,7500000
-146,147,1941,1944,1942,World War II,Russia won,290000,7500000
-146,147,1941,1944,1943,World War II,Russia won,290000,7500000
-146,147,1941,1944,1944,World War II,Russia won,290000,7500000
-77,147,1941,1945,1941,World War II,Hungary lost,136000,7500000
-77,147,1941,1945,1942,World War II,Hungary lost,136000,7500000
-77,147,1941,1945,1943,World War II,Hungary lost,136000,7500000
-77,147,1941,1945,1944,World War II,Hungary lost,136000,7500000
-77,147,1941,1945,1945,World War II,Hungary lost,136000,7500000
-77,147,1941,1945,1941,World War II,Russia won,136000,7500000
-77,147,1941,1945,1942,World War II,Russia won,136000,7500000
-77,147,1941,1945,1943,World War II,Russia won,136000,7500000
-77,147,1941,1945,1944,World War II,Russia won,136000,7500000
-77,147,1941,1945,1945,World War II,Russia won,136000,7500000
-65,132,1940,1940,1940,World War II,Germany won,3500000,3000
-65,132,1940,1940,1940,World War II,Norway lost,3500000,3000
-65,61,1940,1940,1940,World War II,France lost,3500000,210824
-65,61,1940,1940,1940,World War II,Germany won,3500000,210824
-65,126,1940,1940,1940,World War II,Netherlands lost,3500000,7900
-65,126,1940,1940,1940,World War II,Germany won,3500000,7900
-127,65,1941,1945,1941,World War II,Germany lost,12200,3500000
-127,65,1941,1945,1942,World War II,Germany lost,12200,3500000
-127,65,1941,1945,1943,World War II,Germany lost,12200,3500000
-127,65,1941,1945,1944,World War II,Germany lost,12200,3500000
-127,65,1941,1945,1945,World War II,Germany lost,12200,3500000
-127,65,1941,1945,1941,World War II,New Zealand won,12200,3500000
-127,65,1941,1945,1942,World War II,New Zealand won,12200,3500000
-127,65,1941,1945,1943,World War II,New Zealand won,12200,3500000
-127,65,1941,1945,1944,World War II,New Zealand won,12200,3500000
-127,65,1941,1945,1945,World War II,New Zealand won,12200,3500000
-8,65,1941,1945,1941,World War II,Germany lost,33826,3500000
-8,65,1941,1945,1942,World War II,Germany lost,33826,3500000
-8,65,1941,1945,1943,World War II,Germany lost,33826,3500000
-8,65,1941,1945,1944,World War II,Germany lost,33826,3500000
-8,65,1941,1945,1945,World War II,Germany lost,33826,3500000
-8,65,1941,1945,1941,World War II,Australia won,33826,3500000
-8,65,1941,1945,1942,World War II,Australia won,33826,3500000
-8,65,1941,1945,1943,World War II,Australia won,33826,3500000
-8,65,1941,1945,1944,World War II,Australia won,33826,3500000
-8,65,1941,1945,1945,World War II,Australia won,33826,3500000
-85,67,1940,1941,1940,World War II,Italy won,174500,18300
-85,67,1940,1941,1941,World War II,Italy won,174500,18300
-85,67,1940,1941,1940,World War II,Greece lost,174500,18300
-85,67,1940,1941,1941,World War II,Greece lost,174500,18300
-85,206,1941,1941,1941,World War II,Italy won,174500,305000
-85,206,1941,1941,1941,World War II,Yugoslavia lost,174500,305000
-65,206,1941,1941,1941,World War II,Germany won,3500000,305000
-65,206,1941,1941,1941,World War II,Yugoslavia lost,3500000,305000
-30,65,1942,1942,1942,World War II,,41992,3500000
-30,65,1942,1942,1942,World War II,,41992,3500000
-30,65,1943,1945,1943,World War II,Canada won,41992,3500000
-30,65,1943,1945,1944,World War II,Canada won,41992,3500000
-30,65,1943,1945,1945,World War II,Canada won,41992,3500000
-30,65,1943,1945,1943,World War II,Germany lost,41992,3500000
-30,65,1943,1945,1944,World War II,Germany lost,41992,3500000
-30,65,1943,1945,1945,World War II,Germany lost,41992,3500000
-58,85,1941,1941,1941,World War II,Italy lost,5000,174500
-58,85,1941,1941,1941,World War II,Ethiopia won,5000,174500
-177,35,1942,1942,1942,World War II,drawn,,1000
-177,35,1942,1942,1942,World War II,drawn,,1000
-177,189,1942,1942,1942,World War II,drawn,,1000
-177,189,1942,1942,1942,World War II,drawn,,1000
-61,65,1944,1945,1944,World War II,France won,210824,3500000
-61,65,1944,1945,1945,World War II,France won,210824,3500000
-61,65,1944,1945,1944,World War II,Germany lost,210824,3500000
-61,65,1944,1945,1945,World War II,Germany lost,210824,3500000
-65,85,1943,1945,1943,World War II,Germany lost,3500000,174500
-65,85,1943,1945,1944,World War II,Germany lost,3500000,174500
-65,85,1943,1945,1945,World War II,Germany lost,3500000,174500
-65,85,1943,1945,1943,World War II,Italy won,3500000,174500
-65,85,1943,1945,1944,World War II,Italy won,3500000,174500
-65,85,1943,1945,1945,World War II,Italy won,3500000,174500
-87,61,1940,1940,1940,World War II,France lost,,
-87,61,1940,1940,1940,World War II,Japan won,,
-61,8,1941,1941,1941,World War II,France lost,210824,33826
-8,61,1941,1941,1941,World War II,Australia won,33826,210824
-190,61,1942,1942,1942,World War II,United States won,405400,210824
-190,61,1942,1942,1942,World War II,France lost,405400,210824
-189,61,1940,1942,1940,World War II,United Kingdom won,418765,210824
-189,61,1940,1942,1941,World War II,United Kingdom won,418765,210824
-189,61,1940,1942,1942,World War II,United Kingdom won,418765,210824
-189,61,1940,1942,1940,World War II,France lost,418765,210824
-189,61,1940,1942,1941,World War II,France lost,418765,210824
-189,61,1940,1942,1942,World War II,France lost,418765,210824
-65,146,1944,1945,1944,World War II,Germany lost,3500000,10000
-65,146,1944,1945,1945,World War II,Germany lost,3500000,10000
-65,146,1944,1945,1944,World War II,Romania won,3500000,10000
-65,146,1944,1945,1945,World War II,Romania won,3500000,10000
-146,77,1944,1945,1944,World War II,drawn,,
-146,77,1944,1945,1945,World War II,drawn,,
-146,77,1944,1945,1944,World War II,drawn,,
-146,77,1944,1945,1945,World War II,drawn,,
-25,65,1944,1945,1944,World War II,Germany lost,1000,3500000
-25,65,1944,1945,1945,World War II,Germany lost,1000,3500000
-25,65,1944,1945,1944,World War II,Bulgaria won,1000,3500000
-25,65,1944,1945,1945,World War II,Bulgaria won,1000,3500000
-147,60,1939,1940,1939,Russo-Finnish,Russia won,126875,24923
-147,60,1939,1940,1940,Russo-Finnish,Russia won,126875,24923
-147,60,1939,1940,1939,Russo-Finnish,Finland lost,126875,24923
-147,60,1939,1940,1940,Russo-Finnish,Finland lost,126875,24923
-79,134,1947,1948,1947,First Kashmir,India won,2500,1000
-79,134,1947,1948,1948,First Kashmir,India won,2500,1000
-79,134,1947,1948,1947,First Kashmir,Pakistan lost,2500,1000
-79,134,1947,1948,1948,First Kashmir,Pakistan lost,2500,1000
-82,84,1948,1948,1948,Arab-Israeli,Iraq lost,500,4500
-82,84,1948,1948,1948,Arab-Israeli,Israel won,500,4500
-53,84,1948,1949,1948,Arab-Israeli,Egypt lost,2000,4500
-53,84,1948,1949,1949,Arab-Israeli,Egypt lost,2000,4500
-53,84,1948,1949,1948,Arab-Israeli,Israel won,2000,4500
-53,84,1948,1949,1949,Arab-Israeli,Israel won,2000,4500
-173,84,1948,1948,1948,Arab-Israeli,Syria lost,1000,4500
-173,84,1948,1948,1948,Arab-Israeli,Israel won,1000,4500
-97,84,1948,1948,1948,Arab-Israeli,Lebanon lost,500,4500
-97,84,1948,1948,1948,Arab-Israeli,Israel won,500,4500
-88,84,1948,1949,1948,Arab-Israeli,Jordan lost,1000,4500
-88,84,1948,1949,1949,Arab-Israeli,Jordan lost,1000,4500
-88,84,1948,1949,1948,Arab-Israeli,Israel won,1000,4500
-88,84,1948,1949,1949,Arab-Israeli,Israel won,1000,4500
-190,35,1950,1953,1950,Korean,drawn,54487,422612
-190,35,1950,1953,1951,Korean,drawn,54487,422612
-190,35,1950,1953,1952,Korean,drawn,54487,422612
-190,35,1950,1953,1953,Korean,drawn,54487,422612
-190,35,1950,1953,1950,Korean,drawn,54487,422612
-190,35,1950,1953,1951,Korean,drawn,54487,422612
-190,35,1950,1953,1952,Korean,drawn,54487,422612
-190,35,1950,1953,1953,Korean,drawn,54487,422612
-190,51,1950,1953,1950,Korean,drawn,54487,316579
-190,51,1950,1953,1951,Korean,drawn,54487,316579
-190,51,1950,1953,1952,Korean,drawn,54487,316579
-190,51,1950,1953,1953,Korean,drawn,54487,316579
-190,51,1950,1953,1950,Korean,drawn,54487,316579
-190,51,1950,1953,1951,Korean,drawn,54487,316579
-190,51,1950,1953,1952,Korean,drawn,54487,316579
-190,51,1950,1953,1953,Korean,drawn,54487,316579
-30,35,1951,1953,1951,Korean,drawn,309,422612
-30,35,1951,1953,1952,Korean,drawn,309,422612
-30,35,1951,1953,1953,Korean,drawn,309,422612
-30,35,1951,1953,1951,Korean,drawn,309,422612
-30,35,1951,1953,1952,Korean,drawn,309,422612
-30,35,1951,1953,1953,Korean,drawn,309,422612
-30,51,1951,1953,1951,Korean,drawn,309,316579
-30,51,1951,1953,1952,Korean,drawn,309,316579
-30,51,1951,1953,1953,Korean,drawn,309,316579
-30,51,1951,1953,1951,Korean,drawn,309,316579
-30,51,1951,1953,1952,Korean,drawn,309,316579
-30,51,1951,1953,1953,Korean,drawn,309,316579
-36,35,1951,1953,1951,Korean,drawn,140,422612
-36,35,1951,1953,1952,Korean,drawn,140,422612
-36,35,1951,1953,1953,Korean,drawn,140,422612
-36,35,1951,1953,1951,Korean,drawn,140,422612
-36,35,1951,1953,1952,Korean,drawn,140,422612
-36,35,1951,1953,1953,Korean,drawn,140,422612
-36,51,1951,1953,1951,Korean,drawn,140,316579
-36,51,1951,1953,1952,Korean,drawn,140,316579
-36,51,1951,1953,1953,Korean,drawn,140,316579
-36,51,1951,1953,1951,Korean,drawn,140,316579
-36,51,1951,1953,1952,Korean,drawn,140,316579
-36,51,1951,1953,1953,Korean,drawn,140,316579
-189,35,1950,1953,1950,Korean,drawn,710,422612
-189,35,1950,1953,1951,Korean,drawn,710,422612
-189,35,1950,1953,1952,Korean,drawn,710,422612
-189,35,1950,1953,1953,Korean,drawn,710,422612
-189,35,1950,1953,1950,Korean,drawn,710,422612
-189,35,1950,1953,1951,Korean,drawn,710,422612
-189,35,1950,1953,1952,Korean,drawn,710,422612
-189,35,1950,1953,1953,Korean,drawn,710,422612
-189,51,1950,1953,1950,Korean,drawn,710,316579
-189,51,1950,1953,1951,Korean,drawn,710,316579
-189,51,1950,1953,1952,Korean,drawn,710,316579
-189,51,1950,1953,1953,Korean,drawn,710,316579
-189,51,1950,1953,1950,Korean,drawn,710,316579
-189,51,1950,1953,1951,Korean,drawn,710,316579
-189,51,1950,1953,1952,Korean,drawn,710,316579
-189,51,1950,1953,1953,Korean,drawn,710,316579
-126,35,1950,1953,1950,Korean,drawn,111,422612
-126,35,1950,1953,1951,Korean,drawn,111,422612
-126,35,1950,1953,1952,Korean,drawn,111,422612
-126,35,1950,1953,1953,Korean,drawn,111,422612
-126,35,1950,1953,1950,Korean,drawn,111,422612
-126,35,1950,1953,1951,Korean,drawn,111,422612
-126,35,1950,1953,1952,Korean,drawn,111,422612
-126,35,1950,1953,1953,Korean,drawn,111,422612
-126,51,1950,1953,1950,Korean,drawn,111,316579
-126,51,1950,1953,1951,Korean,drawn,111,316579
-126,51,1950,1953,1952,Korean,drawn,111,316579
-126,51,1950,1953,1953,Korean,drawn,111,316579
-126,51,1950,1953,1950,Korean,drawn,111,316579
-126,51,1950,1953,1951,Korean,drawn,111,316579
-126,51,1950,1953,1952,Korean,drawn,111,316579
-126,51,1950,1953,1953,Korean,drawn,111,316579
-16,35,1951,1953,1951,Korean,drawn,97,422612
-16,35,1951,1953,1952,Korean,drawn,97,422612
-16,35,1951,1953,1953,Korean,drawn,97,422612
-16,35,1951,1953,1951,Korean,drawn,97,422612
-16,35,1951,1953,1952,Korean,drawn,97,422612
-16,35,1951,1953,1953,Korean,drawn,97,422612
-16,51,1951,1953,1951,Korean,drawn,97,316579
-16,51,1951,1953,1952,Korean,drawn,97,316579
-16,51,1951,1953,1953,Korean,drawn,97,316579
-16,51,1951,1953,1951,Korean,drawn,97,316579
-16,51,1951,1953,1952,Korean,drawn,97,316579
-16,51,1951,1953,1953,Korean,drawn,97,316579
-61,35,1951,1953,1951,Korean,drawn,288,422612
-61,35,1951,1953,1952,Korean,drawn,288,422612
-61,35,1951,1953,1953,Korean,drawn,288,422612
-61,35,1951,1953,1951,Korean,drawn,288,422612
-61,35,1951,1953,1952,Korean,drawn,288,422612
-61,35,1951,1953,1953,Korean,drawn,288,422612
-61,51,1951,1953,1951,Korean,drawn,288,316579
-61,51,1951,1953,1952,Korean,drawn,288,316579
-61,51,1951,1953,1953,Korean,drawn,288,316579
-61,51,1951,1953,1951,Korean,drawn,288,316579
-61,51,1951,1953,1952,Korean,drawn,288,316579
-61,51,1951,1953,1953,Korean,drawn,288,316579
-67,35,1950,1953,1950,Korean,drawn,169,422612
-67,35,1950,1953,1951,Korean,drawn,169,422612
-67,35,1950,1953,1952,Korean,drawn,169,422612
-67,35,1950,1953,1953,Korean,drawn,169,422612
-67,35,1950,1953,1950,Korean,drawn,169,422612
-67,35,1950,1953,1951,Korean,drawn,169,422612
-67,35,1950,1953,1952,Korean,drawn,169,422612
-67,35,1950,1953,1953,Korean,drawn,169,422612
-67,51,1950,1953,1950,Korean,drawn,169,316579
-67,51,1950,1953,1951,Korean,drawn,169,316579
-67,51,1950,1953,1952,Korean,drawn,169,316579
-67,51,1950,1953,1953,Korean,drawn,169,316579
-67,51,1950,1953,1950,Korean,drawn,169,316579
-67,51,1950,1953,1951,Korean,drawn,169,316579
-67,51,1950,1953,1952,Korean,drawn,169,316579
-67,51,1950,1953,1953,Korean,drawn,169,316579
-58,35,1951,1953,1951,Korean,drawn,120,422612
-58,35,1951,1953,1952,Korean,drawn,120,422612
-58,35,1951,1953,1953,Korean,drawn,120,422612
-58,35,1951,1953,1951,Korean,drawn,120,422612
-58,35,1951,1953,1952,Korean,drawn,120,422612
-58,35,1951,1953,1953,Korean,drawn,120,422612
-58,51,1951,1953,1951,Korean,drawn,120,316579
-58,51,1951,1953,1952,Korean,drawn,120,316579
-58,51,1951,1953,1953,Korean,drawn,120,316579
-58,51,1951,1953,1951,Korean,drawn,120,316579
-58,51,1951,1953,1952,Korean,drawn,120,316579
-58,51,1951,1953,1953,Korean,drawn,120,316579
-183,35,1950,1953,1950,Korean,drawn,717,422612
-183,35,1950,1953,1951,Korean,drawn,717,422612
-183,35,1950,1953,1952,Korean,drawn,717,422612
-183,35,1950,1953,1953,Korean,drawn,717,422612
-183,35,1950,1953,1950,Korean,drawn,717,422612
-183,35,1950,1953,1951,Korean,drawn,717,422612
-183,35,1950,1953,1952,Korean,drawn,717,422612
-183,35,1950,1953,1953,Korean,drawn,717,422612
-183,51,1950,1953,1950,Korean,drawn,717,316579
-183,51,1950,1953,1951,Korean,drawn,717,316579
-183,51,1950,1953,1952,Korean,drawn,717,316579
-183,51,1950,1953,1953,Korean,drawn,717,316579
-183,51,1950,1953,1950,Korean,drawn,717,316579
-183,51,1950,1953,1951,Korean,drawn,717,316579
-183,51,1950,1953,1952,Korean,drawn,717,316579
-183,51,1950,1953,1953,Korean,drawn,717,316579
-35,145,1950,1953,1950,Korean,drawn,422612,113248
-35,145,1950,1953,1951,Korean,drawn,422612,113248
-35,145,1950,1953,1952,Korean,drawn,422612,113248
-35,145,1950,1953,1953,Korean,drawn,422612,113248
-35,145,1950,1953,1950,Korean,drawn,422612,113248
-35,145,1950,1953,1951,Korean,drawn,422612,113248
-35,145,1950,1953,1952,Korean,drawn,422612,113248
-35,145,1950,1953,1953,Korean,drawn,422612,113248
-177,35,1951,1953,1951,Korean,drawn,114,422612
-177,35,1951,1953,1952,Korean,drawn,114,422612
-177,35,1951,1953,1953,Korean,drawn,114,422612
-35,177,1951,1953,1951,Korean,drawn,422612,114
-35,177,1951,1953,1952,Korean,drawn,422612,114
-35,177,1951,1953,1953,Korean,drawn,422612,114
-141,35,1951,1953,1951,Korean,drawn,92,422612
-141,35,1951,1953,1952,Korean,drawn,92,422612
-141,35,1951,1953,1953,Korean,drawn,92,422612
-141,35,1951,1953,1951,Korean,drawn,92,422612
-141,35,1951,1953,1952,Korean,drawn,92,422612
-141,35,1951,1953,1953,Korean,drawn,92,422612
-8,35,1950,1953,1950,Korean,drawn,291,422612
-8,35,1950,1953,1951,Korean,drawn,291,422612
-8,35,1950,1953,1952,Korean,drawn,291,422612
-8,35,1950,1953,1953,Korean,drawn,291,422612
-8,35,1950,1953,1950,Korean,drawn,291,422612
-8,35,1950,1953,1951,Korean,drawn,291,422612
-8,35,1950,1953,1952,Korean,drawn,291,422612
-8,35,1950,1953,1953,Korean,drawn,291,422612
-127,35,1951,1953,1951,Korean,drawn,23,422612
-127,35,1951,1953,1952,Korean,drawn,23,422612
-127,35,1951,1953,1953,Korean,drawn,23,422612
-127,35,1951,1953,1951,Korean,drawn,23,422612
-127,35,1951,1953,1952,Korean,drawn,23,422612
-127,35,1951,1953,1953,Korean,drawn,23,422612
-51,145,1950,1953,1950,Korean,drawn,316579,113248
-51,145,1950,1953,1951,Korean,drawn,316579,113248
-51,145,1950,1953,1952,Korean,drawn,316579,113248
-51,145,1950,1953,1953,Korean,drawn,316579,113248
-51,145,1950,1953,1950,Korean,drawn,316579,113248
-51,145,1950,1953,1951,Korean,drawn,316579,113248
-51,145,1950,1953,1952,Korean,drawn,316579,113248
-51,145,1950,1953,1953,Korean,drawn,316579,113248
-177,51,1951,1953,1951,Korean,drawn,114,316579
-177,51,1951,1953,1952,Korean,drawn,114,316579
-177,51,1951,1953,1953,Korean,drawn,114,316579
-51,177,1951,1953,1951,Korean,drawn,316579,114
-51,177,1951,1953,1952,Korean,drawn,316579,114
-51,177,1951,1953,1953,Korean,drawn,316579,114
-141,51,1950,1953,1950,Korean,drawn,92,316579
-141,51,1950,1953,1951,Korean,drawn,92,316579
-141,51,1950,1953,1952,Korean,drawn,92,316579
-141,51,1950,1953,1953,Korean,drawn,92,316579
-141,51,1950,1953,1950,Korean,drawn,92,316579
-141,51,1950,1953,1951,Korean,drawn,92,316579
-141,51,1950,1953,1952,Korean,drawn,92,316579
-141,51,1950,1953,1953,Korean,drawn,92,316579
-8,51,1950,1953,1950,Korean,drawn,291,316579
-8,51,1950,1953,1951,Korean,drawn,291,316579
-8,51,1950,1953,1952,Korean,drawn,291,316579
-8,51,1950,1953,1953,Korean,drawn,291,316579
-8,51,1950,1953,1950,Korean,drawn,291,316579
-8,51,1950,1953,1951,Korean,drawn,291,316579
-8,51,1950,1953,1952,Korean,drawn,291,316579
-8,51,1950,1953,1953,Korean,drawn,291,316579
-127,51,1950,1953,1950,Korean,drawn,23,316579
-127,51,1950,1953,1951,Korean,drawn,23,316579
-127,51,1950,1953,1952,Korean,drawn,23,316579
-127,51,1950,1953,1953,Korean,drawn,23,316579
-127,51,1950,1953,1950,Korean,drawn,23,316579
-127,51,1950,1953,1951,Korean,drawn,23,316579
-127,51,1950,1953,1952,Korean,drawn,23,316579
-127,51,1950,1953,1953,Korean,drawn,23,316579
-35,174,1954,1955,1954,Off-shore Islands,Taiwan lost,1003,1367
-35,174,1954,1955,1955,Off-shore Islands,Taiwan lost,1003,1367
-189,53,1956,1956,1956,Sinai War,United Kingdom lost,20,3000
-189,53,1956,1956,1956,Sinai War,Egypt won,20,3000
-61,53,1956,1956,1956,Sinai War,France lost,10,3000
-61,53,1956,1956,1956,Sinai War,Egypt won,10,3000
-84,53,1956,1956,1956,Sinai War,Egypt lost,189,3000
-84,53,1956,1956,1956,Sinai War,Israel won,189,3000
-147,77,1956,1956,1956,Soviet Invasion of Hungary,Hungary lost,720,2502
-147,77,1956,1956,1956,Soviet Invasion of Hungary,Russia won,720,2502
-35,174,1958,1958,1958,Taiwan Straits,drawn,300,1500
-35,174,1958,1958,1958,Taiwan Straits,drawn,300,1500
-35,79,1962,1962,1962,Assam,China won,500,1353
-35,79,1962,1962,1962,Assam,India lost,500,1353
-190,195,1965,1973,1965,"Vietnam War, Phase 2",United States won,58153,700000
-190,195,1965,1973,1966,"Vietnam War, Phase 2",United States won,58153,700000
-190,195,1965,1973,1967,"Vietnam War, Phase 2",United States won,58153,700000
-190,195,1965,1973,1968,"Vietnam War, Phase 2",United States won,58153,700000
-190,195,1965,1973,1969,"Vietnam War, Phase 2",United States won,58153,700000
-190,195,1965,1973,1970,"Vietnam War, Phase 2",United States won,58153,700000
-190,195,1965,1973,1971,"Vietnam War, Phase 2",United States won,58153,700000
-190,195,1965,1973,1972,"Vietnam War, Phase 2",United States won,58153,700000
-190,195,1965,1973,1973,"Vietnam War, Phase 2",United States won,58153,700000
-190,195,1965,1973,1965,"Vietnam War, Phase 2",Vietnam lost,58153,700000
-190,195,1965,1973,1966,"Vietnam War, Phase 2",Vietnam lost,58153,700000
-190,195,1965,1973,1967,"Vietnam War, Phase 2",Vietnam lost,58153,700000
-190,195,1965,1973,1968,"Vietnam War, Phase 2",Vietnam lost,58153,700000
-190,195,1965,1973,1969,"Vietnam War, Phase 2",Vietnam lost,58153,700000
-190,195,1965,1973,1970,"Vietnam War, Phase 2",Vietnam lost,58153,700000
-190,195,1965,1973,1971,"Vietnam War, Phase 2",Vietnam lost,58153,700000
-190,195,1965,1973,1972,"Vietnam War, Phase 2",Vietnam lost,58153,700000
-190,195,1965,1973,1973,"Vietnam War, Phase 2",Vietnam lost,58153,700000
-145,195,1965,1973,1965,"Vietnam War, Phase 2",South Korea lost,4687,700000
-145,195,1965,1973,1966,"Vietnam War, Phase 2",South Korea lost,4687,700000
-145,195,1965,1973,1967,"Vietnam War, Phase 2",South Korea lost,4687,700000
-145,195,1965,1973,1968,"Vietnam War, Phase 2",South Korea lost,4687,700000
-145,195,1965,1973,1969,"Vietnam War, Phase 2",South Korea lost,4687,700000
-145,195,1965,1973,1970,"Vietnam War, Phase 2",South Korea lost,4687,700000
-145,195,1965,1973,1971,"Vietnam War, Phase 2",South Korea lost,4687,700000
-145,195,1965,1973,1972,"Vietnam War, Phase 2",South Korea lost,4687,700000
-145,195,1965,1973,1973,"Vietnam War, Phase 2",South Korea lost,4687,700000
-145,195,1965,1973,1965,"Vietnam War, Phase 2",Vietnam won,4687,700000
-145,195,1965,1973,1966,"Vietnam War, Phase 2",Vietnam won,4687,700000
-145,195,1965,1973,1967,"Vietnam War, Phase 2",Vietnam won,4687,700000
-145,195,1965,1973,1968,"Vietnam War, Phase 2",Vietnam won,4687,700000
-145,195,1965,1973,1969,"Vietnam War, Phase 2",Vietnam won,4687,700000
-145,195,1965,1973,1970,"Vietnam War, Phase 2",Vietnam won,4687,700000
-145,195,1965,1973,1971,"Vietnam War, Phase 2",Vietnam won,4687,700000
-145,195,1965,1973,1972,"Vietnam War, Phase 2",Vietnam won,4687,700000
-145,195,1965,1973,1973,"Vietnam War, Phase 2",Vietnam won,4687,700000
-177,195,1967,1973,1967,"Vietnam War, Phase 2",Thailand lost,700000,494
-177,195,1967,1973,1968,"Vietnam War, Phase 2",Thailand lost,700000,494
-177,195,1967,1973,1969,"Vietnam War, Phase 2",Thailand lost,700000,494
-177,195,1967,1973,1970,"Vietnam War, Phase 2",Thailand lost,700000,494
-177,195,1967,1973,1971,"Vietnam War, Phase 2",Thailand lost,700000,494
-177,195,1967,1973,1972,"Vietnam War, Phase 2",Thailand lost,700000,494
-177,195,1967,1973,1973,"Vietnam War, Phase 2",Thailand lost,700000,494
-177,195,1967,1973,1967,"Vietnam War, Phase 2",Vietnam lost,494,700000
-177,195,1967,1973,1968,"Vietnam War, Phase 2",Vietnam lost,494,700000
-177,195,1967,1973,1969,"Vietnam War, Phase 2",Vietnam lost,494,700000
-177,195,1967,1973,1970,"Vietnam War, Phase 2",Vietnam lost,494,700000
-177,195,1967,1973,1971,"Vietnam War, Phase 2",Vietnam lost,494,700000
-177,195,1967,1973,1972,"Vietnam War, Phase 2",Vietnam lost,494,700000
-177,195,1967,1973,1973,"Vietnam War, Phase 2",Vietnam lost,494,700000
-203,195,1965,1975,1965,"Vietnam War, Phase 2",Vietnam lost,254257,700000
-203,195,1965,1975,1966,"Vietnam War, Phase 2",Vietnam lost,254257,700000
-203,195,1965,1975,1967,"Vietnam War, Phase 2",Vietnam lost,254257,700000
-203,195,1965,1975,1968,"Vietnam War, Phase 2",Vietnam lost,254257,700000
-203,195,1965,1975,1969,"Vietnam War, Phase 2",Vietnam lost,254257,700000
-203,195,1965,1975,1970,"Vietnam War, Phase 2",Vietnam lost,254257,700000
-203,195,1965,1975,1971,"Vietnam War, Phase 2",Vietnam lost,254257,700000
-203,195,1965,1975,1972,"Vietnam War, Phase 2",Vietnam lost,254257,700000
-203,195,1965,1975,1973,"Vietnam War, Phase 2",Vietnam lost,254257,700000
-203,195,1965,1975,1974,"Vietnam War, Phase 2",Vietnam lost,254257,700000
-203,195,1965,1975,1975,"Vietnam War, Phase 2",Vietnam lost,254257,700000
-195,203,1965,1975,1965,"Vietnam War, Phase 2",South Vietnam won,700000,254257
-195,203,1965,1975,1966,"Vietnam War, Phase 2",South Vietnam won,700000,254257
-195,203,1965,1975,1967,"Vietnam War, Phase 2",South Vietnam won,700000,254257
-195,203,1965,1975,1968,"Vietnam War, Phase 2",South Vietnam won,700000,254257
-195,203,1965,1975,1969,"Vietnam War, Phase 2",South Vietnam won,700000,254257
-195,203,1965,1975,1970,"Vietnam War, Phase 2",South Vietnam won,700000,254257
-195,203,1965,1975,1971,"Vietnam War, Phase 2",South Vietnam won,700000,254257
-195,203,1965,1975,1972,"Vietnam War, Phase 2",South Vietnam won,700000,254257
-195,203,1965,1975,1973,"Vietnam War, Phase 2",South Vietnam won,700000,254257
-195,203,1965,1975,1974,"Vietnam War, Phase 2",South Vietnam won,700000,254257
-195,203,1965,1975,1975,"Vietnam War, Phase 2",South Vietnam won,700000,254257
-141,195,1966,1969,1966,"Vietnam War, Phase 2",Vietnam lost,1000,700000
-141,195,1966,1969,1967,"Vietnam War, Phase 2",Vietnam lost,1000,700000
-141,195,1966,1969,1968,"Vietnam War, Phase 2",Vietnam lost,1000,700000
-141,195,1966,1969,1969,"Vietnam War, Phase 2",Vietnam lost,1000,700000
-141,195,1966,1969,1966,"Vietnam War, Phase 2",Philippines won,1000,700000
-141,195,1966,1969,1967,"Vietnam War, Phase 2",Philippines won,1000,700000
-141,195,1966,1969,1968,"Vietnam War, Phase 2",Philippines won,1000,700000
-141,195,1966,1969,1969,"Vietnam War, Phase 2",Philippines won,1000,700000
-8,195,1965,1972,1965,"Vietnam War, Phase 2",Vietnam lost,494,700000
-8,195,1965,1972,1966,"Vietnam War, Phase 2",Vietnam lost,494,700000
-8,195,1965,1972,1967,"Vietnam War, Phase 2",Vietnam lost,494,700000
-8,195,1965,1972,1968,"Vietnam War, Phase 2",Vietnam lost,494,700000
-8,195,1965,1972,1969,"Vietnam War, Phase 2",Vietnam lost,494,700000
-8,195,1965,1972,1970,"Vietnam War, Phase 2",Vietnam lost,494,700000
-8,195,1965,1972,1971,"Vietnam War, Phase 2",Vietnam lost,494,700000
-8,195,1965,1972,1972,"Vietnam War, Phase 2",Vietnam lost,494,700000
-8,195,1965,1972,1965,"Vietnam War, Phase 2",Australia won,494,700000
-8,195,1965,1972,1966,"Vietnam War, Phase 2",Australia won,494,700000
-8,195,1965,1972,1967,"Vietnam War, Phase 2",Australia won,494,700000
-8,195,1965,1972,1968,"Vietnam War, Phase 2",Australia won,494,700000
-8,195,1965,1972,1969,"Vietnam War, Phase 2",Australia won,494,700000
-8,195,1965,1972,1970,"Vietnam War, Phase 2",Australia won,494,700000
-8,195,1965,1972,1971,"Vietnam War, Phase 2",Australia won,494,700000
-8,195,1965,1972,1972,"Vietnam War, Phase 2",Australia won,494,700000
-134,79,1965,1965,1965,Second Kashmir,India lost,3800,3261
-134,79,1965,1965,1965,Second Kashmir,Pakistan won,3800,3261
-84,82,1967,1967,1967,Six Day War,Iraq lost,1000,30
-84,82,1967,1967,1967,Six Day War,Israel won,1000,30
-84,53,1967,1967,1967,Six Day War,Egypt lost,1000,10000
-84,53,1967,1967,1967,Six Day War,Israel won,1000,10000
-84,173,1967,1967,1967,Six Day War,Syria lost,1000,2500
-84,173,1967,1967,1967,Six Day War,Israel won,1000,2500
-84,88,1967,1967,1967,Six Day War,Jordan lost,1000,10000
-84,88,1967,1967,1967,Six Day War,Israel won,1000,10000
-195,95,1967,1973,1967,"Second Laotian, Phase 2",Laos lost,2250,11250
-195,95,1967,1973,1968,"Second Laotian, Phase 2",Laos lost,2250,11250
-195,95,1967,1973,1969,"Second Laotian, Phase 2",Laos lost,2250,11250
-195,95,1967,1973,1970,"Second Laotian, Phase 2",Laos lost,2250,11250
-195,95,1967,1973,1971,"Second Laotian, Phase 2",Laos lost,2250,11250
-195,95,1967,1973,1972,"Second Laotian, Phase 2",Laos lost,2250,11250
-195,95,1967,1973,1973,"Second Laotian, Phase 2",Laos lost,2250,11250
-195,95,1967,1973,1967,"Second Laotian, Phase 2",Vietnam won,2250,11250
-195,95,1967,1973,1968,"Second Laotian, Phase 2",Vietnam won,2250,11250
-195,95,1967,1973,1969,"Second Laotian, Phase 2",Vietnam won,2250,11250
-195,95,1967,1973,1970,"Second Laotian, Phase 2",Vietnam won,2250,11250
-195,95,1967,1973,1971,"Second Laotian, Phase 2",Vietnam won,2250,11250
-195,95,1967,1973,1972,"Second Laotian, Phase 2",Vietnam won,2250,11250
-195,95,1967,1973,1973,"Second Laotian, Phase 2",Vietnam won,2250,11250
-53,84,1969,1970,1969,War of Attrition,drawn,368,5000
-53,84,1969,1970,1970,War of Attrition,drawn,368,5000
-53,84,1969,1970,1969,War of Attrition,drawn,368,5000
-53,84,1969,1970,1970,War of Attrition,drawn,368,5000
-54,75,1969,1969,1969,Football War,Honduras lost,700,1200
-54,75,1969,1969,1969,Football War,El Salvador won,700,1200
-195,28,1970,1971,1970,Communist Coalition,drawn,400,5000
-195,28,1970,1971,1971,Communist Coalition,drawn,400,5000
-195,28,1970,1971,1970,Communist Coalition,drawn,400,5000
-195,28,1970,1971,1971,Communist Coalition,drawn,400,5000
-134,79,1971,1971,1971,Bangladesh,India won,7982,3241
-134,79,1971,1971,1971,Bangladesh,Pakistan lost,7982,3241
-82,84,1973,1973,1973,Yom Kippur War,drawn,3500,278
-53,84,1973,1973,1973,Yom Kippur War,Egypt lost,7700,2838
-53,84,1973,1973,1973,Yom Kippur War,Israel won,7700,2838
-173,84,1973,1973,1973,Yom Kippur War,Syria lost,3500,2838
-173,84,1973,1973,1973,Yom Kippur War,Israel won,3500,2838
-88,84,1973,1973,1973,Yom Kippur War,drawn,3500,23
-88,84,1973,1973,1973,Yom Kippur War,drawn,3500,23
-154,84,1973,1973,1973,Yom Kippur War,drawn,3500,100
-154,84,1973,1973,1973,Yom Kippur War,drawn,3500,100
-183,67,1974,1978,1974,Turco-Cypriot,Greece lost,,
-183,67,1974,1978,1974,Turco-Cypriot,Turkey won,,
-183,45,1974,1974,1974,Turco-Cypriot,Cyprus lost,1000,500
-183,45,1974,1974,1974,Turco-Cypriot,Turkey won,1000,500
-39,44,1975,1976,1975,War over Angola,drawn,100,1500
-39,44,1975,1976,1976,War over Angola,drawn,100,1500
-44,39,1975,1976,1975,War over Angola,drawn,1500,100
-44,39,1975,1976,1976,War over Angola,drawn,1500,100
-164,44,1975,1976,1975,War over Angola,drawn,100,1500
-164,44,1975,1976,1976,War over Angola,drawn,100,1500
-164,44,1987,1988,1987,War over Angola,drawn,,
-164,44,1987,1988,1988,War over Angola,drawn,,
-164,44,1975,1976,1975,War over Angola,drawn,100,1500
-164,44,1975,1976,1976,War over Angola,drawn,100,1500
-164,44,1987,1988,1987,War over Angola,drawn,,
-164,44,1987,1988,1988,War over Angola,drawn,,
-39,4,1975,1976,1975,War over Angola,drawn,100,1000
-39,4,1975,1976,1976,War over Angola,drawn,100,1000
-39,4,1975,1976,1975,War over Angola,drawn,100,1000
-39,4,1975,1976,1976,War over Angola,drawn,100,1000
-164,4,1975,1976,1975,War over Angola,drawn,100,1000
-164,4,1975,1976,1976,War over Angola,drawn,100,1000
-164,4,1987,1988,1987,War over Angola,drawn,100,1000
-164,4,1987,1988,1988,War over Angola,drawn,100,1000
-164,4,1975,1976,1975,War over Angola,drawn,100,1000
-4,164,1975,1976,1976,War over Angola,drawn,1000,100
-164,4,1987,1988,1987,War over Angola,drawn,100,1000
-164,4,1987,1988,1988,War over Angola,drawn,100,1000
-44,163,1978,1978,1978,"Second Ogaden War, Phase 2",Cuba won,1800,700
-44,163,1978,1978,1978,"Second Ogaden War, Phase 2",Somalia lost,1800,700
-163,58,1977,1978,1977,"Second Ogaden War, Phase 2",Somalia lost,8000,1800
-163,58,1977,1978,1978,"Second Ogaden War, Phase 2",Somalia lost,8000,1800
-163,58,1977,1978,1977,"Second Ogaden War, Phase 2",Ethiopia won,8000,1800
-163,58,1977,1978,1978,"Second Ogaden War, Phase 2",Ethiopia won,8000,1800
-28,195,1977,1979,1977,Vietnamese-Cambodian,Cambodia lost,5000,3000
-28,195,1977,1979,1978,Vietnamese-Cambodian,Cambodia lost,5000,3000
-28,195,1977,1979,1979,Vietnamese-Cambodian,Cambodia lost,5000,3000
-28,195,1977,1979,1977,Vietnamese-Cambodian,Vietnam won,5000,3000
-28,195,1977,1979,1978,Vietnamese-Cambodian,Vietnam won,5000,3000
-28,195,1977,1979,1979,Vietnamese-Cambodian,Vietnam won,5000,3000
-186,176,1978,1979,1978,Ugandian-Tanzanian,Uganda won,1500,1000
-186,176,1978,1979,1979,Ugandian-Tanzanian,Uganda won,1500,1000
-186,176,1978,1979,1978,Ugandian-Tanzanian,Tanzania lost,1500,1000
-186,176,1978,1979,1979,Ugandian-Tanzanian,Tanzania lost,1500,1000
-100,176,1979,1979,1979,Ugandian-Tanzanian,Tanzania won,500,1500
-100,176,1979,1979,1979,Ugandian-Tanzanian,Libya lost,500,1500
-35,195,1979,1979,1979,Sino-Vietnamese Punitive,drawn,8000,13000
-35,195,1979,1979,1979,Sino-Vietnamese Punitive,drawn,8000,13000
-82,81,1980,1988,1980,Iran-Iraq,drawn,750000,500000
-82,81,1980,1988,1981,Iran-Iraq,drawn,750000,500000
-82,81,1980,1988,1982,Iran-Iraq,drawn,750000,500000
-82,81,1980,1988,1983,Iran-Iraq,drawn,750000,500000
-82,81,1980,1988,1984,Iran-Iraq,drawn,750000,500000
-82,81,1980,1988,1985,Iran-Iraq,drawn,750000,500000
-82,81,1980,1988,1986,Iran-Iraq,drawn,750000,500000
-82,81,1980,1988,1987,Iran-Iraq,drawn,750000,500000
-82,81,1980,1988,1988,Iran-Iraq,drawn,750000,500000
-82,81,1980,1988,1980,Iran-Iraq,drawn,750000,500000
-82,81,1980,1988,1981,Iran-Iraq,drawn,750000,500000
-82,81,1980,1988,1982,Iran-Iraq,drawn,750000,500000
-82,81,1980,1988,1983,Iran-Iraq,drawn,750000,500000
-82,81,1980,1988,1984,Iran-Iraq,drawn,750000,500000
-82,81,1980,1988,1985,Iran-Iraq,drawn,750000,500000
-82,81,1980,1988,1986,Iran-Iraq,drawn,750000,500000
-82,81,1980,1988,1987,Iran-Iraq,drawn,750000,500000
-82,81,1980,1988,1988,Iran-Iraq,drawn,750000,500000
-6,189,1982,1982,1982,Falkland Islands,Argentina lost,255,746
-6,189,1982,1982,1982,Falkland Islands,United Kingdom won,255,746
-84,173,1982,1982,1982,War over Lebanon,drawn,455,1200
-84,173,1982,1982,1982,War over Lebanon,drawn,455,1200
-33,100,1987,1987,1987,War over the Aouzou Strip,Chad won,1000,7000
-33,100,1987,1987,1987,War over the Aouzou Strip,Libya lost,1000,7000
-35,195,1987,1987,1987,Sino-Vietnamese Border War,drawn,2200,1000
-35,195,1987,1987,1987,Sino-Vietnamese Border War,drawn,2200,1000
-190,82,1991,1991,1991,Gulf War,United States won,376,40000
-190,82,1991,1991,1991,Gulf War,Iraq lost,376,40000
-30,82,1991,1991,1991,Gulf War,Canada won,0,40000
-30,82,1991,1991,1991,Gulf War,Iraq lost,0,40000
-189,82,1991,1991,1991,Gulf War,United Kingdom won,24,40000
-189,82,1991,1991,1991,Gulf War,Iraq lost,24,40000
-61,82,1991,1991,1991,Gulf War,France won,2,40000
-61,82,1991,1991,1991,Gulf War,Iraq lost,2,40000
-85,82,1991,1991,1991,Gulf War,Italy won,0,40000
-85,82,1991,1991,1991,Gulf War,Iraq lost,0,40000
-53,82,1991,1991,1991,Gulf War,Iraq lost,14,40000
-53,82,1991,1991,1991,Gulf War,Egypt won,14,40000
-173,82,1991,1991,1991,Gulf War,Iraq lost,0,40000
-173,82,1991,1991,1991,Gulf War,Syria won,0,40000
-154,82,1991,1991,1991,Gulf War,Iraq lost,44,40000
-154,82,1991,1991,1991,Gulf War,Saudi Arabia won,44,40000
-7,10,1993,1994,1993,Azeri-Armenian,Armenia won,5500,8500
-7,10,1993,1994,1994,Azeri-Armenian,Armenia won,5500,8500
-7,10,1993,1994,1993,Azeri-Armenian,Azerbaijan lost,5500,8500
-7,10,1993,1994,1994,Azeri-Armenian,Azerbaijan lost,5500,8500
-56,58,1998,2000,1998,Badme Border,drawn,50000,70000
-56,58,1998,2000,1999,Badme Border,drawn,50000,70000
-56,58,1998,2000,2000,Badme Border,drawn,50000,70000
-56,58,1998,2000,1998,Badme Border,drawn,50000,70000
-56,58,1998,2000,1999,Badme Border,drawn,50000,70000
-56,58,1998,2000,2000,Badme Border,drawn,50000,70000
-190,206,1999,1999,1999,War for Kosovo,United States won,2,5000
-190,206,1999,1999,1999,War for Kosovo,Yugoslavia lost,2,5000
-134,79,1999,1999,1999,Kargil War,India won,698,474
-134,79,1999,1999,1999,Kargil War,Pakistan lost,698,474
-190,0,2001,2001,2001,Invasion of Afghanistan,United States won,2,4000
-190,0,2001,2001,2001,Invasion of Afghanistan,Afghanistan lost,2,4000
-189,0,2001,2001,2001,Invasion of Afghanistan,United Kingdom won,0,4000
-189,0,2001,2001,2001,Invasion of Afghanistan,Afghanistan lost,0,4000
-190,82,2003,2003,2003,Invasion of Iraq,United States won,140,7000
-190,82,2003,2003,2003,Invasion of Iraq,Iraq lost,140,7000
-189,82,2003,2003,2003,Invasion of Iraq,United Kingdom won,33,7000
-189,82,2003,2003,2003,Invasion of Iraq,Iraq lost,33,7000
-8,82,2003,2003,2003,Invasion of Iraq,Iraq lost,0,7000
-8,82,2003,2003,2003,Invasion of Iraq,Australia won,0,7000
+node1,node2,startYear,endYear,warName,outcome,node1Deaths,node2Deaths
+61,166,1823,1823,Franco-Spanish War,France won,400,600
+147,183,1828,1829,First Russo-Turkish,Russia won,50000,80000
+190,114,1846,1847,Mexican-American,United States won,13283,6000
+85,209,1848,1848,Austro-Sardinian,Both Italy and Tuscany lost,3400,100
+85,204,1848,1848,Austro-Sardinian,Austria-Hungary won,3400,3927
+85,208,1848,1848,Austro-Sardinian,Both Italy and Modena lost,3400,100
+65,47,1848,1848,First Schleswig-Holstein,Germany won,2500,3500
+61,211,1849,1849,Roman Republic,Both France and Two Sicilies won,1000,100
+61,204,1849,1849,Roman Republic,Both France and Austria-Hungary won,1000,100
+61,210,1849,1849,Roman Republic,France won,1000,1400
+23,6,1851,1852,La Plata,Brazil won,500,800
+183,85,1855,1856,Crimean,Both Turkey and Italy won,45000,2200
+183,61,1854,1856,Crimean,Both Turkey and France won,45000,95000
+183,189,1854,1856,Crimean,Both Turkey and United Kingdom won,45000,22000
+183,147,1853,1856,Crimean,Turkey won,45000,100000
+189,81,1856,1857,Anglo-Persian,United Kingdom won,500,1500
+204,85,1859,1859,Italian Unification,Italy won,12500,2500
+204,61,1859,1859,Italian Unification,France won,12500,7500
+166,120,1859,1860,First Spanish-Moroccan,Spain won,4000,6000
+85,210,1860,1860,Italian-Roman,Italy won,300,700
+85,211,1860,1861,Neapolitan,Italy won,600,400
+61,114,1862,1867,Franco-Mexican,The war was transformed into another type of war,8000,12000
+36,52,1863,1863,Ecuadorian-Colombian,Colombia won,300,700
+65,47,1864,1864,Second Schleswig-Holstein,Germany won,1048,2933
+65,204,1864,1864,Second Schleswig-Holstein,Both Germany and Austria-Hungary won,1048,500
+139,6,1865,1870,Lopez,Argentina won,200000,10000
+139,23,1864,1870,Lopez,Brazil won,200000,100000
+166,34,1865,1866,Naval War,Chile won,300,100
+166,140,1866,1866,Naval War,Peru won,300,600
+65,85,1866,1866,Seven Weeks,Both Germany and Italy won,10000,4000
+65,217,1866,1866,Seven Weeks,Germany won,10000,100
+65,215,1866,1866,Seven Weeks,Germany won,10000,100
+65,214,1866,1866,Seven Weeks,Germany won,10000,500
+65,204,1866,1866,Seven Weeks,Germany won,10000,28000
+65,213,1866,1866,Seven Weeks,Both Germany and Mecklenburg Schwerin won,10000,100
+65,216,1866,1866,Seven Weeks,Germany won,10000,100
+65,219,1866,1866,Seven Weeks,Germany won,10000,600
+65,218,1866,1866,Seven Weeks,Germany won,10000,100
+65,212,1866,1866,Seven Weeks,Germany won,10000,500
+61,215,1870,1870,Franco-Prussian,Wuerttemburg won,152000,976
+61,218,1870,1870,Franco-Prussian,Baden won,152000,956
+61,65,1870,1871,Franco-Prussian,Germany won,152000,44781
+61,214,1870,1870,Franco-Prussian,Bavaria won,152000,5600
+69,54,1876,1876,First Central American,Guatemala won,2000,2000
+147,183,1877,1878,Second Russo-Turkish,Russia won,120000,165000
+34,140,1879,1883,War of the Pacific,Chile won,3276,9672
+34,20,1879,1883,War of the Pacific,Chile won,3276,920
+189,53,1882,1882,Conquest of Egypt,United Kingdom won,79,10000
+61,35,1884,1885,Sino-French,France won,2100,10000
+69,54,1885,1885,Second Central American,El Salvador won,800,200
+87,35,1894,1895,First Sino-Japanese,Japan won,5000,10000
+67,183,1897,1897,Greco-Turkish,Turkey won,600,1400
+190,166,1898,1898,Spanish-American,United States won,2910,775
+147,35,1900,1900,Boxer Rebellion,Russia won,302,2000
+87,35,1900,1900,Boxer Rebellion,Japan won,622,2000
+190,35,1900,1900,Boxer Rebellion,United States won,21,2000
+189,35,1900,1900,Boxer Rebellion,United Kingdom won,34,2000
+61,35,1900,1900,Boxer Rebellion,France won,24,2000
+147,35,1900,1900,Sino-Russian,Russia won,242,3758
+87,147,1904,1905,Russo-Japanese,Japan won,80378,71453
+69,75,1906,1906,Third Central American,Guatemala won,400,300
+69,54,1906,1906,Third Central American,Guatemala won,400,300
+128,54,1907,1907,Fourth Central American,Nicaragua won,400,300
+128,75,1907,1907,Fourth Central American,Nicaragua won,400,300
+166,120,1909,1910,Second Spanish-Moroccan,Spain won,2000,8000
+85,183,1911,1912,Italian-Turkish,Italy won,6000,14000
+206,183,1912,1912,First Balkan,Yugoslavia won,15000,30000
+206,67,1912,1912,First Balkan,Both Yugoslavia and Greece won,15000,5000
+206,25,1912,1912,First Balkan,Both Yugoslavia and Bulgaria won,15000,32000
+25,183,1913,1913,Second Balkan,Turkey won,18000,20000
+25,206,1913,1913,Second Balkan,Yugoslavia won,18000,18500
+25,67,1913,1913,Second Balkan,Greece won,18000,2500
+25,146,1913,1913,Second Balkan,Romania won,18000,1500
+204,206,1914,1918,World War I,Yugoslavia won,1200000,70000
+204,147,1914,1917,World War I,Russia won,1200000,1700000
+204,25,1915,1918,World War I,Both Austria-Hungary and Bulgaria lost,1200000,87500
+204,189,1914,1918,World War I,United Kingdom won,1200000,908371
+204,87,1914,1918,World War I,Japan won,1200000,300
+204,143,1916,1918,World War I,Portugal won,1200000,7222
+204,183,1914,1918,World War I,Both Austria-Hungary and Turkey lost,1200000,325000
+204,16,1914,1918,World War I,Belgium won,1200000,13716
+204,65,1914,1918,World War I,Both Austria-Hungary and Germany lost,1200000,1773700
+204,67,1917,1918,World War I,Greece won,1200000,5000
+204,146,1916,1917,World War I,Romania won,1200000,335706
+204,61,1914,1918,World War I,France won,1200000,1385000
+204,85,1915,1918,World War I,Italy won,1200000,650000
+204,190,1917,1918,World War I,United States won,1200000,116516
+147,57,1918,1920,Estonian Liberation,Estonia won,8000,3600
+147,60,1918,1920,Estonian Liberation,Finland won,8000,150
+147,65,1918,1919,Latvian Liberation,Germany changed sides,8000,450
+147,65,1919,1919,Latvian Liberation,Both Russia and Germany lost,8000,750
+147,57,1919,1920,Latvian Liberation,Estonia won,8000,1000
+147,96,1918,1920,Latvian Liberation,Latvia won,8000,3046
+147,142,1919,1920,Russo-Polish,Poland won,60000,40000
+146,77,1919,1919,Hungarian Adversaries,Romania won,3000,6000
+146,207,1919,1919,Hungarian Adversaries,Both Romania and Czechoslovakia won,3000,2000
+67,183,1919,1922,Second Greco-Turkish,Turkey won,30000,20000
+61,183,1919,1921,Franco-Turkish,Compromise/Tied,5000,35000
+142,102,1920,1920,Lithuanian-Polish,Poland won,500,500
+147,35,1929,1929,Manchurian,Russia won,200,3000
+87,35,1931,1933,Second Sino-Japanese,Japan won,10000,50000
+20,139,1932,1935,Chaco,Paraguay won,56661,36000
+154,205,1934,1934,Saudi-Yemeni,Saudi Arabia won,100,2000
+85,58,1935,1936,Conquest of Ethiopia,Italy won,4000,16000
+87,35,1937,1941,Third Sino-Japanese,Japan won,250000,750000
+87,147,1938,1938,Changkufeng,Russia won,526,1200
+87,147,1939,1939,Nomonhan,Russia won,20000,5000
+87,118,1939,1939,Nomonhan,Mongolia won,20000,3000
+65,77,1941,1945,World War II,Both Germany and Hungary lost,3500000,136000
+65,16,1940,1940,World War II,Belgium won,3500000,9600
+65,61,1940,1941,World War II,Both Germany and France lost,3500000,2500
+65,206,1941,1941,World War II,Yugoslavia won,3500000,305000
+65,60,1941,1944,World War II,Both Germany and Finland lost,3500000,65000
+65,132,1940,1940,World War II,Norway won,3500000,3000
+65,30,1939,1945,World War II,Canada won,3500000,41992
+65,190,1941,1945,World War II,United States won,3500000,405400
+65,189,1939,1945,World War II,United Kingdom won,3500000,418765
+65,126,1940,1940,World War II,Netherlands won,3500000,7900
+65,85,1940,1943,World War II,Both Germany and Italy lost,3500000,174500
+65,146,1944,1945,World War II,Romania won,3500000,10000
+65,146,1941,1944,World War II,Both Germany and Romania lost,3500000,290000
+65,25,1941,1944,World War II,Both Germany and Bulgaria lost,3500000,9000
+65,25,1944,1945,World War II,Bulgaria won,3500000,1000
+65,67,1940,1941,World War II,Greece won,3500000,18300
+65,23,1944,1945,World War II,Brazil won,3500000,1000
+65,85,1943,1945,World War II,Italy won,3500000,52400
+65,8,1939,1945,World War II,Australia won,3500000,33826
+65,127,1939,1945,World War II,New Zealand won,3500000,12200
+65,147,1941,1945,World War II,Russia won,3500000,7500000
+65,142,1939,1939,World War II,Poland won,3500000,320000
+65,61,1939,1940,World War II,France won,3500000,210824
+65,87,1941,1945,World War II,Both Germany and Japan lost,3500000,1740000
+65,118,1945,1945,World War II,Mongolia won,3500000,3000
+65,35,1941,1945,World War II,China won,3500000,1350000
+65,164,1939,1945,World War II,South Africa won,3500000,8700
+65,58,1941,1941,World War II,Ethiopia won,3500000,5000
+147,60,1939,1940,Russo-Finnish,Russia won,126875,24923
+177,61,1940,1941,Franco-Thai,Thailand won,700,700
+79,134,1947,1949,First Kashmir,Stalemate,2500,1000
+88,84,1948,1948,Arab-Israeli,Israel won,1000,3000
+88,53,1948,1948,Arab-Israeli,Both Jordan and Egypt lost,1000,2000
+88,173,1948,1948,Arab-Israeli,Both Jordan and Syria lost,1000,1000
+88,97,1948,1948,Arab-Israeli,Both Jordan and Lebanon lost,1000,500
+88,82,1948,1948,Arab-Israeli,Both Jordan and Iraq lost,1000,500
+51,35,1950,1953,Korean,Stalemate,316579,422612
+51,16,1951,1953,Korean,Stalemate,316579,97
+51,30,1950,1953,Korean,Stalemate,316579,309
+51,36,1951,1953,Korean,Stalemate,316579,140
+51,189,1950,1953,Korean,Stalemate,316579,710
+51,126,1951,1953,Korean,Stalemate,316579,111
+51,67,1951,1953,Korean,Stalemate,316579,169
+51,61,1951,1953,Korean,Stalemate,316579,288
+51,183,1950,1953,Korean,Stalemate,316579,717
+51,141,1950,1953,Korean,Stalemate,316579,92
+51,177,1951,1953,Korean,Stalemate,316579,114
+51,58,1951,1953,Korean,Stalemate,316579,120
+51,8,1950,1953,Korean,Stalemate,316579,291
+51,145,1950,1953,Korean,Stalemate,316579,113248
+51,190,1950,1953,Korean,Stalemate,316579,54487
+35,174,1954,1955,Off-shore Islands,China won,1003,1367
+84,61,1956,1956,Sinai War,Both Israel and France won,189,10
+84,53,1956,1956,Sinai War,Israel won,189,3000
+84,189,1956,1956,Sinai War,Both Israel and United Kingdom won,189,22
+147,77,1956,1956,Soviet Invasion of Hungary,Russia won,1500,926
+120,61,1958,1958,IfniWar,France won,1000,0
+120,166,1957,1958,IfniWar,Spain won,1000,122
+35,174,1958,1958,Taiwan Straits,Stalemate,300,1500
+35,79,1962,1962,Assam,China won,500,1353
+190,28,1970,1973,"Vietnam War, Phase 2",Both United States and Cambodia lost,58153,2500
+190,145,1965,1973,"Vietnam War, Phase 2",Both United States and South Korea lost,58153,4687
+190,141,1966,1973,"Vietnam War, Phase 2",Both United States and Philippines lost,58153,1000
+190,203,1965,1973,"Vietnam War, Phase 2",Both United States and South Vietnam lost,58153,254257
+190,195,1965,1973,"Vietnam War, Phase 2",Vietnam won,58153,700000
+190,177,1967,1973,"Vietnam War, Phase 2",Both United States and Thailand lost,58153,351
+190,8,1965,1972,"Vietnam War, Phase 2",Both United States and Australia lost,58153,494
+134,79,1965,1965,Second Kashmir,Pakistan won,3800,3261
+84,53,1967,1967,Six Day War,Israel won,1000,10000
+84,88,1967,1967,Six Day War,Israel won,1000,6100
+84,173,1967,1967,Six Day War,Israel won,1000,2500
+195,190,1968,1973,"Second Laotian, Phase 2",Vietnam won,2250,375
+195,177,1970,1973,"Second Laotian, Phase 2",Vietnam won,2250,-9
+195,95,1968,1973,"Second Laotian, Phase 2",Vietnam won,2250,11250
+53,84,1969,1970,War of Attrition,Stalemate,5000,368
+54,75,1969,1969,Football War,El Salvador won,700,1200
+195,190,1970,1971,Communist Coalition,The war was transformed into another type of war,400,125
+195,28,1970,1971,Communist Coalition,The war was transformed into another type of war,400,5000
+195,203,1970,1971,Communist Coalition,The war was transformed into another type of war,400,1000
+134,79,1971,1971,Bangladesh,India won,7982,3241
+53,154,1973,1973,Yom Kippur War,Both Egypt and Saudi Arabia lost,7700,100
+53,84,1973,1973,Yom Kippur War,Israel won,7700,2838
+53,88,1973,1973,Yom Kippur War,Both Egypt and Jordan lost,7700,23
+53,82,1973,1973,Yom Kippur War,Both Egypt and Iraq lost,7700,278
+173,154,1973,1973,Yom Kippur War,Both Syria and Saudi Arabia lost,3500,100
+173,84,1973,1973,Yom Kippur War,Israel won,3500,2838
+173,88,1973,1973,Yom Kippur War,Both Syria and Jordan lost,3500,23
+173,82,1973,1973,Yom Kippur War,Both Syria and Iraq lost,3500,278
+183,45,1974,1974,Turco-Cypriot,Turkey won,1000,500
+164,44,1975,1976,War over Angola,The war was transformed into another type of war,100,1500
+164,39,1975,1976,War over Angola,The war was transformed into another type of war,100,100
+164,4,1975,1976,War over Angola,The war was transformed into another type of war,100,1000
+163,58,1977,1978,"Second Ogaden War, Phase 2",The war was transformed into another type of war,8000,1800
+163,44,1977,1978,"Second Ogaden War, Phase 2",The war was transformed into another type of war,8000,700
+28,195,1977,1979,Vietnamese-Cambodian,The war was transformed into another type of war,5000,3000
+186,176,1978,1979,Ugandian-Tanzanian,Tanzania won,1500,1000
+186,100,1979,1979,Ugandian-Tanzanian,Both Uganda and Libya lost,1500,500
+35,195,1979,1979,Sino-Vietnamese Punitive,China won,13000,8000
+82,81,1980,1988,Iran-Iraq,Stalemate,500000,750000
+6,189,1982,1982,Falkland Islands,United Kingdom won,746,255
+84,173,1982,1982,War over Lebanon,Stalemate,455,1200
+33,100,1986,1987,War over the Aouzou Strip,Chad won,1000,7000
+35,195,1987,1987,Sino-Vietnamese Border War,Stalemate,1800,2200
+82,93,1990,1991,Gulf War,Kuwait won,40000,1000
+82,190,1991,1991,Gulf War,United States won,40000,376
+82,30,1991,1991,Gulf War,Canada won,40000,0
+82,189,1991,1991,Gulf War,United Kingdom won,40000,24
+82,85,1991,1991,Gulf War,Italy won,40000,0
+82,120,1991,1991,Gulf War,Morocco won,40000,0
+82,53,1991,1991,Gulf War,Egypt won,40000,14
+82,133,1991,1991,Gulf War,Oman won,40000,0
+82,61,1991,1991,Gulf War,France won,40000,2
+82,188,1991,1991,Gulf War,United Arab Emirates won,40000,6
+82,144,1991,1991,Gulf War,Qatar won,40000,0
+82,154,1991,1991,Gulf War,Saudi Arabia won,40000,44
+82,173,1991,1991,Gulf War,Syria won,40000,0
+206,43,1992,1992,Bosnian Independence,The war was transformed into another type of war,1890,500
+206,21,1992,1992,Bosnian Independence,The war was transformed into another type of war,1890,2850
+7,10,1993,1994,Azeri-Armenian,Armenia won,5500,8500
+52,140,1995,1995,Cenepa Valley,Compromise/Tied,550,950
+56,58,1998,2000,Badme Border,Stalemate,50000,70000
+183,206,1999,1999,War for Kosovo,Turkey won,0,5000
+85,206,1999,1999,War for Kosovo,Italy won,0,5000
+189,206,1999,1999,War for Kosovo,United Kingdom won,0,5000
+190,206,1999,1999,War for Kosovo,United States won,2,5000
+126,206,1999,1999,War for Kosovo,Netherlands won,0,5000
+61,206,1999,1999,War for Kosovo,France won,0,5000
+65,206,1999,1999,War for Kosovo,Germany won,0,5000
+134,79,1999,1999,Kargil War,India won,698,474
+189,30,2001,2001,Invasion of Afghanistan,The war was transformed into another type of war,0,0
+189,61,2001,2001,Invasion of Afghanistan,The war was transformed into another type of war,0,0
+189,8,2001,2001,Invasion of Afghanistan,The war was transformed into another type of war,0,0
+189,0,2001,2001,Invasion of Afghanistan,The war was transformed into another type of war,0,4000
+190,30,2001,2001,Invasion of Afghanistan,The war was transformed into another type of war,2,0
+190,61,2001,2001,Invasion of Afghanistan,The war was transformed into another type of war,2,0
+190,8,2001,2001,Invasion of Afghanistan,The war was transformed into another type of war,2,0
+190,0,2001,2001,Invasion of Afghanistan,The war was transformed into another type of war,2,4000
+8,82,2003,2003,Invasion of Iraq,The war was transformed into another type of war,0,7000
+189,82,2003,2003,Invasion of Iraq,The war was transformed into another type of war,33,7000
+190,82,2003,2003,Invasion of Iraq,The war was transformed into another type of war,140,7000
