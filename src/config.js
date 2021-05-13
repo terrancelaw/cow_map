@@ -156,7 +156,7 @@ export const config = {
 			metricName: 'military personnel'
 		}, {
 			fileName: 'total_population.csv',
-			displayName: 'Total Population',
+			displayName: 'Total Population (thousands)',
 			isBilateral: false,
 			metricName: 'population'
 		}
