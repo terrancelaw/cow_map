@@ -1,11 +1,11 @@
 import { VisualizationPaneLabel } from './VisualizationPaneLabel';
 import { checkIfIsHighlighted } from '../VisualizationPaneLinks/VisualizationPaneLinks';
 
-const generateMetadata = (visualizationPaneList, hoverState) => {
+const generateMetadata = (linkList, hoverState) => {
 	const nodeIDSet = new Set();
 	const highlightedNodeIDSet = new Set();
 
-	for (let linkObject of visualizationPaneList) {
+	for (let linkObject of linkList) {
 		const { sourceID, targetID } = linkObject;
 		const isHighlighted = checkIfIsHighlighted(linkObject, hoverState);
 
@@ -50,14 +50,14 @@ const generateNodeList = (
 };
 
 export const VisualizationPaneLabels = ({ 
-	visualizationPaneList,
+	linkList,
 	countryIDToData,
 	projectionState,
 	hoverState,
 	dispatch
 }) => {
 	const { projection } = projectionState;
-	const [ nodeIDSet, highlightedNodeIDSet ] = generateMetadata(visualizationPaneList, hoverState);
+	const [ nodeIDSet, highlightedNodeIDSet ] = generateMetadata(linkList, hoverState);
 	const nodeList = generateNodeList(nodeIDSet, highlightedNodeIDSet, projection, countryIDToData);
 
 	return (

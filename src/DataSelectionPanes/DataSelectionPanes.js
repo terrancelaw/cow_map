@@ -12,13 +12,11 @@ export const DataSelectionPanes = memo(({
 	sourcePaneList,
 	targetPaneList,
 	dispatch
-}) => {	
+}) => {
 	const handleSelectLink = linkKey => 
 		dispatch({ type: 'SELECT_LINK_PANE_ITEM', linkKey });
 	const handleSelectLinks = isSelected => 
 		dispatch({ type: 'SELECT_LINK_PANE_ITEMS', isSelected });
-	const handleRemoveLinkPaneItem = linkKey =>
-		dispatch({ type: 'REMOVE_LINK_PANE_ITEM', linkKey });
 	const handleSelectSource = sourceKey => 
 		dispatch({ type: 'SELECT_SOURCE_PANE_ITEM', sourceKey });
 	const handleSelectSources = isSelected => 
@@ -49,7 +47,6 @@ export const DataSelectionPanes = memo(({
 				handleClickSelectAll={ () => { handleSelectLinks(true) } }
 				handleMouseEnterItem={ handleMouseEnterItem }
 				handleMouseLeaveItem={ handleMouseLeaveItem }
-				handleClickRemoveButton={ handleRemoveLinkPaneItem }
 			/>
 			<DataSelectionPane 
 				id="source-pane"
@@ -61,7 +58,6 @@ export const DataSelectionPanes = memo(({
 				handleClickSelectAll={ () => { handleSelectSources(true) } }
 				handleMouseEnterItem={ handleMouseEnterItem }
 				handleMouseLeaveItem={ handleMouseLeaveItem }
-				handleClickRemoveButton={ () => {} }
 			/>
 			<DataSelectionPane 
 				id="target-pane" 
@@ -73,7 +69,6 @@ export const DataSelectionPanes = memo(({
 				handleClickSelectAll={ () => { handleSelectTargets(true) } }
 				handleMouseEnterItem={ handleMouseEnterItem }
 				handleMouseLeaveItem={ handleMouseLeaveItem }
-				handleClickRemoveButton={ () => {} }
 			/>
 		</>
 	);

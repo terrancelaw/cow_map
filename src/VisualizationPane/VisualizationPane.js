@@ -14,39 +14,45 @@ export const VisualizationPane = memo(({
 	landData, 
 	interiorData,
 	countryIDToData,
-	linkPaneList,
-	visualizationPaneList,
+	linkList,
+	linkTypeList,
 	timelineSliderState,
 	hoverState,
 	detailPaneIsOpen,
+	colorPaneState,
+	filterPaneState,
 	dispatch
 }) => {
 	const SVGRef = useRef(null);
 	const projectionState = useProjection(SVGRef, landData);
+	const isVisPaneExpanded = !detailPaneIsOpen && !colorPaneState.isOpen && !filterPaneState.isOpen;
 
 	return (
 		<div 
 			id="visualization-pane" 
 			className={ 
-				detailPaneIsOpen 
-				? "collapsed loader-installed" 
-				: "expanded loader-installed" 
+				isVisPaneExpanded ? 
+				"expanded loader-installed" : 
+				"collapsed loader-installed"
 			}
 		>
 			<VisualizationPaneLegend 
-				linkPaneList={ linkPaneList }
+				linkTypeList={ linkTypeList }
 				dispatch={ dispatch }
 			/>
 			<VisualizationPaneControls 
 				SVGRef={ SVGRef }
 				landData={ landData }
 				projectionState={ projectionState }
+				detailPaneIsOpen={ detailPaneIsOpen }
+				colorPaneIsOpen={ colorPaneState.isOpen }
+				filterPaneIsOpen={ filterPaneState.isOpen }
 				dispatch={ dispatch }
 			/>
 			<svg ref={ SVGRef }>
 				{ projectionState.isLoading ? null : <> { /* render upon finish loading */ }
 					<VisualizationPaneDefs 
-						linkPaneList={ linkPaneList }
+						linkTypeList={ linkTypeList }
 					/>
 					<VisualizationPaneMap 
 						landData={ landData }
@@ -54,14 +60,14 @@ export const VisualizationPane = memo(({
 						projectionState={ projectionState } 
 					/>
 					<VisualizationPaneLinks 
-						visualizationPaneList={ visualizationPaneList }
+						linkList={ linkList }
 						countryIDToData={ countryIDToData }
 						projectionState={ projectionState }
 						hoverState={ hoverState }
 						dispatch={ dispatch }
 					/>
 					<VisualizationPaneLabels
-						visualizationPaneList={ visualizationPaneList }
+						linkList={ linkList }
 						countryIDToData={ countryIDToData }
 						projectionState={ projectionState }
 						hoverState={ hoverState }
@@ -82,10 +88,12 @@ export const VisualizationPane = memo(({
 	prevProps.landData === nextProps.landData &&
 	prevProps.interiorData === nextProps.interiorData &&
 	prevProps.countryIDToData === nextProps.countryIDToData &&
-	prevProps.linkPaneList === nextProps.linkPaneList &&
-	prevProps.visualizationPaneList === nextProps.visualizationPaneList &&
+	prevProps.linkList === nextProps.linkList &&
+	prevProps.linkTypeList === nextProps.linkTypeList &&
 	prevProps.timelineSliderState === nextProps.timelineSliderState &&
 	prevProps.detailPaneIsOpen === nextProps.detailPaneIsOpen && 
+	prevProps.colorPaneState === nextProps.colorPaneState && 
+	prevProps.filterPaneState === nextProps.filterPaneState && 
 	prevProps.dispatch === nextProps.dispatch && !(
 		// visualization pane looks different for these hover events
 		prevProps.hoverState.object === 'LINK' ||

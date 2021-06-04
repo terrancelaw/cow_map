@@ -10,7 +10,7 @@ import './DetailPaneContent.css';
 export const DetailPaneContent = memo(({
 	countryIDToData,
 	timeSeriesDataList,
-	visualizationPaneList,
+	linkList,
 	mainOption,
 	subOption1,
 	subOption2,
@@ -21,7 +21,7 @@ export const DetailPaneContent = memo(({
 	const entryList = generateEntryList(		
 		countryIDToData,
 		timeSeriesDataList,
-		visualizationPaneList,
+		linkList,
 		mainOption,
 		subOption1,
 		subOption2
@@ -50,7 +50,7 @@ export const DetailPaneContent = memo(({
 		return null;
 
 	return (
-		<div className={ `content ${ timeSeriesClassName }`}>
+		<div className={ !timeSeriesClassName ? 'content' : `content ${ timeSeriesClassName }` }>
 			{ topEntryList.map(entryObject => 
 				<DetailPaneContentItem 
 					key={ entryObject.key }

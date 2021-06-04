@@ -41,18 +41,11 @@ const generatePathData = (linkObject, countryIDToData, projection) => {
 		undirectedLink.generatePathData(sourcePoint, targetPoint, index);
 };
 
-const generateMarkerEnd = linkObject => {
-	const { isDirected, isOutlier, linkType } = linkObject;
+const generateMarkerEnd = ({ isDirected, linkType }) => 
+	isDirected ? 'url(#arrow-end-' + linkType + ')' : null;
 
-	if (isDirected) {
-		if (isOutlier) return 'url(#arrow-end-outlier)';
-		if (!isOutlier) return 'url(#arrow-end-' + linkType + ')';
-	}
 
-	return null;
-};
-
-const addSourceTargetIndex = visualizationPaneList => {
+const addSourceTargetIndex = linkList => {
 	const sourceTargetIDToLinkRowList = {
 		sameSourceAndTarget: [],
 		directed: [],
@@ -60,7 +53,7 @@ const addSourceTargetIndex = visualizationPaneList => {
 	};
 
 	// generate sourceTargetIDToLinkRowList
-	for (let linkObject of visualizationPaneList) {	
+	for (let linkObject of linkList) {	
 		const { sourceID, targetID, isDirected } = linkObject;
 		const sourceTargetID = `${ sourceID }-${ targetID }`;
 
@@ -96,37 +89,40 @@ const addSourceTargetIndex = visualizationPaneList => {
 
 // main functions
 
-const genereteLinkList = (
-	visualizationPaneList,
+const updateLinkList = (
+	linkList,
 	countryIDToData,
 	projection,
 	hoverState
 ) => {
-	addSourceTargetIndex(visualizationPaneList);
+	addSourceTargetIndex(linkList);
 
-	// add other data
-	for (let linkObject of visualizationPaneList) {
+	for (let linkObject of linkList) {
 		const { sourceID, targetID, linkType } = linkObject;
-
 		linkObject.key = `${ sourceID }-${ targetID }-${ linkType }`;
-		linkObject.isHighlighted = checkIfIsHighlighted(linkObject, hoverState);
 		linkObject.pathData = generatePathData(linkObject, countryIDToData, projection);
 		linkObject.markerEnd = generateMarkerEnd(linkObject);
+		linkObject.isHighlighted =  checkIfIsHighlighted(linkObject, hoverState);
 	}
 
-	return visualizationPaneList;
+	return linkList;
 };
 
 export const VisualizationPaneLinks = ({
-	visualizationPaneList,
+	linkList,
 	countryIDToData,
 	projectionState,
 	hoverState,
 	dispatch
 }) => {
 	const { projection } = projectionState;
-	const linkList = genereteLinkList(
-		visualizationPaneList, // convert to linkList
+	const hoveredNodesOrLinks = 
+		hoverState.object === 'NODE' ||
+		hoverState.object === 'LINK' ||
+		hoverState.object === 'DETAIL_PANE_NODE' ||
+		hoverState.object === 'DETAIL_PANE_LINK';
+	const updatedLinkList = updateLinkList(
+		linkList, // convert to linkList
 		countryIDToData,
 		projection,
 		hoverState		
@@ -134,15 +130,17 @@ export const VisualizationPaneLinks = ({
 
 	return (
 		<g className="links">
-			{ linkList.map(linkObject => 
+			{ updatedLinkList.map(linkObject => 
 				<VisualizationPaneLink
 					key={ linkObject.key }
 					sourceID={ linkObject.sourceID }
 					targetID={ linkObject.targetID }
 					linkType={ linkObject.linkType } // for highlighting
 					color={ linkObject.color }
+					linkOpacity={ linkObject.linkOpacity }
+					thinLineOpacity={ linkObject.thinLineOpacity }
 					isHighlighted={ linkObject.isHighlighted }
-					isOutlier={ linkObject.isOutlier }
+					hoveredNodesOrLinks={ hoveredNodesOrLinks } 
 					markerEnd={ linkObject.markerEnd }
 					pathData={ linkObject.pathData }
 					linkRowList={ linkObject.linkRowList }

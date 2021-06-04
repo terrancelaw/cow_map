@@ -6,8 +6,10 @@ export const VisualizationPaneLink = memo(({
 	targetID, 
 	linkType,
 	color,
+	linkOpacity,
+	thinLineOpacity,
 	isHighlighted,
-	isOutlier,
+	hoveredNodesOrLinks,
 	markerEnd,
 	pathData,
 	linkRowList,
@@ -21,16 +23,23 @@ export const VisualizationPaneLink = memo(({
 			type: 'MOUSE_MOVE_VIS_PANE_LINK',
 			top: event.clientY, 
 			left: event.clientX,
-			sourceID, targetID, linkType,
-			linkRowList, tooltipAttrList, eventName
+			sourceID, 
+			targetID, 
+			linkType,
+			linkRowList, 
+			tooltipAttrList,
+			eventName
 		});
 	const handleMouseLeave = () => 
 		dispatch({ type: 'MOUSE_LEAVE_VIS_PANE_LINK' });
 	const handleClick = () => 
 		dispatch({ 
 			type: 'CLICK_VIS_PANE_LINK',
-			sourceID, targetID, 
-			linkRowList, dataTableAttrList, eventName
+			sourceID, 
+			targetID, 
+			linkRowList, 
+			dataTableAttrList,
+			eventName
 		});
 
 	return (
@@ -39,28 +48,27 @@ export const VisualizationPaneLink = memo(({
 			onMouseMove={ handleMouseMove } 
 			onMouseLeave={ handleMouseLeave }
 			onClick={ handleClick }
-			style={ isHighlighted ? 
-				{ opacity: 1 } : 
-				{ opacity: 0.05 }
-			}
+			style={{ 
+				opacity: hoveredNodesOrLinks && !isHighlighted ? 0.05 : linkOpacity 
+			}}
 		>
-			<path
-				className="thick-line"
-				d={ pathData }
-				style={ isOutlier ? 
-					{ stroke: color, opacity: 0.6 } : 
-					{ stroke: color, opacity: 0.1 } 
-				}
-			>
-			</path>
+			<path 
+				className="thick-line" 
+				d={ pathData } 
+				style={{ 
+					stroke: color, 
+					opacity: 0.1 
+				}}
+			/>
 			<path 
 				className="thin-line" 
-				d={ pathData }
-				markerEnd={ markerEnd }
-				style={ isOutlier ? null :
-					{ stroke: color, opacity: 0.5 } 
-				}
-			></path>
+				d={ pathData } 
+				markerEnd={ markerEnd } 
+				style={{ 
+					stroke: color, 
+					opacity: thinLineOpacity 
+				}}
+			/>
 		</g>
 	);
 });

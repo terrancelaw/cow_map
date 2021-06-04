@@ -42,8 +42,11 @@ export const PopUpWindow = memo(({
 	// pop up for link
 	if (focusState.object === 'LINK') {
 		const { 
-			sourceID, targetID,
-			linkRowList, dataTableAttrList, eventName
+			sourceID, 
+			targetID,
+			linkRowList, 
+			dataTableAttrList,
+			eventName
 		} = focusState.data;
 		const attributeList = dataTableAttrList.map(attribure => attribure.displayName);
 		const tableRowList = generateTableRowList(

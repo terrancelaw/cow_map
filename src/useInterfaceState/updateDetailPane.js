@@ -1,12 +1,12 @@
-export const checkIsDirected = visualizationPaneList => {
-	for (let { isDirected } of visualizationPaneList)
+export const checkIsDirected = linkList => {
+	for (let { isDirected } of linkList)
 		if (!isDirected) return false;
 
 	return true;
 };
 
-export const checkIsWeighted = visualizationPaneList => {
-	for (let { isWeighted } of visualizationPaneList)
+export const checkIsWeighted = linkList => {
+	for (let { isWeighted } of linkList)
 		if (!isWeighted) return false;
 
 	return true;
@@ -129,11 +129,11 @@ const generateSubOption2 = (mainOption, optionList, prevOption) => {
 	if (isNetworkMetric && !foundPrevOptionInList) return optionList[0];
 };
 
-// called when visualizationPaneList changes
+// called when linkList changes
 // not called when changing main option
 export const updateDetailPaneState = (
+	linkList,
 	timeSeriesDataList,
-	visualizationPaneList,
 	prevDetailPaneState
 ) => {
 	const { 
@@ -149,8 +149,8 @@ export const updateDetailPaneState = (
 
 	// compute state when opened
 	if (detailPaneIsOpen) {
-		const isDirected = checkIsDirected(visualizationPaneList);
-		const isWeighted = checkIsWeighted(visualizationPaneList);
+		const isDirected = checkIsDirected(linkList);
+		const isWeighted = checkIsWeighted(linkList);
 		const newMainOptionList = generateMainOptionList(timeSeriesDataList, isDirected, isWeighted);
 		const newMainOption = generateMainOption(newMainOptionList, prevMainOption);
 		const newSubOption1List = generateSubOption1List(timeSeriesDataList, newMainOption, isDirected);

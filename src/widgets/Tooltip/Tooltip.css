@@ -16,35 +16,7 @@
 	-moz-box-shadow: 0px 0px 6px 2px rgba(211,211,211,1);
 	box-shadow: 0px 0px 6px 2px rgba(211,211,211,1);
 
-	z-index: 1000;
-}
-
-/* detail-pane */
-
-.detail-pane.tooltip {
-	position: absolute;
-
-	font-size: 12px;
-	font-weight: 300;
-
-	border-radius: 2px;
-	padding: 5px;
-
-	-webkit-box-shadow: 0px 0px 6px 2px rgba(211,211,211,1);
-	-moz-box-shadow: 0px 0px 6px 2px rgba(211,211,211,1);
-	box-shadow: 0px 0px 6px 2px rgba(211,211,211,1);
-
-	z-index: 1000;
-}
-
-.detail-pane.tooltip.light {
-	background: white;
-}
-
-.detail-pane.tooltip.dark {
-	color: #d3d3d3;
-	background: #1b1e23;
-	opacity: 0.85;
+	z-index: 1005;
 }
 
 /* visualization-pane */
@@ -70,7 +42,7 @@
 	-moz-box-shadow: 0px 0px 6px 2px rgba(211,211,211,1);
 	box-shadow: 0px 0px 6px 2px rgba(211,211,211,1);
 
-	z-index: 1000;
+	z-index: 1005;
 }
 
 .visualization-pane.tooltip.multiple > span {
@@ -104,7 +76,7 @@
 	-moz-box-shadow: 0px 0px 6px 2px rgba(211,211,211,1);
 	box-shadow: 0px 0px 6px 2px rgba(211,211,211,1);
 
-	z-index: 1000;
+	z-index: 1005;
 }
 
 .visualization-pane.tooltip.single > .attribute-name {
@@ -119,9 +91,9 @@
 	font-weight: 600;
 }
 
-/* search window */
+/* detail-pane */
 
-.search-window.tooltip {
+.detail-pane.tooltip {
 	position: absolute;
 
 	font-size: 12px;
@@ -130,32 +102,43 @@
 	border-radius: 2px;
 	padding: 5px;
 
-	-webkit-box-shadow: 0px 0px 6px 2px rgba(211,211,211,1);
-	-moz-box-shadow: 0px 0px 6px 2px rgba(211,211,211,1);
-	box-shadow: 0px 0px 6px 2px rgba(211,211,211,1);
+	-webkit-box-shadow: 0px 0px 6px 1px #616161;
+    -moz-box-shadow: 0px 0px 6px 1px #616161;
+    box-shadow: 0px 0px 6px 1px #616161;
 
-	z-index: 1000;
+	z-index: 1005;
 
-	background: white;
+	color: #d3d3d3;
+	background: #1b1e23;
+	opacity: 0.85;
 }
 
 /* control */
 
 .control.tooltip {
 	position: absolute;
-	transform: translate(-100%, 0);
+	transform: translate(-100%, -50%);
 
 	font-size: 12px;
 	font-weight: 300;
 
-	border-radius: 2px;
 	padding: 5px;
 
 	-webkit-box-shadow: 0px 0px 6px 2px rgba(211,211,211,1);
 	-moz-box-shadow: 0px 0px 6px 2px rgba(211,211,211,1);
 	box-shadow: 0px 0px 6px 2px rgba(211,211,211,1);
 
-	z-index: 1000;
+	z-index: 1005;
 
 	background: white;
+}
+
+.control.tooltip.dark {
+	color: #d3d3d3;
+	background: #1b1e23;
+	opacity: 0.85;
+
+	-webkit-box-shadow: 0px 0px 6px 1px #616161;
+    -moz-box-shadow: 0px 0px 6px 1px #616161;
+    box-shadow: 0px 0px 6px 1px #616161;
 }

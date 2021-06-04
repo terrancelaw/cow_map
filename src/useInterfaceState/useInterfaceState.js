@@ -1,5 +1,9 @@
-import { useEffect, useReducer, useCallback } from 'react';
 import { 
+	useEffect, 
+	useReducer, 
+	useCallback 
+} from 'react';
+import {
 	initLinkPaneList,
 	initSourcePaneList,
 	initTargetPaneList,
@@ -7,19 +11,19 @@ import {
 	selectItemList,
 	updateSourcePaneList,
 	updateTargetPaneList,
-	updateLinkPaneListColor,
-	addNewLinkDataObjects
 } from './updateDataSelectionPanes';
+import {
+	updateLinkTypeList,
+	updateLinkTypeListColor,
+	updateLinkList
+} from './updateVisualizationPane';
 import { 
 	updateTimelineSliderState,
 	generateTimelineSliderMin,
 	generateTimelineSliderMax
 } from './updateTimelineSlider';
 import { 
-	updateVisualizationPaneList 
-} from './updateVisualizationPane';
-import { 
-	updateDetailPaneState, 
+	updateDetailPaneState,
 	checkIsDirected,
 	checkIsWeighted,
 	checkIsNetworkMetric,
@@ -27,14 +31,31 @@ import {
 	generateSubOption2List,
 	checkIsOverflown
 } from './updateDetailPane';
-import { timelineSliderOptions } from '../config';
+import {
+	initColorPaneState,
+	generateColorPaneAttribute,
+	updateAppliedColoringList
+} from './updateColorPane';
+import {
+	initFilterPaneState,
+	generateFilterPaneAttributeValueList,
+	generateFilterPaneAttributeValue,
+	updateAppliedFilterList
+} from './updateFilterPane';
+import { 
+	timelineSliderOptions 
+} from '../config';
 
 const initialState = {
 	linkPane: { list: [] },
 	sourcePane: { list: [] },
 	targetPane: { list: [] },
-	visualizationPane: { list: [] },
-	colorPicker: { 
+	visualizationPane: { 
+		linkTypeList: [], // for generating legend and Defs
+		linkList: [], // for generating links
+		linkTypeToColor: {} // for preserving color change
+	},
+	colorPicker: {
 		isOpen: false,
 		linkKey: null,
 		currColor: null,
@@ -59,8 +80,29 @@ const initialState = {
 		subOption2: null,
 		subOption2List: [ null ]
 	},
+	colorPane: {
+		isOpen: false,
+		dataSetList: [ null ],
+		dataSet: null,
+		attributeList: [ null ],
+		attribute: null,
+		appliedColoringList: [] // { dataSet, attribute }
+	},
+	filterPane: {
+		isOpen: false,
+		dataSetList: [ null ],
+		dataSet: null,
+		attributeList: [ null ],
+		attribute: null,
+		// categorical: { key, displayName, isSelected }
+		// numerical: [ lower, upper ]
+		attributeValueList: [ null ],
+		// categorical: not matter
+		// numerical: [ selected lower, selected upper ]
+		attributeValue: null,
+		appliedFilterList: [] // { dataSet, attribute, attributeValueList (no need to compute again), attributeValue } 
+	},
 	searchWindow: { isOpen: false },
-	linkDisaggregator: { isOpen: false },
 	reference: { isOpen: false },
 	hover: { object: null, data: null },
 	focus: { object: null, data: null },
@@ -70,22 +112,54 @@ const initialState = {
 const reducer = (prevState, dataState, action) => {
 	switch (action.type) {
 		case 'INIT_INTERFACE': {
-			const { linkDataList, nodeList, timeSeriesDataList } = dataState;
-			const { detailPane: prevDetailPaneState } = prevState;
+			const { 
+				nodeList,
+				linkDataList, 
+				timeSeriesDataList, 
+				countryIDToData 
+			} = dataState;
+			const { 
+				visualizationPane: { linkTypeToColor: prevLinkTypeToColor },
+				detailPane: prevDetailPaneState
+			} = prevState;
 			const newLinkPaneList = initLinkPaneList(linkDataList);
-			const newSourcePaneList = initSourcePaneList(newLinkPaneList, nodeList);
-			const newTargetPaneList = initTargetPaneList(newLinkPaneList, nodeList);
-			const newTimelineSliderState = updateTimelineSliderState(newLinkPaneList);
-			const newVisualizationPaneList = updateVisualizationPaneList(newLinkPaneList, newSourcePaneList, newTargetPaneList, newTimelineSliderState);
-			const newDetailPaneState = updateDetailPaneState(timeSeriesDataList, newVisualizationPaneList, prevDetailPaneState);
+			const newColorPaneState = initColorPaneState(newLinkPaneList);
+			const newFilterPaneState = initFilterPaneState(newLinkPaneList);
+			const [ 
+				newLinkTypeList, 
+				newLinkTypeToColor 
+			] = updateLinkTypeList(
+				newLinkPaneList,
+				newColorPaneState.appliedColoringList,
+				newFilterPaneState.appliedFilterList,
+				prevLinkTypeToColor,
+				countryIDToData
+			);
+			const newSourcePaneList = initSourcePaneList(newLinkTypeList, nodeList);
+			const newTargetPaneList = initTargetPaneList(newLinkTypeList, nodeList);
+			const newTimelineSliderState = updateTimelineSliderState(newLinkTypeList);
+			const newLinkList = updateLinkList(
+				newLinkTypeList, 
+				newSourcePaneList, 
+				newTargetPaneList, 
+				newTimelineSliderState,
+				newColorPaneState.appliedColoringList
+			);
+			const newDetailPaneState = updateDetailPaneState(newLinkList, timeSeriesDataList, prevDetailPaneState);
 
 			return { ...prevState,
 				linkPane: { list: newLinkPaneList },
 				sourcePane: { list: newSourcePaneList },
 				targetPane: { list: newTargetPaneList },
 				timelineSlider: newTimelineSliderState,
-				visualizationPane: { list: newVisualizationPaneList },
+				visualizationPane: { 
+					linkList: newLinkList,
+					linkTypeList: newLinkTypeList,
+					linkTypeToColor: newLinkTypeToColor
+				},
 				detailPane: newDetailPaneState,
+				colorPane: newColorPaneState,
+				filterPane: newFilterPaneState,
 				isLoading: false
 			};
 		}
@@ -94,76 +168,103 @@ const reducer = (prevState, dataState, action) => {
 
 		case 'SELECT_LINK_PANE_ITEM': {
 			const { linkKey } = action;
-			const { timeSeriesDataList } = dataState;
 			const { 
+				timeSeriesDataList,
+				countryIDToData
+			} = dataState;
+			const {
+				visualizationPane: { linkTypeToColor: prevLinkTypeToColor },
 				linkPane: { list: prevLinkPaneList },
 				sourcePane: { list: prevSourcePaneList },
 				targetPane: { list: prevTargetPaneList },
-				detailPane: prevDetailPaneState
+				detailPane: prevDetailPaneState,
+				colorPane: { appliedColoringList: prevAppliedColoringList },
+				filterPane: { appliedFilterList: prevAppliedFilterList }
 			} = prevState;
 			const newLinkPaneList = toggleItemList(prevLinkPaneList, linkKey);
-			const newSourcePaneList = updateSourcePaneList(newLinkPaneList, prevSourcePaneList);
-			const newTargetPaneList = updateTargetPaneList(newLinkPaneList, prevTargetPaneList);
-			const newTimelineSliderState = updateTimelineSliderState(newLinkPaneList);
-			const newVisualizationPaneList = updateVisualizationPaneList(newLinkPaneList, newSourcePaneList, newTargetPaneList, newTimelineSliderState);
-			const newDetailPaneState = updateDetailPaneState(timeSeriesDataList, newVisualizationPaneList, prevDetailPaneState);
+			const [ 
+				newLinkTypeList, 
+				newLinkTypeToColor 
+			] = updateLinkTypeList(
+				newLinkPaneList, 
+				prevAppliedColoringList, 
+				prevAppliedFilterList, 
+				prevLinkTypeToColor, 
+				countryIDToData
+			);
+			const newSourcePaneList = updateSourcePaneList(newLinkTypeList, prevSourcePaneList);
+			const newTargetPaneList = updateTargetPaneList(newLinkTypeList, prevTargetPaneList);
+			const newTimelineSliderState = updateTimelineSliderState(newLinkTypeList);
+			const newLinkList = updateLinkList(
+				newLinkTypeList, 
+				newSourcePaneList, 
+				newTargetPaneList, 
+				newTimelineSliderState,
+				prevAppliedColoringList
+			);
+			const newDetailPaneState = updateDetailPaneState(newLinkList, timeSeriesDataList, prevDetailPaneState);
 
 			return { ...prevState,
 				linkPane: { list: newLinkPaneList },
 				sourcePane: { list: newSourcePaneList },
 				targetPane: { list: newTargetPaneList },
 				timelineSlider: newTimelineSliderState,
-				visualizationPane: { list: newVisualizationPaneList },
+				visualizationPane: {
+					linkList: newLinkList,
+					linkTypeList: newLinkTypeList,
+					linkTypeToColor: newLinkTypeToColor
+				},
 				detailPane: newDetailPaneState
 			};
 		}
 		case 'SELECT_LINK_PANE_ITEMS': {
 			const { isSelected } = action;
-			const { timeSeriesDataList } = dataState;
 			const { 
+				timeSeriesDataList,
+				countryIDToData
+			} = dataState;
+			const { 
+				visualizationPane: { linkTypeToColor: prevLinkTypeToColor },
 				linkPane: { list: prevLinkPaneList },
 				sourcePane: { list: prevSourcePaneList },
 				targetPane: { list: prevTargetPaneList },
-				detailPane: prevDetailPaneState
+				detailPane: prevDetailPaneState,
+				colorPane: { appliedColoringList: prevAppliedColoringList },
+				filterPane: { appliedFilterList: prevAppliedFilterList }
 			} = prevState;
 			const newLinkPaneList = selectItemList(prevLinkPaneList, isSelected);
-			const newSourcePaneList = updateSourcePaneList(newLinkPaneList, prevSourcePaneList);
-			const newTargetPaneList = updateTargetPaneList(newLinkPaneList, prevTargetPaneList);
-			const newTimelineSliderState = updateTimelineSliderState(newLinkPaneList);
-			const newVisualizationPaneList = updateVisualizationPaneList(newLinkPaneList, newSourcePaneList, newTargetPaneList, newTimelineSliderState);
-			const newDetailPaneState = updateDetailPaneState(timeSeriesDataList, newVisualizationPaneList, prevDetailPaneState);
+			const [ 
+				newLinkTypeList, 
+				newLinkTypeToColor 
+			] = updateLinkTypeList(
+				newLinkPaneList, 
+				prevAppliedColoringList, 
+				prevAppliedFilterList, 
+				prevLinkTypeToColor, 
+				countryIDToData
+			);
+			const newSourcePaneList = updateSourcePaneList(newLinkTypeList, prevSourcePaneList);
+			const newTargetPaneList = updateTargetPaneList(newLinkTypeList, prevTargetPaneList);
+			const newTimelineSliderState = updateTimelineSliderState(newLinkTypeList);
+			const newLinkList = updateLinkList(
+				newLinkTypeList, 
+				newSourcePaneList, 
+				newTargetPaneList, 
+				newTimelineSliderState,
+				prevAppliedColoringList
+			);
+			const newDetailPaneState = updateDetailPaneState(newLinkList, timeSeriesDataList, prevDetailPaneState);
 
 			return { ...prevState,
 				linkPane: { list: newLinkPaneList },
 				sourcePane: { list: newSourcePaneList },
 				targetPane: { list: newTargetPaneList },
 				timelineSlider: newTimelineSliderState,
-				visualizationPane: { list: newVisualizationPaneList },
-				detailPane: newDetailPaneState
-			};
-		}
-		case 'REMOVE_LINK_PANE_ITEM': {
-			const { linkKey } = action;
-			const { timeSeriesDataList } = dataState;
-			const { 
-				linkPane: { list: prevLinkPaneList },
-				sourcePane: { list: prevSourcePaneList },
-				targetPane: { list: prevTargetPaneList },
-				detailPane: prevDetailPaneState
-			} = prevState;
-			const newLinkPaneList = prevLinkPaneList.filter(({ key }) => key !== linkKey);
-			const newSourcePaneList = updateSourcePaneList(newLinkPaneList, prevSourcePaneList);
-			const newTargetPaneList = updateTargetPaneList(newLinkPaneList, prevTargetPaneList);
-			const newTimelineSliderState = updateTimelineSliderState(newLinkPaneList);
-			const newVisualizationPaneList = updateVisualizationPaneList(newLinkPaneList, newSourcePaneList, newTargetPaneList, newTimelineSliderState);
-			const newDetailPaneState = updateDetailPaneState(timeSeriesDataList, newVisualizationPaneList, prevDetailPaneState);
-
-			return { ...prevState,
-				linkPane: { list: newLinkPaneList },
-				sourcePane: { list: newSourcePaneList },
-				targetPane: { list: newTargetPaneList },
-				timelineSlider: newTimelineSliderState,
-				visualizationPane: { list: newVisualizationPaneList },
+				visualizationPane: {
+					linkList: newLinkList,
+					linkTypeList: newLinkTypeList,
+					linkTypeToColor: newLinkTypeToColor
+				},
 				detailPane: newDetailPaneState
 			};
 		}
@@ -171,19 +272,29 @@ const reducer = (prevState, dataState, action) => {
 			const { sourceKey } = action;
 			const { timeSeriesDataList } = dataState;
 			const { 
-				linkPane: { list: prevLinkPaneList },
+				visualizationPane: { linkTypeList: prevLinkTypeList },
 				sourcePane: { list: prevSourcePaneList },
 				targetPane: { list: prevTargetPaneList },
 				timelineSlider: prevTimelineSliderState,
-				detailPane: prevDetailPaneState
+				detailPane: prevDetailPaneState,
+				colorPane: { appliedColoringList: prevAppliedColoringList }
 			} = prevState;
 			const newSourcePaneList = toggleItemList(prevSourcePaneList, sourceKey);
-			const newVisualizationPaneList = updateVisualizationPaneList(prevLinkPaneList, newSourcePaneList, prevTargetPaneList, prevTimelineSliderState);
-			const newDetailPaneState = updateDetailPaneState(timeSeriesDataList, newVisualizationPaneList, prevDetailPaneState);
+			const newLinkList = updateLinkList(
+				prevLinkTypeList, 
+				newSourcePaneList, 
+				prevTargetPaneList, 
+				prevTimelineSliderState,
+				prevAppliedColoringList
+			);
+			const newDetailPaneState = updateDetailPaneState(newLinkList, timeSeriesDataList, prevDetailPaneState);
 
 			return { ...prevState, 
 				sourcePane: { list: newSourcePaneList },
-				visualizationPane: { list: newVisualizationPaneList },
+				visualizationPane: { 
+					...prevState.visualizationPane, 
+					linkList: newLinkList 
+				},
 				detailPane: newDetailPaneState
 			};
 		}
@@ -191,19 +302,29 @@ const reducer = (prevState, dataState, action) => {
 			const { isSelected } = action;
 			const { timeSeriesDataList } = dataState;
 			const { 
-				linkPane: { list: prevLinkPaneList },
+				visualizationPane: { linkTypeList: prevLinkTypeList },
 				sourcePane: { list: prevSourcePaneList },
 				targetPane: { list: prevTargetPaneList },
 				timelineSlider: prevTimelineSliderState,
-				detailPane: prevDetailPaneState
+				detailPane: prevDetailPaneState,
+				colorPane: { appliedColoringList: prevAppliedColoringList }
 			} = prevState;
 			const newSourcePaneList = selectItemList(prevSourcePaneList, isSelected);
-			const newVisualizationPaneList = updateVisualizationPaneList(prevLinkPaneList, newSourcePaneList, prevTargetPaneList, prevTimelineSliderState);
-			const newDetailPaneState = updateDetailPaneState(timeSeriesDataList, newVisualizationPaneList, prevDetailPaneState);
+			const newLinkList = updateLinkList(
+				prevLinkTypeList, 
+				newSourcePaneList, 
+				prevTargetPaneList, 
+				prevTimelineSliderState,
+				prevAppliedColoringList
+			);
+			const newDetailPaneState = updateDetailPaneState(newLinkList, timeSeriesDataList, prevDetailPaneState);
 
 			return { ...prevState, 
 				sourcePane: { list: newSourcePaneList },
-				visualizationPane: { list: newVisualizationPaneList },
+				visualizationPane: { 
+					...prevState.visualizationPane, 
+					linkList: newLinkList 
+				},
 				detailPane: newDetailPaneState
 			};
 		}
@@ -211,19 +332,29 @@ const reducer = (prevState, dataState, action) => {
 			const { targetKey } = action;
 			const { timeSeriesDataList } = dataState;
 			const { 
-				linkPane: { list: prevLinkPaneList },
+				visualizationPane: { linkTypeList: prevLinkTypeList },
 				sourcePane: { list: prevSourcePaneList },
 				targetPane: { list: prevTargetPaneList },
 				timelineSlider: prevTimelineSliderState,
-				detailPane: prevDetailPaneState
+				detailPane: prevDetailPaneState,
+				colorPane: { appliedColoringList: prevAppliedColoringList }
 			} = prevState;
 			const newTargetPaneList = toggleItemList(prevTargetPaneList, targetKey);
-			const newVisualizationPaneList = updateVisualizationPaneList(prevLinkPaneList, prevSourcePaneList, newTargetPaneList, prevTimelineSliderState);
-			const newDetailPaneState = updateDetailPaneState(timeSeriesDataList, newVisualizationPaneList, prevDetailPaneState);
+			const newLinkList = updateLinkList(
+				prevLinkTypeList, 
+				prevSourcePaneList, 
+				newTargetPaneList, 
+				prevTimelineSliderState,
+				prevAppliedColoringList
+			);
+			const newDetailPaneState = updateDetailPaneState(newLinkList, timeSeriesDataList, prevDetailPaneState);
 
-			return { ...prevState, 
+			return { ...prevState,
 				targetPane: { list: newTargetPaneList },
-				visualizationPane: { list: newVisualizationPaneList },
+				visualizationPane: {
+					...prevState.visualizationPane, 
+					linkList: newLinkList
+				},
 				detailPane: newDetailPaneState
 			};
 		}
@@ -231,19 +362,29 @@ const reducer = (prevState, dataState, action) => {
 			const { isSelected } = action;
 			const { timeSeriesDataList } = dataState;
 			const { 
-				linkPane: { list: prevLinkPaneList },
+				visualizationPane: { linkTypeList: prevLinkTypeList },
 				sourcePane: { list: prevSourcePaneList },
 				targetPane: { list: prevTargetPaneList },
 				timelineSlider: prevTimelineSliderState,
-				detailPane: prevDetailPaneState
+				detailPane: prevDetailPaneState,
+				colorPane: { appliedColoringList: prevAppliedColoringList }
 			} = prevState;
 			const newTargetPaneList = selectItemList(prevTargetPaneList, isSelected);
-			const newVisualizationPaneList = updateVisualizationPaneList(prevLinkPaneList, prevSourcePaneList, newTargetPaneList, prevTimelineSliderState);
-			const newDetailPaneState = updateDetailPaneState(timeSeriesDataList, newVisualizationPaneList, prevDetailPaneState);
+			const newLinkList = updateLinkList(
+				prevLinkTypeList, 
+				prevSourcePaneList, 
+				newTargetPaneList, 
+				prevTimelineSliderState,
+				prevAppliedColoringList
+			);
+			const newDetailPaneState = updateDetailPaneState(newLinkList, timeSeriesDataList, prevDetailPaneState);
 
-			return { ...prevState, 
+			return { ...prevState,
 				targetPane: { list: newTargetPaneList },
-				visualizationPane: { list: newVisualizationPaneList },
+				visualizationPane: {
+					...prevState.visualizationPane, 
+					linkList: newLinkList
+				},
 				detailPane: newDetailPaneState
 			};
 		}
@@ -269,32 +410,43 @@ const reducer = (prevState, dataState, action) => {
 		case 'CHANGE_TIMELINE_SLIDER': {
 			const { value } = action;
 			const { timeSeriesDataList } = dataState;
-			const { 
-				linkPane: { list: prevLinkPaneList },
+			const {
+				visualizationPane: { linkTypeList: prevLinkTypeList },
 				sourcePane: { list: prevSourcePaneList },
 				targetPane: { list: prevTargetPaneList },
 				timelineSlider: prevTimelineSliderState,
-				detailPane: prevDetailPaneState
+				detailPane: prevDetailPaneState,
+				colorPane: { appliedColoringList: prevAppliedColoringList }
 			} = prevState;
 			const newTimelineSliderState = { ...prevTimelineSliderState, value };
-			const newVisualizationPaneList = updateVisualizationPaneList(prevLinkPaneList, prevSourcePaneList, prevTargetPaneList, newTimelineSliderState);
-			const newDetailPaneState = updateDetailPaneState(timeSeriesDataList, newVisualizationPaneList, prevDetailPaneState);
+			const newLinkList = updateLinkList(
+				prevLinkTypeList, 
+				prevSourcePaneList, 
+				prevTargetPaneList, 
+				newTimelineSliderState,
+				prevAppliedColoringList
+			);
+			const newDetailPaneState = updateDetailPaneState(newLinkList, timeSeriesDataList, prevDetailPaneState);
 
 			return { ...prevState, 
 				timelineSlider: newTimelineSliderState,
-				visualizationPane: { list: newVisualizationPaneList },
+				visualizationPane: {
+					...prevState.visualizationPane, 
+					linkList: newLinkList
+				},
 				detailPane: newDetailPaneState
 			};
 		}
 		case 'SELECT_YEAR_ATTRIBUTE': {
 			const { yearAttribute } = action;
 			const { timeSeriesDataList } = dataState;
-			const { 
-				linkPane: { list: prevLinkPaneList },
+			const {
+				visualizationPane: { linkTypeList: prevLinkTypeList },
 				sourcePane: { list: prevSourcePaneList },
 				targetPane: { list: prevTargetPaneList },
 				timelineSlider: prevTimelineSliderState,
-				detailPane: prevDetailPaneState
+				detailPane: prevDetailPaneState,
+				colorPane: { appliedColoringList: prevAppliedColoringList }
 			} = prevState;
 			const newTimelineSliderState = yearAttribute.key === 'no-filter' ? {
 				...prevTimelineSliderState, 
@@ -305,19 +457,28 @@ const reducer = (prevState, dataState, action) => {
 			} : {
 				...prevTimelineSliderState,
 				yearAttribute: yearAttribute,
-				min: generateTimelineSliderMin(prevLinkPaneList, yearAttribute),
-				max: generateTimelineSliderMax(prevLinkPaneList, yearAttribute),
+				min: generateTimelineSliderMin(prevLinkTypeList, yearAttribute),
+				max: generateTimelineSliderMax(prevLinkTypeList, yearAttribute),
 				value: yearAttribute.type === 'point' ? new Date().getFullYear() : [
-					generateTimelineSliderMin(prevLinkPaneList, yearAttribute),
-					generateTimelineSliderMax(prevLinkPaneList, yearAttribute)
+					generateTimelineSliderMin(prevLinkTypeList, yearAttribute),
+					generateTimelineSliderMax(prevLinkTypeList, yearAttribute)
 				]
 			};
-			const newVisualizationPaneList = updateVisualizationPaneList(prevLinkPaneList, prevSourcePaneList, prevTargetPaneList, newTimelineSliderState);
-			const newDetailPaneState = updateDetailPaneState(timeSeriesDataList, newVisualizationPaneList, prevDetailPaneState);
+			const newLinkList = updateLinkList(
+				prevLinkTypeList, 
+				prevSourcePaneList, 
+				prevTargetPaneList, 
+				newTimelineSliderState,
+				prevAppliedColoringList
+			);
+			const newDetailPaneState = updateDetailPaneState(newLinkList, timeSeriesDataList, prevDetailPaneState);
 
 			return { ...prevState, 
 				timelineSlider: newTimelineSliderState,
-				visualizationPane: { list: newVisualizationPaneList },
+				visualizationPane: {
+					...prevState.visualizationPane, 
+					linkList: newLinkList
+				},
 				detailPane: newDetailPaneState
 			};
 		}
@@ -334,17 +495,27 @@ const reducer = (prevState, dataState, action) => {
 		}
 		case 'MOUSE_MOVE_VIS_PANE_LINK': {
 			const { 
-				top, left,
-				sourceID, targetID, linkType,
-				linkRowList, tooltipAttrList, eventName
+				top, 
+				left,
+				sourceID, 
+				targetID, 
+				linkType,
+				linkRowList, 
+				tooltipAttrList,
+				eventName
 			} = action;
-			
+
 			return { ...prevState, hover: { 
 				object: 'LINK', 
 				data: {
-					top, left,
-					sourceID, targetID, linkType,
-					linkRowList, tooltipAttrList, eventName
+					top, 
+					left,
+					sourceID, 
+					targetID,
+					linkType,
+					linkRowList, 
+					tooltipAttrList,
+					eventName
 				}
 			} };
 		}
@@ -353,34 +524,26 @@ const reducer = (prevState, dataState, action) => {
 		}
 		case 'CLICK_VIS_PANE_LINK': {
 			const {
-				sourceID, targetID, 
-				linkRowList, dataTableAttrList, eventName
+				sourceID, 
+				targetID, 
+				linkRowList, 
+				dataTableAttrList,
+				eventName
 			} = action;
 
 			return { ...prevState, 
 				focus: { object: 'LINK', data: {
-					sourceID, targetID, 
-					linkRowList, dataTableAttrList, eventName
+					sourceID, 
+					targetID, 
+					linkRowList, 
+					dataTableAttrList,
+					eventName
 				} },
 				hover: { object: null, data: null } // when click on link, remove highlight and tooltip
 			};
 		}
 		case 'CLOSE_POP_UP_WINDOW': {
 			return { ...prevState, focus: { object: null, data: null } };
-		}
-		case 'MOUSE_ENTER_CONTROL_BUTTON': {
-			const { buttonEl, text } = action;
-			const buttonBBox = buttonEl.getBoundingClientRect();
-			const left = buttonBBox.left - 8 + buttonBBox.width;
-			const top = buttonBBox.top - 8 + buttonBBox.height + 8;
-
-			return { ...prevState, hover: { 
-				object: 'CONTROL_BUTTON', 
-				data: { left, top, text }
-			} };
-		}
-		case 'MOUSE_LEAVE_CONTROL_BUTTON': {
-			return { ...prevState, hover: { object: null, data: null } };
 		}
 		case 'OPEN_COLOR_PICKER': {
 			const { linkKey, currColor, colorEl } = action;
@@ -414,17 +577,38 @@ const reducer = (prevState, dataState, action) => {
 		case 'SELECT_COLOR': {
 			const { linkKey, newColor } = action;
 			const { 
-				linkPane: { list: prevLinkPaneList },
+				visualizationPane: { 
+					linkTypeList: prevLinkTypeList,
+					linkTypeToColor: prevLinkTypeToColor
+				},
 				sourcePane: { list: prevSourcePaneList },
 				targetPane: { list: prevTargetPaneList },
-				timelineSlider: prevTimelineSliderState
+				timelineSlider: prevTimelineSliderState,
+				colorPane: { appliedColoringList: prevAppliedColoringList }
 			} = prevState;
-			const newLinkPaneList = updateLinkPaneListColor(prevLinkPaneList, linkKey, newColor);
-			const newVisualizationPaneList = updateVisualizationPaneList(newLinkPaneList, prevSourcePaneList, prevTargetPaneList, prevTimelineSliderState);
+			const [ 
+				newLinkTypeList, 
+				newLinkTypeToColor 
+			] = updateLinkTypeListColor(
+				prevLinkTypeList, 
+				prevLinkTypeToColor, 
+				linkKey, 
+				newColor
+			);
+			const newLinkList = updateLinkList(
+				newLinkTypeList, 
+				prevSourcePaneList, 
+				prevTargetPaneList, 
+				prevTimelineSliderState,
+				prevAppliedColoringList
+			);
 
 			return { ...prevState,
-				linkPane: { list: newLinkPaneList },
-				visualizationPane: { list: newVisualizationPaneList },
+				visualizationPane: {
+					linkTypeList: newLinkTypeList,
+					linkList: newLinkList,
+					linkTypeToColor: newLinkTypeToColor
+				},
 				colorPicker: { 
 					isOpen: false, 
 					linkKey: null,
@@ -433,56 +617,71 @@ const reducer = (prevState, dataState, action) => {
 					colorLeft: null,
 					colorWidth: null,
 					colorHeight: null
-				} 
+				}
 			};
+		}
+		case 'MOUSE_ENTER_CONTROL_BUTTON': {
+			const { buttonEl, text, isDark } = action;
+			const buttonBBox = buttonEl.getBoundingClientRect();
+			const top = buttonBBox.top - 8 + buttonBBox.height / 2;
+			const left = buttonBBox.left - 8 - 8;
+
+			return { ...prevState, hover: { 
+				object: 'CONTROL_BUTTON', 
+				data: { top, left, text, isDark }
+			} };
+		}
+		case 'MOUSE_LEAVE_CONTROL_BUTTON': {
+			return { ...prevState, hover: { object: null, data: null } };
+		}
+
+		// search window
+
+		case 'OPEN_SEARCH_WINDOW': {
+			return { ...prevState, 
+				searchWindow: {  isOpen: true },
+				hover: { object: null, data: null }
+			};
+		}
+		case 'CLOSE_SEARCH_WINDOW': {
+			return { ...prevState, searchWindow: {  isOpen: false } };
 		}
 
 		// detail pane
 
 		case 'TOGGLE_DETAIL_PANE': {
 			const { timeSeriesDataList } = dataState;
-			const { 
-				visualizationPane: { list: prevVisualizationPaneList },
-				detailPane: { isOpen: prevIsOpen }
+			const {
+				visualizationPane: { linkList: prevLinkList },
+				detailPane: { isOpen: prevIsOpen },
+				colorPane: prevColorPaneState,
+				filterPane: prevFilterPaneState
 			} = prevState;
-			const newDetailPaneState = updateDetailPaneState(
-				timeSeriesDataList,
-				prevVisualizationPaneList,
-				{ ...prevState.detailPane, isOpen: !prevIsOpen }
-			);
+			const newDetailPaneState = updateDetailPaneState(prevLinkList, timeSeriesDataList, { 
+				...prevState.detailPane, isOpen: !prevIsOpen 
+			});
+			const newColorPaneState = { ...prevColorPaneState, isOpen: false }; // always close
+			const newFilterPaneState = { ...prevFilterPaneState, isOpen: false }; // always close
 
 			return { ...prevState, 
 				detailPane: newDetailPaneState,
-				hover: { object: null, data: null } // remove tooltip when open
+				colorPane: newColorPaneState,
+				filterPane: newFilterPaneState,
+				hover: { object: null, data: null } // remove tooltip when open or close
 			};
-		}
-		case 'MOUSE_ENTER_DETAIL_PANE_BUTTON': {
-			const { buttonEl } = action;
-			const buttonBBox = buttonEl.getBoundingClientRect();
-			const right = 0;
-			const top = buttonBBox.top - 8 + buttonBBox.height + 8;
-			const text = 'Show details of current network';
-
-			return { ...prevState, hover: { 
-				object: 'DETAIL_PANE_BUTTON', 
-				data: { right, top, text }
-			} };
-		}
-		case 'MOUSE_LEAVE_DETAIL_PANE_BUTTON': {
-			return { ...prevState, hover: { object: null, data: null } };
 		}
 		case 'SELECT_DETAIL_PANE_MAIN_OPTION': {
 			const { option: newMainOption } = action;
 			const { timeSeriesDataList } = dataState;
-			const { visualizationPane: { list: prevVisualizationPaneList } } = prevState;
-			const isDirected = checkIsDirected(prevVisualizationPaneList);
-			const isWeighted = checkIsWeighted(prevVisualizationPaneList);
+			const { visualizationPane: { linkList: prevLinkList } } = prevState;
+			const isDirected = checkIsDirected(prevLinkList);
+			const isWeighted = checkIsWeighted(prevLinkList);
 			const isNetworkMetric = checkIsNetworkMetric(newMainOption);
 			const newSubOption1List = generateSubOption1List(timeSeriesDataList, newMainOption, isDirected);
 			const newSubOption1 = newSubOption1List[0];
 			const newSubOption2List = generateSubOption2List(timeSeriesDataList, newMainOption, isWeighted);
 			const newSubOption2 = !isNetworkMetric ? newSubOption2List[newSubOption2List.length - 1] : newSubOption2List[0];
-			
+
 			return { ...prevState, detailPane: { ...prevState.detailPane,
 				mainOption: newMainOption,
 				subOption1: newSubOption1,
@@ -537,80 +736,460 @@ const reducer = (prevState, dataState, action) => {
 			} };
 		}
 
-		// search window
+		// color pane
 
-		case 'OPEN_SEARCH_WINDOW': {
+		case 'TOGGLE_COLOR_PANE': {
+			const {
+				detailPane: prevDetailPaneState,
+				colorPane: prevColorPaneState,
+				filterPane: prevFilterPaneState
+			} = prevState;
+			const newDetailPaneState = { ...prevDetailPaneState, isOpen: false };
+			const newColorPaneState = { ...prevColorPaneState, isOpen: !prevColorPaneState.isOpen };
+			const newFilterPaneState = { ...prevFilterPaneState, isOpen: false };
+			
 			return { ...prevState, 
-				searchWindow: {  isOpen: true },
-				hover: { object: null, data: null }
+				detailPane: newDetailPaneState,
+				colorPane: newColorPaneState,
+				filterPane: newFilterPaneState,
+				hover: { object: null, data: null } // remove tooltip when open or close
 			};
 		}
-		case 'CLOSE_SEARCH_WINDOW': {
-			return { ...prevState, searchWindow: {  isOpen: false } };
-		}
-		case 'MOUSE_ENTER_SEARCH_WINDOW_BUTTON': {
-			const { buttonEl } = action;
-			const buttonBBox = buttonEl.getBoundingClientRect();
-			const right = buttonEl.style.right;
-			const top = buttonBBox.top - 8 + buttonBBox.height + 8;
-			const text = 'Open search window';
+		case 'SELECT_COLOR_PANE_DATASET': {
+			const { option: newDataSet } = action;
+			const { colorPane: { 
+				dataSet: prevDataSet, 
+				appliedColoringList: prevAppliedColoringList 
+			} } = prevState;
+			const newAttributeList = [ { key: 'NONE', displayName: 'NONE' }, ...newDataSet.colorPane.attributeList ];
+			const newAttribute = generateColorPaneAttribute(newDataSet, newAttributeList, prevAppliedColoringList);
 
-			return { ...prevState, hover: { 
-				object: 'SEARCH_WINDOW_BUTTON', 
-				data: { right, top, text }
+			if (newDataSet === prevDataSet)
+				return prevState;
+
+			return { ...prevState, colorPane: { ...prevState.colorPane,
+				dataSet: newDataSet,
+				attributeList: newAttributeList,
+				attribute: newAttribute
 			} };
 		}
-		case 'MOUSE_LEAVE_SEARCH_WINDOW_BUTTON': {
-			return { ...prevState, hover: { object: null, data: null } };
-		}
-
-		// link disaggregator
-
-		case 'OPEN_LINK_DISAGGREGATOR': {
-			return { ...prevState, 
-				linkDisaggregator: {  isOpen: true },
-				hover: { object: null, data: null }
-			};
-		}
-		case 'CLOSE_LINK_DISAGGREGATOR': {			
-			return { ...prevState, linkDisaggregator: {  isOpen: false } };
-		}
-		case 'CONFIRM_LINK_DISAGGREGATION': {
-			const { linkKey, optionList } = action;
-			const { countryIDToData } = dataState;
-			const { linkPane: { list: prevLinkPaneList } } = prevState;
-			const newLinkPaneList = addNewLinkDataObjects(
-				prevLinkPaneList, linkKey, optionList, countryIDToData
+		case 'SELECT_COLOR_PANE_ATTRIBUTE': {
+			const { option: newAttribute } = action;
+			const {
+				nodeList,
+				countryIDToData
+			} = dataState;
+			const {
+				linkPane: { list: prevLinkPaneList },
+				visualizationPane: { linkTypeToColor: prevLinkTypeToColor },
+				colorPane: { 
+					dataSet: prevDataSet, 
+					attribute: prevAttribute, 
+					appliedColoringList: prevAppliedColoringList 
+				},
+				filterPane: { appliedFilterList: prevAppliedFilterList }
+			} = prevState;
+			const newAppliedColoringList = updateAppliedColoringList(prevAppliedColoringList, { 
+				dataSet: prevDataSet,
+				attribute: newAttribute 
+			});
+			const [
+				newLinkTypeList,
+				newLinkTypeToColor
+			] = updateLinkTypeList(
+				prevLinkPaneList, 
+				newAppliedColoringList, 
+				prevAppliedFilterList, 
+				prevLinkTypeToColor, 
+				countryIDToData
+			);
+			const newSourcePaneList = initSourcePaneList(newLinkTypeList, nodeList);
+			const newTargetPaneList = initTargetPaneList(newLinkTypeList, nodeList);
+			const newTimelineSliderState = updateTimelineSliderState(newLinkTypeList);
+			const newLinkList = updateLinkList(
+				newLinkTypeList, 
+				newSourcePaneList, 
+				newTargetPaneList, 
+				newTimelineSliderState,
+				newAppliedColoringList
 			);
 
-			return { 
-				...prevState,
-				linkPane: { list: newLinkPaneList },
-				linkDisaggregator: { isOpen: false }
-			};
-		}
-		case 'CLEAR_DISAGGREGATED_LINKS': {
-			const { timeSeriesDataList } = dataState;
-			const { 
-				linkPane: { list: prevLinkPaneList },
-				sourcePane: { list: prevSourcePaneList },
-				targetPane: { list: prevTargetPaneList },
-				detailPane: prevDetailPaneState
-			} = prevState;
-			const newLinkPaneList = prevLinkPaneList.filter(({ isSubItem, canDelete }) => !(isSubItem && canDelete));
-			const newSourcePaneList = updateSourcePaneList(newLinkPaneList, prevSourcePaneList);
-			const newTargetPaneList = updateTargetPaneList(newLinkPaneList, prevTargetPaneList);
-			const newTimelineSliderState = updateTimelineSliderState(newLinkPaneList);
-			const newVisualizationPaneList = updateVisualizationPaneList(newLinkPaneList, newSourcePaneList, newTargetPaneList, newTimelineSliderState);
-			const newDetailPaneState = updateDetailPaneState(timeSeriesDataList, newVisualizationPaneList, prevDetailPaneState);
+			if (newAttribute === prevAttribute)
+				return prevState;
 
 			return { ...prevState,
-				linkPane: { list: newLinkPaneList },
 				sourcePane: { list: newSourcePaneList },
 				targetPane: { list: newTargetPaneList },
 				timelineSlider: newTimelineSliderState,
-				visualizationPane: { list: newVisualizationPaneList },
-				detailPane: newDetailPaneState
+				visualizationPane: { 
+					linkList: newLinkList,
+					linkTypeList: newLinkTypeList,
+					linkTypeToColor: newLinkTypeToColor
+				},
+				colorPane: { 
+					...prevState.colorPane,
+					attribute: newAttribute,
+					appliedColoringList: newAppliedColoringList
+				}
+			};
+		}
+		case 'REMOVE_COLOR_PANE_LIST_ITEM': {
+			const { listItem: selectedAppliedColoringListItem } = action;
+			const {
+				nodeList,
+				countryIDToData
+			} = dataState;
+			const {
+				linkPane: { list: prevLinkPaneList },
+				visualizationPane: { linkTypeToColor: prevLinkTypeToColor },
+				colorPane: { 
+					dataSet: prevDataSet, 
+					attributeList: prevAttributeList,
+					appliedColoringList: prevAppliedColoringList
+				},
+				filterPane: { appliedFilterList: prevAppliedFilterList }
+			} = prevState;
+			const newAppliedColoringList = prevAppliedColoringList
+				.filter(listItem => listItem !== selectedAppliedColoringListItem);
+			const newAttribute = generateColorPaneAttribute(prevDataSet, prevAttributeList, newAppliedColoringList);
+			const [ 
+				newLinkTypeList,
+				newLinkTypeToColor
+			] = updateLinkTypeList(
+				prevLinkPaneList,
+				newAppliedColoringList,
+				prevAppliedFilterList, 
+				prevLinkTypeToColor, 
+				countryIDToData
+			);
+			const newSourcePaneList = initSourcePaneList(newLinkTypeList, nodeList);
+			const newTargetPaneList = initTargetPaneList(newLinkTypeList, nodeList);
+			const newTimelineSliderState = updateTimelineSliderState(newLinkTypeList);
+			const newLinkList = updateLinkList(
+				newLinkTypeList, 
+				newSourcePaneList, 
+				newTargetPaneList, 
+				newTimelineSliderState,
+				newAppliedColoringList
+			);
+
+			return { ...prevState,
+				sourcePane: { list: newSourcePaneList },
+				targetPane: { list: newTargetPaneList },
+				timelineSlider: newTimelineSliderState,
+				visualizationPane: { 
+					linkList: newLinkList,
+					linkTypeList: newLinkTypeList,
+					linkTypeToColor: newLinkTypeToColor
+				},
+				colorPane: { 
+					...prevState.colorPane,
+					attribute: newAttribute,
+					appliedColoringList: newAppliedColoringList
+				}
+			};
+		}
+
+		// filter pane
+
+		case 'TOGGLE_FILTER_PANE': {
+			const { 
+				detailPane: prevDetailPaneState,
+				colorPane: prevColorPaneState,
+				filterPane: prevFilterPaneState
+			} = prevState;
+			const newDetailPaneState = { ...prevDetailPaneState, isOpen: false };
+			const newColorPaneState = { ...prevColorPaneState, isOpen: false };
+			const newFilterPaneState = { ...prevFilterPaneState, isOpen: !prevFilterPaneState.isOpen };
+
+			return { ...prevState, 
+				detailPane: newDetailPaneState,
+				colorPane: newColorPaneState,
+				filterPane: newFilterPaneState,
+				hover: { object: null, data: null } // remove tooltip when open or close
+			};
+		}
+		case 'SELECT_FILTER_PANE_DATASET': {
+			const { option: newDataSet } = action;
+			const { filterPane: { dataSet: prevDataSet } } = prevState;
+			const newAttributeList = [ 
+				{ key: 'NONE', displayName: 'SELECT AN ATTRIBUTE' }, 
+				...newDataSet.filterPane.attributeList 
+			];
+			const newAttribute = newAttributeList[0];
+			const newAttributeValueList = [];
+			const newAttributeValue = '';
+
+			if (newDataSet === prevDataSet)
+				return prevState;
+
+			return { ...prevState, filterPane: { ...prevState.filterPane,
+				dataSet: newDataSet,
+				attributeList: newAttributeList,
+				attribute: newAttribute,
+				attributeValueList: newAttributeValueList,
+				attributeValue: newAttributeValue
+			} };
+		}
+		case 'SELECT_FILTER_PANE_ATTRIBUTE': {
+			const { option: newAttribute } = action;
+			const { countryIDToData } = dataState;
+			const { filterPane: { 
+				dataSet: prevDataSet, 
+				attribute: prevAttribute, 
+				appliedFilterList: prevAppliedFilterList 
+			} } = prevState;
+			const newAttributeValueList = generateFilterPaneAttributeValueList(prevDataSet, newAttribute, prevAppliedFilterList, countryIDToData);
+			const newAttributeValue = generateFilterPaneAttributeValue(prevDataSet, newAttribute, newAttributeValueList, prevAppliedFilterList);
+
+			if (newAttribute === prevAttribute)
+				return prevState;
+
+			return { ...prevState, filterPane: { ...prevState.filterPane,
+				attribute: newAttribute,
+				attributeValueList: newAttributeValueList,
+				attributeValue: newAttributeValue
+			} };
+		}
+		case 'SELECT_FILTER_PANE_CATEGORY': {
+			const { itemKey } = action;
+			const {
+				nodeList,
+				countryIDToData
+			} = dataState;
+			const {
+				linkPane: { list: prevLinkPaneList },
+				visualizationPane: { linkTypeToColor: prevLinkTypeToColor },
+				colorPane: { appliedColoringList: prevAppliedColoringList },
+				filterPane: {
+					dataSet: prevDataSet, 
+					attribute: prevAttribute, 
+					attributeValueList: prevAttributeValueList, 
+					appliedFilterList: prevAppliedFilterList
+				} 
+			} = prevState;
+			const newAttributeValueList = prevAttributeValueList
+				.map(listItem => listItem.key === itemKey ? { ...listItem, isSelected: !listItem.isSelected } : listItem);
+			const newAppliedFilterList = updateAppliedFilterList(prevAppliedFilterList, {
+				dataSet: prevDataSet,
+				attribute: prevAttribute,
+				attributeValueList: newAttributeValueList,
+				attributeValue: '' // categorical attr => ''
+			});
+			const [ 
+				newLinkTypeList,
+				newLinkTypeToColor
+			] = updateLinkTypeList(
+				prevLinkPaneList, 
+				prevAppliedColoringList, 
+				newAppliedFilterList, 
+				prevLinkTypeToColor, 
+				countryIDToData
+			);
+			const newSourcePaneList = initSourcePaneList(newLinkTypeList, nodeList);
+			const newTargetPaneList = initTargetPaneList(newLinkTypeList, nodeList);
+			const newTimelineSliderState = updateTimelineSliderState(newLinkTypeList);
+			const newLinkList = updateLinkList(
+				newLinkTypeList, 
+				newSourcePaneList, 
+				newTargetPaneList, 
+				newTimelineSliderState,
+				prevAppliedColoringList
+			);
+
+			return { ...prevState,
+				sourcePane: { list: newSourcePaneList },
+				targetPane: { list: newTargetPaneList },
+				timelineSlider: newTimelineSliderState,
+				visualizationPane: { 
+					linkList: newLinkList,
+					linkTypeList: newLinkTypeList,
+					linkTypeToColor: newLinkTypeToColor
+				},
+				filterPane: { 
+					...prevState.filterPane,
+					attributeValueList: newAttributeValueList,
+					appliedFilterList: newAppliedFilterList
+				} 
+			};
+		}
+		case 'SELECT_FILTER_PANE_CATEGORIES': {
+			const { isSelected } = action;
+			const {
+				nodeList,
+				countryIDToData
+			} = dataState;
+			const {
+				linkPane: { list: prevLinkPaneList },
+				visualizationPane: { linkTypeToColor: prevLinkTypeToColor },
+				colorPane: { appliedColoringList: prevAppliedColoringList },
+				filterPane: {
+					dataSet: prevDataSet, 
+					attribute: prevAttribute, 
+					attributeValueList: prevAttributeValueList, 
+					appliedFilterList: prevAppliedFilterList
+				} 
+			} = prevState;
+			const newAttributeValueList = prevAttributeValueList
+				.map(listItem => ({ ...listItem, isSelected: isSelected }));
+			const newAppliedFilterList = updateAppliedFilterList(prevAppliedFilterList, {
+				dataSet: prevDataSet,
+				attribute: prevAttribute,
+				attributeValueList: newAttributeValueList,
+				attributeValue: '' // categorical attr => ''
+			});
+			const [ 
+				newLinkTypeList,
+				newLinkTypeToColor
+			] = updateLinkTypeList(
+				prevLinkPaneList, 
+				prevAppliedColoringList, 
+				newAppliedFilterList, 
+				prevLinkTypeToColor, 
+				countryIDToData
+			);
+			const newSourcePaneList = initSourcePaneList(newLinkTypeList, nodeList);
+			const newTargetPaneList = initTargetPaneList(newLinkTypeList, nodeList);
+			const newTimelineSliderState = updateTimelineSliderState(newLinkTypeList);
+			const newLinkList = updateLinkList(
+				newLinkTypeList, 
+				newSourcePaneList, 
+				newTargetPaneList, 
+				newTimelineSliderState,
+				prevAppliedColoringList
+			);
+			
+			return { ...prevState,
+				sourcePane: { list: newSourcePaneList },
+				targetPane: { list: newTargetPaneList },
+				timelineSlider: newTimelineSliderState,
+				visualizationPane: { 
+					linkList: newLinkList,
+					linkTypeList: newLinkTypeList,
+					linkTypeToColor: newLinkTypeToColor
+				},
+				filterPane: { 
+					...prevState.filterPane,
+					attributeValueList: newAttributeValueList,
+					appliedFilterList: newAppliedFilterList
+				} 
+			};
+		}
+		case 'CHANGE_FILTER_PANE_RANGE': {
+			const { value: newAttributeValue } = action;
+			const {
+				nodeList,
+				countryIDToData
+			} = dataState;
+			const {
+				linkPane: { list: prevLinkPaneList },
+				visualizationPane: { linkTypeToColor: prevLinkTypeToColor },
+				colorPane: { appliedColoringList: prevAppliedColoringList },
+				filterPane: {
+					dataSet: prevDataSet, 
+					attribute: prevAttribute, 
+					attributeValueList: prevAttributeValueList, 
+					appliedFilterList: prevAppliedFilterList
+				} 
+			} = prevState;
+			const newAppliedFilterList = updateAppliedFilterList(prevAppliedFilterList, { 
+				dataSet: prevDataSet, 
+				attribute: prevAttribute, 
+				attributeValueList: prevAttributeValueList, 
+				attributeValue: newAttributeValue 
+			});
+			const [ 
+				newLinkTypeList,
+				newLinkTypeToColor
+			] = updateLinkTypeList(
+				prevLinkPaneList, 
+				prevAppliedColoringList, 
+				newAppliedFilterList, 
+				prevLinkTypeToColor, 
+				countryIDToData
+			);
+			const newSourcePaneList = initSourcePaneList(newLinkTypeList, nodeList);
+			const newTargetPaneList = initTargetPaneList(newLinkTypeList, nodeList);
+			const newTimelineSliderState = updateTimelineSliderState(newLinkTypeList);
+			const newLinkList = updateLinkList(
+				newLinkTypeList, 
+				newSourcePaneList, 
+				newTargetPaneList, 
+				newTimelineSliderState,
+				prevAppliedColoringList
+			);
+
+			return { ...prevState,
+				sourcePane: { list: newSourcePaneList },
+				targetPane: { list: newTargetPaneList },
+				timelineSlider: newTimelineSliderState,
+				visualizationPane: { 
+					linkList: newLinkList,
+					linkTypeList: newLinkTypeList,
+					linkTypeToColor: newLinkTypeToColor
+				},
+				filterPane: { 
+					...prevState.filterPane,
+					attributeValue: newAttributeValue,
+					appliedFilterList: newAppliedFilterList
+				} 
+			};
+		}
+		case 'REMOVE_FILTER_PANE_FILTER': {
+			const { listItem: selectedFilter } = action;
+			const {
+				nodeList,
+				countryIDToData
+			} = dataState;
+			const { 
+				linkPane: { list: prevLinkPaneList },
+				visualizationPane: { linkTypeToColor: prevLinkTypeToColor },
+				colorPane: { appliedColoringList: prevAppliedColoringList },
+				filterPane: { 
+					dataSet: prevDataSet,
+					attribute: prevAttribute,
+					appliedFilterList: prevAppliedFilterList 
+				} 
+			} = prevState;
+			const newAppliedFilterList = prevAppliedFilterList.filter(listItem => listItem !== selectedFilter);
+			const newAttributeValueList = generateFilterPaneAttributeValueList(prevDataSet, prevAttribute, newAppliedFilterList, countryIDToData);
+			const newAttributeValue = generateFilterPaneAttributeValue(prevDataSet, prevAttribute, newAttributeValueList, newAppliedFilterList);
+			const [ 
+				newLinkTypeList,
+				newLinkTypeToColor
+			] = updateLinkTypeList(
+				prevLinkPaneList, 
+				prevAppliedColoringList, 
+				newAppliedFilterList, 
+				prevLinkTypeToColor, 
+				countryIDToData
+			);
+			const newSourcePaneList = initSourcePaneList(newLinkTypeList, nodeList);
+			const newTargetPaneList = initTargetPaneList(newLinkTypeList, nodeList);
+			const newTimelineSliderState = updateTimelineSliderState(newLinkTypeList);
+			const newLinkList = updateLinkList(
+				newLinkTypeList, 
+				newSourcePaneList, 
+				newTargetPaneList, 
+				newTimelineSliderState,
+				prevAppliedColoringList
+			);
+
+			return { ...prevState, 
+				sourcePane: { list: newSourcePaneList },
+				targetPane: { list: newTargetPaneList },
+				timelineSlider: newTimelineSliderState,
+				visualizationPane: { 
+					linkList: newLinkList,
+					linkTypeList: newLinkTypeList,
+					linkTypeToColor: newLinkTypeToColor
+				},
+				filterPane: { 
+					...prevState.filterPane,
+					appliedFilterList: newAppliedFilterList,
+					attributeValueList: newAttributeValueList,
+					attributeValue: newAttributeValue
+				} 
 			};
 		}
 
@@ -625,6 +1204,8 @@ const reducer = (prevState, dataState, action) => {
 		case 'CLOSE_REFERENCE': {			
 			return { ...prevState, reference: {  isOpen: false } };
 		}
+
+		// default
 
 		default: {
 			throw new Error(`Unhandled action type: ${ action.type }`);

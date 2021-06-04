@@ -29,10 +29,10 @@ const findMaxMetricValue = (graph, metricFunction) => {
 	return maxMetricValue;
 };
 
-const generateNodeIDSet = visualizationPaneList => {
+const generateNodeIDSet = linkList => {
 	const nodeIDSet = new Set();
 
-	for (let { sourceID, targetID } of visualizationPaneList) {
+	for (let { sourceID, targetID } of linkList) {
 		nodeIDSet.add(sourceID);
 		nodeIDSet.add(targetID);
 	}
@@ -40,15 +40,15 @@ const generateNodeIDSet = visualizationPaneList => {
 	return nodeIDSet;
 };
 
-const generateLinkIDSet = (visualizationPaneList, isDirected) => {
+const generateLinkIDSet = (linkList, isDirected) => {
 	const linkIDSet = new Set();
 
 	if (isDirected)
-		for (let { sourceID, targetID } of visualizationPaneList)
+		for (let { sourceID, targetID } of linkList)
 			linkIDSet.add(`${ sourceID }-${ targetID }`);
 
 	else if (!isDirected)
-		for (let { sourceID, targetID } of visualizationPaneList) {
+		for (let { sourceID, targetID } of linkList) {
 			const newSourceID = sourceID < targetID ? sourceID : targetID; // smaller one
 			const newTargetID = sourceID < targetID ? targetID : sourceID; // larger one
 			linkIDSet.add(`${ newSourceID }-${ newTargetID }`);
@@ -57,12 +57,12 @@ const generateLinkIDSet = (visualizationPaneList, isDirected) => {
 	return linkIDSet;
 };
 
-const generateLinkIDToWeight = (visualizationPaneList, isDirected, isWeightDistance=false) => {
+const generateLinkIDToWeight = (linkList, isDirected, isWeightDistance=false) => {
 	const linkIDToStatistics = {};
 	const linkIDToWeight = {};
 
 	if (isDirected)
-		for (let { sourceID, targetID, linkRowList } of visualizationPaneList) {
+		for (let { sourceID, targetID, linkRowList } of linkList) {
 			const linkID = `${ sourceID }-${ targetID }`;
 
 			if (!(linkID in linkIDToStatistics))
@@ -77,7 +77,7 @@ const generateLinkIDToWeight = (visualizationPaneList, isDirected, isWeightDista
 		}
 
 	else if (!isDirected)
-		for (let { sourceID, targetID, linkRowList } of visualizationPaneList) {
+		for (let { sourceID, targetID, linkRowList } of linkList) {
 			const newSourceID = sourceID < targetID ? sourceID : targetID; // smaller one
 			const newTargetID = sourceID < targetID ? targetID : sourceID; // larger one
 			const linkID = `${ newSourceID }-${ newTargetID }`;
@@ -106,13 +106,13 @@ const generateLinkIDToWeight = (visualizationPaneList, isDirected, isWeightDista
 	return linkIDToWeight;
 };
 
-const generateCytoscapeGraph = (visualizationPaneList, isDirected, isWeighted, isWeightDistance=false) => {
+const generateCytoscapeGraph = (linkList, isDirected, isWeighted, isWeightDistance=false) => {
 	const data = [];
 	const graph = cytoscape();
 
 	if (!isDirected && !isWeighted) {
-		const nodeIDSet = generateNodeIDSet(visualizationPaneList);
-		const linkIDSet = generateLinkIDSet(visualizationPaneList, false);
+		const nodeIDSet = generateNodeIDSet(linkList);
+		const linkIDSet = generateLinkIDSet(linkList, false);
 
 		for (let nodeID of nodeIDSet)
 			data.push({ data: { id: nodeID } });
@@ -122,9 +122,9 @@ const generateCytoscapeGraph = (visualizationPaneList, isDirected, isWeighted, i
 		}
 	}
 	else if (!isDirected && isWeighted) {
-		const nodeIDSet = generateNodeIDSet(visualizationPaneList);
-		const linkIDSet = generateLinkIDSet(visualizationPaneList, false);
-		const linkIDToWeight = generateLinkIDToWeight(visualizationPaneList, false, isWeightDistance);
+		const nodeIDSet = generateNodeIDSet(linkList);
+		const linkIDSet = generateLinkIDSet(linkList, false);
+		const linkIDToWeight = generateLinkIDToWeight(linkList, false, isWeightDistance);
 
 		for (let nodeID of nodeIDSet)
 			data.push({ data: { id: nodeID } });
@@ -137,8 +137,8 @@ const generateCytoscapeGraph = (visualizationPaneList, isDirected, isWeighted, i
 		}
 	}
 	else if (isDirected && !isWeighted) {
-		const nodeIDSet = generateNodeIDSet(visualizationPaneList);
-		const linkIDSet = generateLinkIDSet(visualizationPaneList, true);
+		const nodeIDSet = generateNodeIDSet(linkList);
+		const linkIDSet = generateLinkIDSet(linkList, true);
 
 		for (let nodeID of nodeIDSet)
 			data.push({ data: { id: nodeID } });
@@ -148,9 +148,9 @@ const generateCytoscapeGraph = (visualizationPaneList, isDirected, isWeighted, i
 		}
 	}
 	else if (isDirected && isWeighted) {
-		const nodeIDSet = generateNodeIDSet(visualizationPaneList);
-		const linkIDSet = generateLinkIDSet(visualizationPaneList, true);
-		const linkIDToWeight = generateLinkIDToWeight(visualizationPaneList, true, isWeightDistance);
+		const nodeIDSet = generateNodeIDSet(linkList);
+		const linkIDSet = generateLinkIDSet(linkList, true);
+		const linkIDToWeight = generateLinkIDToWeight(linkList, true, isWeightDistance);
 
 		for (let nodeID of nodeIDSet)
 			data.push({ data: { id: nodeID } });
@@ -168,33 +168,33 @@ const generateCytoscapeGraph = (visualizationPaneList, isDirected, isWeighted, i
 	return graph;
 };
 
-const generateNetworkJSGraph = (visualizationPaneList, isWeighted, isWeightDistance=false) => { // must be undirected
-	const linkList = [];
+const generateNetworkJSGraph = (linkList, isWeighted, isWeightDistance=false) => { // must be undirected
+	const linkListForGraph = [];
 	const graph = new networkjs.datastructures.Graph();
 
 	if (isWeighted) {
-		const linkIDSet = generateLinkIDSet(visualizationPaneList, false);
-		const linkIDToWeight = generateLinkIDToWeight(visualizationPaneList, false, isWeightDistance);
+		const linkIDSet = generateLinkIDSet(linkList, false);
+		const linkIDToWeight = generateLinkIDToWeight(linkList, false, isWeightDistance);
 
 		for (let linkID of linkIDSet) {
 			const [ sourceID, targetID ] = linkID.split('-');
 			const weight = linkIDToWeight[linkID];
 
 			if (weight !== null)
-				linkList.push([ sourceID, targetID, weight ]);
+				linkListForGraph.push([ sourceID, targetID, weight ]);
 		}
 
-		graph.add_weighted_edges_from(linkList);
+		graph.add_weighted_edges_from(linkListForGraph);
 	}
 	else if (!isWeighted) {
-		const linkIDSet = generateLinkIDSet(visualizationPaneList, false);
+		const linkIDSet = generateLinkIDSet(linkList, false);
 
 		for (let linkID of linkIDSet) {
 			const [ sourceID, targetID ] = linkID.split('-');
-			linkList.push([ sourceID, targetID ]);
+			linkListForGraph.push([ sourceID, targetID ]);
 		}
 
-		graph.add_edges_from(linkList);
+		graph.add_edges_from(linkListForGraph);
 	}
 
 	return graph;
@@ -202,10 +202,10 @@ const generateNetworkJSGraph = (visualizationPaneList, isWeighted, isWeightDista
 
 // generateTimeSeriesEntryList
 
-const generateSourceTargetSet = visualizationPaneList => {
+const generateSourceTargetSet = linkList => {
 	const sourceTargetIDSet = new Set();
 
-	for (let { sourceID, targetID, isDirected } of visualizationPaneList) {
+	for (let { sourceID, targetID, isDirected } of linkList) {
 		if (isDirected)
 			sourceTargetIDSet.add(sourceID + '-' + targetID);
 		else if (!isDirected) {
@@ -246,7 +246,7 @@ const setYScaleDomain = (yScale, timeSeriesList) => {
 const generateTimeSeriesEntryList = (
 	countryIDToData,
 	timeSeriesDataList,
-	visualizationPaneList,
+	linkList,
 	mainOption,
 	subOption1,
 	subOption2
@@ -254,7 +254,7 @@ const generateTimeSeriesEntryList = (
 	const entryList = [];
 	const { data: IDToTimeSeriesList, metadata: { isBilateral } } = 
 		timeSeriesDataList.filter(({ metadata: { displayName } }) => displayName === mainOption)[0];
-	const IDSet = isBilateral ? generateSourceTargetSet(visualizationPaneList) : generateNodeIDSet(visualizationPaneList);
+	const IDSet = isBilateral ? generateSourceTargetSet(linkList) : generateNodeIDSet(linkList);
 	const startYear = +subOption1 < +subOption2 ? +subOption1 : +subOption2;
 	const endYear = +subOption1 < +subOption2 ? +subOption2 : +subOption1;
 	const filteredIDToTimeSeriesList = filterIDToTimeSeriesList(
@@ -329,10 +329,10 @@ const generateTimeSeriesEntryList = (
 
 // generateDegreeEntryList (undirected + unweighted)
 
-const generateNodeIDToConnectedNodeIDSet = visualizationPaneList => {
+const generateNodeIDToConnectedNodeIDSet = linkList => {
 	const nodeIDToConectedNodeIDSet = {};
 
-	for (let { sourceID, targetID } of visualizationPaneList) {
+	for (let { sourceID, targetID } of linkList) {
 		if (!(sourceID in nodeIDToConectedNodeIDSet))
 			nodeIDToConectedNodeIDSet[sourceID] = new Set();
 		if (!(targetID in nodeIDToConectedNodeIDSet))
@@ -345,9 +345,9 @@ const generateNodeIDToConnectedNodeIDSet = visualizationPaneList => {
 	return nodeIDToConectedNodeIDSet;
 };
 
-const generateDegreeEntryList = (visualizationPaneList, countryIDToData) => {
+const generateDegreeEntryList = (linkList, countryIDToData) => {
 	const entryList = [];
-	const nodeIDToConectedNodeIDSet = generateNodeIDToConnectedNodeIDSet(visualizationPaneList);
+	const nodeIDToConectedNodeIDSet = generateNodeIDToConnectedNodeIDSet(linkList);
 	const maxDegree = findMaxSetSize(nodeIDToConectedNodeIDSet);
 	const widthScale = scaleLinear()
 		.domain([ 0, maxDegree ])
@@ -372,10 +372,10 @@ const generateDegreeEntryList = (visualizationPaneList, countryIDToData) => {
 
 // generateInDegreeEntryList (directed + unweighted)
 
-const generateNodeIDToSourceIDSet = visualizationPaneList => {
+const generateNodeIDToSourceIDSet = linkList => {
 	const nodeIDToSourceIDSet = {};
 
-	for (let { sourceID, targetID } of visualizationPaneList) {
+	for (let { sourceID, targetID } of linkList) {
 		if (!(targetID in nodeIDToSourceIDSet))
 			nodeIDToSourceIDSet[targetID] = new Set();
 
@@ -385,9 +385,9 @@ const generateNodeIDToSourceIDSet = visualizationPaneList => {
 	return nodeIDToSourceIDSet;
 };
 
-const generateInDegreeEntryList = (visualizationPaneList, countryIDToData) => {
+const generateInDegreeEntryList = (linkList, countryIDToData) => {
 	const entryList = [];
-	const nodeIDToSourceIDSet = generateNodeIDToSourceIDSet(visualizationPaneList);
+	const nodeIDToSourceIDSet = generateNodeIDToSourceIDSet(linkList);
 	const maxInDegree = findMaxSetSize(nodeIDToSourceIDSet);
 	const widthScale = scaleLinear()
 		.domain([ 0, maxInDegree ])
@@ -412,10 +412,10 @@ const generateInDegreeEntryList = (visualizationPaneList, countryIDToData) => {
 
 // generateOutDegreeEntryList (directed + unweighted)
 
-const generateNodeIDToTargetIDSet = visualizationPaneList => {
+const generateNodeIDToTargetIDSet = linkList => {
 	const nodeIDToTargetIDSet = {};
 
-	for (let { sourceID, targetID } of visualizationPaneList) {
+	for (let { sourceID, targetID } of linkList) {
 		if (!(sourceID in nodeIDToTargetIDSet))
 			nodeIDToTargetIDSet[sourceID] = new Set();
 
@@ -425,9 +425,9 @@ const generateNodeIDToTargetIDSet = visualizationPaneList => {
 	return nodeIDToTargetIDSet;
 };
 
-const generateOutDegreeEntryList = (visualizationPaneList, countryIDToData) => {
+const generateOutDegreeEntryList = (linkList, countryIDToData) => {
 	const entryList = [];
-	const nodeIDToTargetIDSet = generateNodeIDToTargetIDSet(visualizationPaneList);
+	const nodeIDToTargetIDSet = generateNodeIDToTargetIDSet(linkList);
 	const maxOutDegree = findMaxSetSize(nodeIDToTargetIDSet);
 	const widthScale = scaleLinear()
 		.domain([ 0, maxOutDegree ])
@@ -452,9 +452,9 @@ const generateOutDegreeEntryList = (visualizationPaneList, countryIDToData) => {
 
 // generateClosenessEntryList
 
-const generateClosenessEntryList = (visualizationPaneList, countryIDToData, isDirected, isWeighted) => {
+const generateClosenessEntryList = (linkList, countryIDToData, isDirected, isWeighted) => {
 	const entryList = [];
-	const graph = generateCytoscapeGraph(visualizationPaneList, isDirected, isWeighted, true);
+	const graph = generateCytoscapeGraph(linkList, isDirected, isWeighted, true);
 	const option = !isWeighted ? { directed: isDirected } : { directed: isDirected, weight: e => e.data('weight') };
 	const closenessFunction = graph.$().ccn(option);
 	const maxCloseness = findMaxMetricValue(graph, closenessFunction.closeness);
@@ -483,9 +483,9 @@ const generateClosenessEntryList = (visualizationPaneList, countryIDToData, isDi
 
 // generateBetweennessEntryList
 
-const generateBetweennessEntryList = (visualizationPaneList, countryIDToData, isDirected, isWeighted) => {
+const generateBetweennessEntryList = (linkList, countryIDToData, isDirected, isWeighted) => {
 	const entryList = [];
-	const graph = generateCytoscapeGraph(visualizationPaneList, isDirected, isWeighted, true);
+	const graph = generateCytoscapeGraph(linkList, isDirected, isWeighted, true);
 	const option = !isWeighted ? { directed: isDirected } : { directed: isDirected, weight: e => e.data('weight') };
 	const betweennessFunction = graph.$().bc(option);
 	const maxBetweenness = findMaxMetricValue(graph, betweennessFunction.betweennessNormalized);
@@ -527,9 +527,9 @@ const findMaxEigenvector = nodeIDToEigenvector => {
 	return maxEigenvector;
 };
 
-const generateEigenvectorEntryList = (visualizationPaneList, countryIDToData, isWeighted) => {
+const generateEigenvectorEntryList = (linkList, countryIDToData, isWeighted) => {
 	const entryList = [];
-	const graph = generateNetworkJSGraph(visualizationPaneList, isWeighted);
+	const graph = generateNetworkJSGraph(linkList, isWeighted);
 	const nodeIDToEigenvector = networkjs.algorithms.centrality.eigenvector_centrality(graph);
 	const maxEigenvector = findMaxEigenvector(nodeIDToEigenvector);
 	const widthScale = scaleLinear()
@@ -556,9 +556,9 @@ const generateEigenvectorEntryList = (visualizationPaneList, countryIDToData, is
 
 // generatePageRankEntryList (directed + unweighted)
 
-const generatePageRankEntryList = (visualizationPaneList, countryIDToData) => {
+const generatePageRankEntryList = (linkList, countryIDToData) => {
 	const entryList = [];
-	const graph = generateCytoscapeGraph(visualizationPaneList, true, false);
+	const graph = generateCytoscapeGraph(linkList, true, false);
 	const pageRankFunction = graph.$().pageRank();
 	const maxPageRank = findMaxMetricValue(graph, pageRankFunction.rank);
 	const widthScale = scaleLinear()
@@ -589,7 +589,7 @@ const generatePageRankEntryList = (visualizationPaneList, countryIDToData) => {
 export const generateEntryList = (
 	countryIDToData,
 	timeSeriesDataList,
-	visualizationPaneList,
+	linkList,
 	mainOption,
 	subOption1,
 	subOption2
@@ -600,21 +600,21 @@ export const generateEntryList = (
 	const isWeighted = subOption2 === 'weighted';
 
 	if (isSelectedTimeSeries)
-		return generateTimeSeriesEntryList(countryIDToData, timeSeriesDataList, visualizationPaneList, mainOption, subOption1, subOption2);
+		return generateTimeSeriesEntryList(countryIDToData, timeSeriesDataList, linkList, mainOption, subOption1, subOption2);
 	if (mainOption === 'Degree')
-		return generateDegreeEntryList(visualizationPaneList, countryIDToData);
+		return generateDegreeEntryList(linkList, countryIDToData);
 	if (mainOption === 'In Degree')
-		return generateInDegreeEntryList(visualizationPaneList, countryIDToData);
+		return generateInDegreeEntryList(linkList, countryIDToData);
 	if (mainOption === 'Out Degree')
-		return generateOutDegreeEntryList(visualizationPaneList, countryIDToData);
+		return generateOutDegreeEntryList(linkList, countryIDToData);
 	if (mainOption === 'Closeness')
-		return generateClosenessEntryList(visualizationPaneList, countryIDToData, isDirected, isWeighted);
+		return generateClosenessEntryList(linkList, countryIDToData, isDirected, isWeighted);
 	if (mainOption === 'Betweenness')
-		return generateBetweennessEntryList(visualizationPaneList, countryIDToData, isDirected, isWeighted);
+		return generateBetweennessEntryList(linkList, countryIDToData, isDirected, isWeighted);
 	if (mainOption === 'Eigenvector')
-		return generateEigenvectorEntryList(visualizationPaneList, countryIDToData, isWeighted);
+		return generateEigenvectorEntryList(linkList, countryIDToData, isWeighted);
 	if (mainOption === 'PageRank')
-		return generatePageRankEntryList(visualizationPaneList, countryIDToData);
+		return generatePageRankEntryList(linkList, countryIDToData);
 
 	return [];
 };

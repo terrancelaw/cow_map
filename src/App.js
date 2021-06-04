@@ -3,12 +3,13 @@ import { useInterfaceState } from './useInterfaceState/useInterfaceState';
 import { DataSelectionPanes } from './DataSelectionPanes/DataSelectionPanes';
 import { VisualizationPane } from './VisualizationPane/VisualizationPane';
 import { DetailPane } from './DetailPane/DetailPane';
+import { ColorPane } from './ColorPane/ColorPane';
+import { FilterPane } from './FilterPane/FilterPane';
 import { SearchWindow } from './SearchWindow/SearchWindow';
 import { Loader } from './widgets/Loader/Loader';
 import { Tooltip } from './widgets/Tooltip/Tooltip';
 import { PopUpWindow } from './widgets/PopUpWindow/PopUpWindow';
 import { ColorPicker } from './widgets/ColorPicker/ColorPicker';
-import { LinkDisaggregator } from './LinkDisaggregator/LinkDisaggregator';
 import { Reference } from './Reference/Reference';
 import './App.css';
 
@@ -17,26 +18,23 @@ export const App = () => {
 	const {
 		landData,
 		interiorData,
-		linkDataList,
 		countryIDToData,
 		timeSeriesDataList,
 		isLoading: dataIsLoading
 	} = dataState;
 
-	const [ 
-		interfaceState, 
-		dispatch 
-	] = useInterfaceState(dataState);
+	const [ interfaceState, dispatch ] = useInterfaceState(dataState);
 	const {
 		linkPane: { list: linkPaneList },
 		sourcePane: { list: sourcePaneList },
 		targetPane: { list: targetPaneList },
-		visualizationPane: { list: visualizationPaneList },
+		visualizationPane: { linkTypeList, linkList },
 		colorPicker: colorPickerState,
 		timelineSlider: timelineSliderState,
 		detailPane: detailPaneState,
+		colorPane: colorPaneState,
+		filterPane: filterPaneState,
 		searchWindow: { isOpen: searchWindowIsOpen },
-		linkDisaggregator: { isOpen: linkDisaggregatorIsOpen },
 		reference: { isOpen: referenceIsOpen },
 		hover: hoverState,
 		focus: focusState,
@@ -61,18 +59,28 @@ export const App = () => {
 					landData={ landData }
 					interiorData={ interiorData }
 					countryIDToData={ countryIDToData }
-					linkPaneList={ linkPaneList }
-					visualizationPaneList={ visualizationPaneList }
+					linkList={ linkList }
+					linkTypeList={ linkTypeList }
 					timelineSliderState={ timelineSliderState }
 					hoverState={ hoverState }
 					detailPaneIsOpen={ detailPaneState.isOpen }
+					colorPaneState={ colorPaneState }
+					filterPaneState={ filterPaneState }
 					dispatch={ dispatch }
 				/>
 				<DetailPane
 					countryIDToData={ countryIDToData }
 					timeSeriesDataList={ timeSeriesDataList }
-					visualizationPaneList={ visualizationPaneList }
+					linkList={ linkList }
 					detailPaneState={ detailPaneState }
+					dispatch={ dispatch }
+				/>
+				<ColorPane
+					colorPaneState={ colorPaneState }
+					dispatch={ dispatch }
+				/>
+				<FilterPane 
+					filterPaneState={ filterPaneState }
 					dispatch={ dispatch }
 				/>
 			</div>
@@ -89,7 +97,6 @@ export const App = () => {
 			/>
 			<SearchWindow
 				dataState={ dataState }
-				detailPaneIsOpen={ detailPaneState.isOpen }
 				searchWindowIsOpen={ searchWindowIsOpen }
 				interfaceDispatch={ dispatch }
 			/>
@@ -97,14 +104,8 @@ export const App = () => {
 				colorPickerState={ colorPickerState }
 				dispatch={ dispatch }
 			/>
-			<LinkDisaggregator
-				linkDataList={ linkDataList }
-				linkDisaggregatorIsOpen={ linkDisaggregatorIsOpen }
-				interfaceDispatch={ dispatch }
-			/>
 			<Reference 
 				referenceIsOpen={ referenceIsOpen }
-				detailPaneIsOpen={ detailPaneState.isOpen }
 				dispatch={ dispatch }
 			/>
 		</>

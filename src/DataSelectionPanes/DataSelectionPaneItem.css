@@ -1,29 +1,20 @@
-/* regular item */
-
 #left-column > .data-selection-pane > .content > .item {
 	height: 28px;
 
-	display: flex;
-    align-items: center;
-
-    position: relative; /* for remove button */
-}
-
-#left-column > .data-selection-pane > .content > .item > label {
 	cursor: pointer;
 
 	display: flex;
     align-items: center;
 }
 
-#left-column > .data-selection-pane > .content > .item > label > input {
+#left-column > .data-selection-pane > .content > .item > input {
 	opacity: 0;
 	height: 0;
 	width: 0;
 	margin: 0;
 }
 
-#left-column > .data-selection-pane > .content > .item > label > .checkmark {
+#left-column > .data-selection-pane > .content > .item > .checkmark {
 	display: inline-block;
 	position: relative;
 
@@ -38,15 +29,15 @@
 	box-shadow: 0px 0px 5px 1px rgb(211 211 211);
 }
 
-#left-column > .data-selection-pane > .content > .item > label:hover > input ~ .checkmark { /* On mouse over item */
+#left-column > .data-selection-pane > .content > .item:hover > input ~ .checkmark { /* On mouse over item */
 	background-color: #ccc;
 }
 
-#left-column > .data-selection-pane > .content > .item > label > input:checked ~ .checkmark { /* On check item */
+#left-column > .data-selection-pane > .content > .item > input:checked ~ .checkmark { /* On check item */
 	background-color: gray;
 }
 
-#left-column > .data-selection-pane > .content > .item > label > .checkmark:after {
+#left-column > .data-selection-pane > .content > .item > .checkmark:after {
 	content: "";
 	position: absolute;
 	display: none;
@@ -65,11 +56,11 @@
 	transform: rotate(45deg);
 }
 
-#left-column > .data-selection-pane > .content > .item > label > input:checked ~ .checkmark:after { /* On check item */
+#left-column > .data-selection-pane > .content > .item > input:checked ~ .checkmark:after { /* On check item */
 	display: block;
 }
 
-#left-column > .data-selection-pane > .content > .item > label > .text {
+#left-column > .data-selection-pane > .content > .item > .text {
 	font-size: 15px;
 	font-weight: 300;
 	color: #3d3d3d;
@@ -77,54 +68,4 @@
 	max-width: 180px;
 	overflow: hidden;
     text-overflow: ellipsis;
-}
-
-/* regular item + deletable */
-
-#left-column > .data-selection-pane > .content > .deletable.item > label > .text {
-	max-width: 163px;
-}
-
-#left-column > .data-selection-pane > .content > .deletable.item > .remove-button {
-	cursor: pointer;
-
-	display: none;
-
-	font-size: 15px;
-    color: gray;
-
-    position: absolute;
-    right: 15px;
-}
-
-#left-column > .data-selection-pane > .content > .deletable.item:hover > .remove-button {
-	display: flex;
-    align-items: center;
-}
-
-#left-column > .data-selection-pane > .content > .deletable.item > .remove-button:hover {
-	color: #3d3d3d;
-}
-
-/* sub item */
-
-#left-column > .data-selection-pane > .content > .sub.item {
-	padding-left: 25px;
-}
-
-#left-column > .data-selection-pane > .content > .sub.item > label > .checkmark {
-	width: 13px;
-	height: 13px;
-
-	margin-right: 11px;
-}
-
-#left-column > .data-selection-pane > .content > .sub.item > label > .checkmark:after {
-	width: 3px;
-    height: 7px;
-}
-
-#left-column > .data-selection-pane > .content > .sub.item > label > .text {
-	font-size: 13px;
-    max-width: 140px;
 }

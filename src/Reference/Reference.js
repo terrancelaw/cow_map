@@ -1,37 +1,16 @@
-import $ from 'jquery';
 import { memo } from 'react';
-import { IoInformationCircleOutline } from 'react-icons/io5';
 import { FaTimes } from "react-icons/fa";
 import './Reference.css';
 
 export const Reference = memo(({ 
 	referenceIsOpen, 
-	detailPaneIsOpen,
 	dispatch
 }) => {
-	const handleClickOpenButton = () => 
-		dispatch({ type: 'OPEN_REFERENCE' });
 	const handleClickCloseButton = () => 
 		dispatch({ type: 'CLOSE_REFERENCE' });
-	const handleMouseEnterOpenButton = event => 
-		dispatch({ 
-			type: 'MOUSE_ENTER_CONTROL_BUTTON',
-			buttonEl: $(event.target).closest('.button')[0],
-			text: 'References'
-		});
-	const handleMouseLeaveOpenButton = () => 
-		dispatch({ type: 'MOUSE_LEAVE_CONTROL_BUTTON' });
 
 	if (!referenceIsOpen)
-		return (
-			<div 
-				className="reference button"
-				onClick={ handleClickOpenButton }
-				onMouseEnter={ handleMouseEnterOpenButton }
-				onMouseLeave={ handleMouseLeaveOpenButton }
-				style={{ right: !detailPaneIsOpen ? 232 : 482 }}
-			><IoInformationCircleOutline /></div>
-		);
+		return null;
 
 	return (
 		<div id="reference">

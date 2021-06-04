@@ -69,9 +69,7 @@ export const config = {
 			signYear: null,
 			EIFYear: null,
 			endYear: 'endYear',
-			// make sure segment key same as that gen by linkDisaggregator
-			// { attrDisplayName, valueDisplayName, attributeList, attributeValue }
-			subItemList: [],
+			defaultColorAttrName: null,	
 			tooltip: { attributeList: [
 				{ attributeName: 'node1', displayName: 'initiator', isID: true },
 				{ attributeName: 'node2', displayName: 'target', isID: true },
@@ -92,10 +90,24 @@ export const config = {
 				{ attributeName: 'node1Deaths', displayName: 'initiator deaths', isID: false },
 				{ attributeName: 'node2Deaths', displayName: 'target deaths', isID: false }
 			] },
-			linkDisaggregator: { optionList: [
-				{ displayName: 'initiator', attributeList: [ { attributeName: 'node1', isID: true } ] },
-				{ displayName: 'target', attributeList: [ { attributeName: 'node2', isID: true } ] },
-				{ displayName: 'war name', attributeList: [ { attributeName: 'warName', isID: false } ] }
+			colorPane: { attributeList: [
+				{ attributeName: 'node1', displayName: 'initiator', isID: true, isCategorical: true, key: 'initiator' },
+				{ attributeName: 'node2', displayName: 'target', isID: true, isCategorical: true, key: 'target' },
+				{ attributeName: 'startYear', displayName: 'start year', isID: false, isCategorical: false, key: 'start year' },
+				{ attributeName: 'endYear', displayName: 'end year', isID: false, isCategorical: false, key: 'end year' },
+				{ attributeName: 'outcome', displayName: 'outcome', isID: false, isCategorical: true, key: 'outcome' },
+				{ attributeName: 'node1Deaths', displayName: 'initiator deaths', isID: false, isCategorical: false, key: 'initiator deaths' },
+				{ attributeName: 'node2Deaths', displayName: 'target deaths', isID: false, isCategorical: false, key: 'target deaths' }
+			] },
+			filterPane: { attributeList: [
+				{ attributeName: 'node1', displayName: 'initiator', isID: true, isCategorical: true, key: 'initiator' },
+				{ attributeName: 'node2', displayName: 'target', isID: true, isCategorical: true, key: 'target' },
+				{ attributeName: 'startYear', displayName: 'start year', isID: false, isCategorical: false, key: 'start year' },
+				{ attributeName: 'endYear', displayName: 'end year', isID: false, isCategorical: false, key: 'end year' },
+				{ attributeName: 'warName', displayName: 'war name', isID: false, isCategorical: true, key: 'war name' },
+				{ attributeName: 'outcome', displayName: 'outcome', isID: false, isCategorical: true, key: 'outcome' },
+				{ attributeName: 'node1Deaths', displayName: 'initiator deaths', isID: false, isCategorical: false, key: 'initiator deaths' },
+				{ attributeName: 'node2Deaths', displayName: 'target deaths', isID: false, isCategorical: false, key: 'target deaths' }
 			] },
 			eventName: 'war'
 		}, {
@@ -108,12 +120,12 @@ export const config = {
 			signYear: 'signYear',
 			EIFYear: 'EIFYear',
 			endYear: 'endYearEstimated',
-			subItemList: [], // make sure segment key same as that gen by linkDisaggregator
+			defaultColorAttrName: null,
 			tooltip: { attributeList: [
 				{ attributeName: 'node1', displayName: 'country 1', isID: true },
 				{ attributeName: 'node2', displayName: 'country 2', isID: true },
 				{ attributeName: 'signYear', displayName: 'sign year', isID: false },
-				{ attributeName: 'EIFYear', displayName: 'entry into force Year', isID: false },
+				{ attributeName: 'EIFYear', displayName: 'entry into force year', isID: false },
 				{ attributeName: 'endYearEstimated', displayName: 'end year', isID: false },
 				{ attributeName: 'type', displayName: 'type', isID: false },
 				{ attributeName: 'category', displayName: 'category', isID: false }
@@ -122,18 +134,24 @@ export const config = {
 				{ attributeName: 'node1', displayName: 'country 1', isID: true },
 				{ attributeName: 'node2', displayName: 'country 2', isID: true },
 				{ attributeName: 'signYear', displayName: 'sign year', isID: false },
-				{ attributeName: 'EIFYear', displayName: 'entry into force Year', isID: false },
+				{ attributeName: 'EIFYear', displayName: 'entry into force year', isID: false },
 				{ attributeName: 'endYearEstimated', displayName: 'end year', isID: false },
 				{ attributeName: 'type', displayName: 'type', isID: false },
 				{ attributeName: 'category', displayName: 'category', isID: false }
 			] },
-			linkDisaggregator: { optionList: [
-				{ displayName: 'country', attributeList: [ 
-					{ attributeName: 'node1', isID: true }, 
-					{ attributeName: 'node2', isID: true } ] 
-				},
-				{ displayName: 'type', attributeList: [ { attributeName: 'type', isID: false } ] },
-				{ displayName: 'category', attributeList: [ { attributeName: 'category', isID: false } ] }
+			colorPane: { attributeList: [
+				{ attributeName: 'signYear', displayName: 'sign year', isID: false, isCategorical: false, key: 'sign year' },
+				{ attributeName: 'EIFYear', displayName: 'entry into force year', isID: false, isCategorical: false, key: 'entry into force year' },
+				{ attributeName: 'endYearEstimated', displayName: 'end year', isID: false, isCategorical: false, key: 'end year' },
+				{ attributeName: 'type', displayName: 'type', isID: false, isCategorical: true, key: 'type' },
+				{ attributeName: 'category', displayName: 'category', isID: false, isCategorical: true, key: 'category' }
+			] },
+			filterPane: { attributeList: [
+				{ attributeName: 'signYear', displayName: 'sign year', isID: false, isCategorical: false, key: 'sign year' },
+				{ attributeName: 'EIFYear', displayName: 'entry into force year', isID: false, isCategorical: false, key: 'entry into force year' },
+				{ attributeName: 'endYearEstimated', displayName: 'end year', isID: false, isCategorical: false, key: 'end year' },
+				{ attributeName: 'type', displayName: 'type', isID: false, isCategorical: true, key: 'type' },
+				{ attributeName: 'category', displayName: 'category', isID: false, isCategorical: true, key: 'category' }
 			] },
 			eventName: 'agreement'
 		}

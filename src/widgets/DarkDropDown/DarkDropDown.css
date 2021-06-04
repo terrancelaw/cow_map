@@ -1,0 +1,20 @@
+#color-pane > .data-set-drop-down,
+#color-pane > .attribute-drop-down,
+#filter-pane > .data-set-drop-down,
+#filter-pane > .attribute-drop-down {
+	padding-left: 25px;
+	padding-right: 25px;
+	margin-top: 25px;
+}
+
+#color-pane > .data-set-drop-down > .label,
+#color-pane > .attribute-drop-down > .label,
+#filter-pane > .data-set-drop-down > .label,
+#filter-pane > .attribute-drop-down > .label {
+	font-size: 12px;
+	font-weight: 600;
+	color: white;
+
+	margin-left: 3px;
+	margin-bottom: 3px;
+}
